@@ -1,0 +1,28 @@
+.header_section {
+    background-color: #fff;
+    color: black;
+    width: 1200px;
+    margin: auto;
+}
+
+.gap-10 {
+    gap: 10px;
+}
+
+@media  (max-width:567px) {
+    .header_section{
+        width: 90%;
+        background: transparent;
+        margin-bottom: -70px;
+    }
+    
+    .create_account {
+        display: none !important;
+    }
+    
+    .sign_in {
+        color: #fff;
+        border: 1px solid #fff;
+        border-radius: 4px;
+    }
+}

@@ -1,0 +1,22 @@
+.event-card {
+    height: 450px;
+}
+
+.upcoming_heading {
+    font-family: 'poppins';
+    font-size: 46px;
+    font-weight: 700;
+    color: #fff;
+}
+
+@media(max-width: 567px) {
+    .upcoming_header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .upcoming_heading {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+}

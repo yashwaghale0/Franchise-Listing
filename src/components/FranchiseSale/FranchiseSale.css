@@ -1,0 +1,139 @@
+.franchise-slider {
+  padding: 60px 40px;
+  background: linear-gradient(to right, #E3F7FF, #FFFFFF);
+  font-family: 'Inter', sans-serif;
+}
+
+.franchise-slider h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #2A2A33;
+  font-family: 'poppins';
+}
+
+.franchise-slider p.subtext {
+  font-size: 14px;
+  color: #535364;
+  margin-bottom: 24px;
+  font-family: 'Inter';
+}
+
+.franchise-salecard-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.franchise-Salecard {
+  min-width: 260px;
+  width: 23%;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+  padding: 20px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.franchise-Salecard:hover {
+  transform: translateY(-5px);
+}
+
+.franchise-image {
+  width: 100%;
+  object-fit: contain;
+  margin-bottom: 16px;
+}
+
+.franchise-name {
+  font-weight: 600;
+  font-size: 16px;
+  color: #2A2A33;
+  margin-bottom: 4px;
+  font-family: 'poppins';
+}
+
+.franchise-description {
+  font-size: 12px;
+  color: #535364;
+  margin-bottom: 16px;
+  line-height: 1.4;
+  font-family: "Inter";
+}
+
+.franchise-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #4b5563;
+}
+
+.franchise-meta div {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.franchise-meta svg {
+  color: #00DB62;
+  height: 16px;
+}
+
+.slider-button {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.slider-button:hover {
+  background: #f3f4f6;
+}
+
+.browse-button {
+   position: relative;
+  padding: 12px 24px;
+  font-size: 16px;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.browse-button::before {
+    content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px; /* Border width */
+  background: linear-gradient(90deg, #0DA2FF, #00DB62);
+  border-radius: inherit;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+}
+
+.slick-slide {
+    margin: 0px 20px !important;
+}
+
+
+
+

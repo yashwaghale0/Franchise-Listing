@@ -1,0 +1,42 @@
+.franchise-address {
+    font-family: "Inter";
+    font-size: 14px;
+    
+}
+
+.franchise-address p {
+    margin-bottom: 4px;
+    color: #535364;
+    text-align: left;
+}
+
+.franchise-price {
+    font-family: "poppins";
+    font-size: 16px;
+    font-weight: 600;
+    
+}
+
+
+
+.franchise-Location {
+  
+  padding: 50px 20px;
+  /* background: linear-gradient(to left, #e3f7ff 0%, #ffffff 100%); */
+}
+
+.franchise-Location h2 {
+  font-size: 20px;
+  font-weight: 700;
+  text-align: left;
+  font-family: 'poppins';
+  color: #2A2A33;
+}
+
+.subtext {
+  font-size: 14px;
+  color: #535364;
+  margin: 10px auto 40px;
+  font-family: 'Inter';
+  text-align: left;
+}

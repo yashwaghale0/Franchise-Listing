@@ -1,0 +1,75 @@
+.hero_section {
+    background-image: url("../../assets/franchise.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero_section h1 {
+    font-size: 46px;
+    font-family: 'poppins';
+    font-weight: 800;
+    color: #fff;
+}
+.hero_section p {
+    font-size: 16px;
+    font-family: 'poppins';
+    font-weight: 600;
+    color: #fff;
+}
+
+.gap-10 {
+    gap: 10px;
+}
+
+.select-button {
+    background-color: #00DB62;
+    color: #2A2A33;
+    font-family: 'Inter';
+    font-size: 14px;
+    border: 3px solid #fff;
+    border-radius: 10px;
+}
+.select-button:hover {
+    background-color: #00DB62;
+    color: #2A2A33;
+    font-family: 'Inter';
+    font-size: 14px;
+    border: 3px solid #fff;
+    border-radius: 10px;
+}
+
+.hero-searchbar {
+    width: 450px;
+    font-size: 14px;
+    color: #2A2A33;
+    font-family: 'Inter';
+    border-radius: 10px;
+    border: none;
+    padding: 0px 6px;
+    background-color: #fff;
+    padding: 10px;
+}
+
+@media  (max-width:567px) {
+    .hero_section h1 {
+        font-size: 28px;
+    }
+    .hero_section p, .select-button {
+        display: none !important;
+    }
+    
+    .hero-searchbar {
+        width: 90%;
+        margin: auto;
+        padding: 14px;
+    }
+    
+    .location_enabled {
+        display: none !important;
+    }
+}

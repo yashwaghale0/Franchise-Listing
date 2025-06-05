@@ -1,0 +1,160 @@
+.footer-container {
+  background-color: #fff;
+  padding: 60px 20px;
+  border-top: 1px solid #eee;
+  font-family: sans-serif;
+}
+
+
+
+.footer-gradient-bar {
+  height: 4px;
+  background: linear-gradient(to right, #000B82, #0DA2FF, #00DB62);
+  width: 100%;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-logo-section {
+  flex: 1 1 200px;
+  margin-bottom: 20px;
+}
+
+.footer-logo {
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.logo-highlight {
+  color: #00db62;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icons a {
+  color: #000;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  color: #00db62;
+}
+
+.footer-links {
+  display: flex;
+  flex: 4 1 600px;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: flex-end;
+}
+
+.footer-column {
+  min-width: 160px;
+}
+
+.footer-column h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.footer-column a {
+  display: block;
+  font-size: 14px;
+  color: #4B4B4B;
+  margin-bottom: 6px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-column a:hover {
+  color: #00db62;
+}
+
+.footer-desktop {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 1400px;
+}
+
+.footer-mobile {
+  display: none;
+  flex-direction: column;
+  text-align: center;
+}
+
+.footer-mobile-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.footer-mobile-links {
+  padding: 0.5rem 1.5rem;
+  background: #fff;
+  display: grid;
+  text-align: left;
+}
+
+.footer-mobile-links a {
+  padding: 6px 0px;
+  color: #000;
+  text-decoration: none;
+}
+
+.footer-logo-center img {
+  max-width: 80px;
+  margin: 1rem auto;
+}
+
+.footer-logo-center .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .footer-desktop {
+    display: none;
+  }
+
+  .footer-mobile {
+    display: flex;
+  }
+  
+  .footer-container {
+    padding: 10px;
+  }
+  
+  .footer-mobile-section {
+    background-color: #fff;
+  }
+  
+  .copyright {
+    font-size: 14px;
+    color: #535364;
+    text-align: center;
+  }
+  
+  .footer-content {
+    display: block;
+  }
+  
+}
