@@ -1,12 +1,16 @@
 .hero_section {
-    background-image: url("../../assets/franchise.jpg");
+    background-image: url("../../assets/images/banner-home.svg");
     background-size: cover;
     background-position: center;
-    height: 300px;
+    height: 370px;
     text-align: center;
     justify-content: center;
     display: flex;
     flex-direction: column;
+    
+    padding: 6rem 1rem 4rem;
+    text-align: center;
+    position: relative;
 }
 
 .hero_section h1 {
@@ -27,21 +31,14 @@
 }
 
 .select-button {
-    background-color: #00DB62;
+    padding: 10px !important;
     color: #2A2A33;
     font-family: 'Inter';
     font-size: 14px;
     border: 3px solid #fff;
     border-radius: 10px;
 }
-.select-button:hover {
-    background-color: #00DB62;
-    color: #2A2A33;
-    font-family: 'Inter';
-    font-size: 14px;
-    border: 3px solid #fff;
-    border-radius: 10px;
-}
+
 
 .hero-searchbar {
     width: 450px;
@@ -59,9 +56,21 @@
     .hero_section h1 {
         font-size: 28px;
     }
-    .hero_section p, .select-button {
+    .filter-text, .hero_section p {
         display: none !important;
     }
+    
+    .filter-section {
+        width: 90%;
+        margin: 20px auto;
+    }
+    
+    .select-button {
+        background-color: #fff;
+        padding:14px;
+        border-radius: 10px;
+    } 
+    
     
     .hero-searchbar {
         width: 90%;
@@ -73,3 +82,24 @@
         display: none !important;
     }
 }
+
+.apply_filter {
+    font-size: 16px;
+    font-family: 'poppins';
+    color: #535364;
+    margin-bottom: 20px;
+}
+
+.filter-select-tab {
+    padding: 10px 14px;
+    font-size: 14px;
+    color: #535364;
+}
+
+
+.price-range {
+    accent-color: blue;
+}
+
+
+

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./FranchiseBrokerSlider.css";
+import "./Testing.css";
 import { CiLocationOn } from "react-icons/ci";
 import { FaFacebookF, FaStar } from "react-icons/fa";
 
@@ -133,13 +133,10 @@ const Sites = () => {
         {/* Header Section */}
         <div className="row mb-4">
           <div className="col-12">
-            <h2 className="buy-heading">
-              Not Sure What Franchise is Best for You?
-            </h2>
+            <h2 className="buy-heading">Find the Perfect Franchise Location</h2>
             <p className="subtext">
-              Connect with an expert franchise broker to help you navigate
-              options, streamline the process, and find the right fit. It’s 100%
-              free.
+              Connect with real estate who specialize in franchise site
+              selection and lease negotiations.
             </p>
             <p className="location_enabled">
               <CiLocationOn size={18} />

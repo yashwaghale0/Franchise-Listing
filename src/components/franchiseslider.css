@@ -4,50 +4,39 @@
   font-family: 'Inter', sans-serif;
 }
 
-.franchise-slider h2 {
-  font-size: 20px;
+.buy-heading {
+    font-size: 20px;
   font-weight: 700;
   margin-bottom: 8px;
   color: #2A2A33;
   font-family: 'poppins';
 }
 
-.franchise-slider p.subtext {
+.subtext {
   font-size: 14px;
   color: #535364;
   margin-bottom: 24px;
   font-family: 'Inter';
 }
 
-.franchise-card-container {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding-bottom: 20px;
-  padding-top: 20px;
+.prev_button {
+    top: -40px!important;
+    z-index: 10; 
+    border: 2px solid rgb(138, 138, 138);
+    box-Shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 6px;
+    border-radius: 50%;
+    position: absolute;
 }
 
-.franchise-card {
-  min-width: 260px;
-  width: 23%;
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  padding: 20px;
-  flex-shrink: 0;
-  transition: transform 0.3s ease;
-}
-
-.franchise-card:hover {
-  transform: translateY(-5px);
-}
-
-.franchise-logo {
-  width: 100%;
-  max-height: 60px;
-  object-fit: contain;
-  margin-bottom: 16px;
+.next-button {
+    top: -40px!important;
+    z-index: 10; 
+    border: 2px solid rgb(132, 132, 132);
+    box-Shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 6px;
+    border-radius: 50%;
+    position: absolute;
 }
 
 .franchise-name {
@@ -81,9 +70,26 @@
   font-size: 16px;
 }
 
-.franchise-meta svg {
-  color: #00DB62;
-  height: 16px;
+.card-stats {
+    position: relative;
+    bottom: 0px;
+}
+
+.card-image {
+    width: 60%;
+    margin: 0px auto;
+    height: 100px;
+    display: flex;
+}
+
+.image-card {
+    width: 100%;
+}
+
+.stats-content {
+    font-weight: 700;
+    font-size: 16px;
+    color: #2A2A33;
 }
 
 .slider-button {
@@ -131,6 +137,8 @@
   z-index: -1;
 }
 
-
-
+.right-arrow {
+    color: #00DB62;
+    margin-left: 10px;
+}
 

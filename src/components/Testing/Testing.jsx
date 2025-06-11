@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import pickUp from "../assets/images/pickup.svg";
-import anchord from "../assets/images/anchored.svg";
-import snapology from "../assets/images/snapology.svg";
-import jam from "../assets/Jamba.svg";
-import './franchiseslider.css';
+import pickUp from "../../assets/images/pickup.svg";
+import anchord from "../../assets/images/anchored.svg";
+import snapology from "../../assets/images/snapology.svg";
+import jam from "../../assets/Jamba.svg";
+import './Testing.css';
 import { CiLocationOn } from "react-icons/ci";
 import { FaMoneyBillWave, FaCalendarAlt } from "react-icons/fa";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { TbCirclePercentage } from "react-icons/tb";
 
-const FranchiseSlider = () => {
+const Testing = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -293,4 +293,4 @@ const FranchiseSlider = () => {
   );
 };
 
-export default FranchiseSlider;
+export default Testing;

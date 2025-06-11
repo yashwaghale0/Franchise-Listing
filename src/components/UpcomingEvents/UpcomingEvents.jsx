@@ -1,4 +1,9 @@
-import React from "react";
+import Miami from "../../assets/images/Miami.png";
+import NYC from "../../assets/images/NYC.png";
+import California from "../../assets/images/California.png";
+import Brands from "../../assets/images/Brands.png";
+import Tools from "../../assets/images/Tools.png";
+import Owners from "../../assets/images/Owners.png";
 import "./UpcomingEvents.css";
 import { Calendar, Clock, User } from "lucide-react";
 
@@ -10,8 +15,7 @@ const UpcomingEvents = () => {
       date: "May 2025",
       description:
         "Discover the top franchise opportunity that matches your interests and financial investment profile.",
-      image:
-        "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=300&h=200&fit=crop&crop=center",
+      image: Miami,
       buttonText: "Visit Event",
       featured: true,
     },
@@ -21,8 +25,7 @@ const UpcomingEvents = () => {
       date: "August 2025",
       description:
         "Connect with leading franchise brands and explore investment opportunities.",
-      image:
-        "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=300&h=200&fit=crop&crop=center",
+      image: NYC,
       buttonText: "Comming Soon",
       featured: false,
     },
@@ -32,8 +35,7 @@ const UpcomingEvents = () => {
       date: "September 2025",
       description:
         "Join industry leaders and discover your perfect franchise match.",
-      image:
-        "https://images.unsplash.com/photo-1511578314322-379afb476865?w=300&h=200&fit=crop&crop=center",
+      image: California,
       buttonText: "Comming Soon",
       featured: false,
     },
@@ -45,8 +47,7 @@ const UpcomingEvents = () => {
       title: "Top 10 Emerging Franchise Brands in 2025",
       date: "Jan 24, 2024",
       author: "Webinar",
-      image:
-        "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=300&h=200&fit=crop&crop=center",
+      image: Brands,
       excerpt: "Discover the fastest-growing franchise opportunities...",
       readTime: "5 min read",
     },
@@ -55,8 +56,7 @@ const UpcomingEvents = () => {
       title: "Tools To Improve Your Franchise",
       date: "Jan 24, 2024",
       author: "Webinar",
-      image:
-        "https://images.unsplash.com/photo-1553484771-cc0d9b8c2b33?w=300&h=200&fit=crop&crop=center",
+      image: Tools,
       excerpt: "Essential tools and strategies for franchise success...",
       readTime: "7 min read",
     },
@@ -65,8 +65,7 @@ const UpcomingEvents = () => {
       title: "Owners Talk About Performance and Profits",
       date: "Jan 24, 2024",
       author: "Webinar",
-      image:
-        "https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=300&h=200&fit=crop&crop=center",
+      image: Owners,
       excerpt: "Real franchise owners share their success stories...",
       readTime: "8 min read",
     },

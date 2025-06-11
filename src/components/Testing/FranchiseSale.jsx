@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import pickUp from "../assets/images/pickup.svg";
-import anchord from "../assets/images/anchored.svg";
-import snapology from "../assets/images/snapology.svg";
-import jam from "../assets/Jamba.svg";
-import './franchiseslider.css';
+import React, { useState, useEffect } from "react";
+import pickUp from "../../assets/images/pick-location.png";
+import anchord from "../../assets/images/anchord-location.png";
+import snapology from "../../assets/images/snapolofy.png";
+
+import "./Testing.css";
 import { CiLocationOn } from "react-icons/ci";
 import { FaMoneyBillWave, FaCalendarAlt } from "react-icons/fa";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { TbCirclePercentage } from "react-icons/tb";
 
-const FranchiseSlider = () => {
+const Slider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -18,25 +18,27 @@ const FranchiseSlider = () => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   // Load Bootstrap CSS and Icons
   useEffect(() => {
     // Bootstrap CSS
-    const bootstrapCSS = document.createElement('link');
-    bootstrapCSS.rel = 'stylesheet';
-    bootstrapCSS.href = 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css';
+    const bootstrapCSS = document.createElement("link");
+    bootstrapCSS.rel = "stylesheet";
+    bootstrapCSS.href =
+      "https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css";
     document.head.appendChild(bootstrapCSS);
 
     // Bootstrap Icons
-    const bootstrapIcons = document.createElement('link');
-    bootstrapIcons.rel = 'stylesheet';
-    bootstrapIcons.href = 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.css';
+    const bootstrapIcons = document.createElement("link");
+    bootstrapIcons.rel = "stylesheet";
+    bootstrapIcons.href =
+      "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.css";
     document.head.appendChild(bootstrapIcons);
 
     return () => {
@@ -58,63 +60,63 @@ const FranchiseSlider = () => {
     {
       id: 1,
       logo: pickUp,
-      name: 'PickUp USA Basketball',
-      description: 'PickUp USA is known for our world-class facilities',
-      price: '$500,000',
-      year: '2023',
-      roi: '6%',
-      units: '50 units'
+      name: "PickUp USA Basketball",
+      description: "PickUp USA is known for our world-class facilities",
+      price: "$500,000",
+      year: "2023",
+      roi: "6%",
+      units: "50 units",
     },
     {
       id: 2,
       logo: snapology,
-      name: 'Snapology',
-      description: 'At Snapology, we believe learning should be fun.',
-      price: '$200,000',
-      year: '2023',
-      roi: '6%',
-      units: '20 units'
+      name: "Snapology",
+      description: "At Snapology, we believe learning should be fun.",
+      price: "$200,000",
+      year: "2023",
+      roi: "6%",
+      units: "20 units",
     },
     {
       id: 3,
       logo: anchord,
-      name: 'Anchored Tiny Homes',
-      description: 'Anchored Tiny Homes was a Sacramento-area...',
-      price: '$700,000',
-      year: '2023',
-      roi: '6%',
-      units: '30 units'
+      name: "Anchored Tiny Homes",
+      description: "Anchored Tiny Homes was a Sacramento-area...",
+      price: "$700,000",
+      year: "2023",
+      roi: "6%",
+      units: "30 units",
     },
     {
       id: 4,
-      logo: jam,
-      name: 'Jamba',
-      description: 'Founded in the seaside town',
-      price: '$600,000',
-      year: '2023',
-      roi: '6%',
-      units: '40 units'
+      logo: pickUp,
+      name: "Jamba",
+      description: "Founded in the seaside town",
+      price: "$600,000",
+      year: "2023",
+      roi: "6%",
+      units: "40 units",
     },
     {
       id: 5,
       logo: anchord,
-      name: 'Subway',
-      description: 'World famous sandwich franchise',
-      price: '$300,000',
-      year: '2023',
-      roi: '8%',
-      units: '100 units'
+      name: "Subway",
+      description: "World famous sandwich franchise",
+      price: "$300,000",
+      year: "2023",
+      roi: "8%",
+      units: "100 units",
     },
     {
       id: 6,
       logo: snapology,
-      name: 'McDonald\'s',
-      description: 'Leading fast food franchise globally',
-      price: '$1,500,000',
-      year: '2023',
-      roi: '10%',
-      units: '200 units'
-    }
+      name: "McDonald's",
+      description: "Leading fast food franchise globally",
+      price: "$1,500,000",
+      year: "2023",
+      roi: "10%",
+      units: "200 units",
+    },
   ];
 
   const itemsPerSlide = isMobile ? 1 : 4;
@@ -143,15 +145,14 @@ const FranchiseSlider = () => {
         {/* Header Section */}
         <div className="row mb-4">
           <div className="col-12">
-            <h2 className="buy-heading">
-              Looking to Buy a Franchise
-            </h2>
+            <h2 className="buy-heading">Find a Franchise for Sale</h2>
             <p className="subtext">
-              Explore top franchise brands and discover new franchise opportunities in every industry.
+              Explore fully operational franchise resale listings in your area
+              and take over an existing business.
             </p>
             <p className="location_enabled">
-            <CiLocationOn size={18} />
-            Populated Result Based on Location Enabled
+              <CiLocationOn size={18} />
+              Populated Result Based on Location Enabled
             </p>
           </div>
         </div>
@@ -159,24 +160,24 @@ const FranchiseSlider = () => {
         {/* Slider Section */}
         <div className="position-relative">
           {/* Navigation Arrows */}
-          <button 
+          <button
             className=" prev_button"
             style={{
-              left: isMobile ? '-15px' : '93%',
-              width: isMobile ? '30px' : '40px',
-              height: isMobile ? '30px' : '40px',
+              left: isMobile ? "-15px" : "93%",
+              width: isMobile ? "30px" : "40px",
+              height: isMobile ? "30px" : "40px",
             }}
             onClick={prevSlide}
           >
             <i class="bi bi-arrow-left"></i>
           </button>
 
-          <button 
+          <button
             className=" next-button"
             style={{
-            right: isMobile ? '-15px' : '0px',
-            width: isMobile ? '30px' : '40px',
-            height: isMobile ? '30px' : '40px',
+              right: isMobile ? "-15px" : "0px",
+              width: isMobile ? "30px" : "40px",
+              height: isMobile ? "30px" : "40px",
             }}
             onClick={nextSlide}
           >
@@ -186,44 +187,47 @@ const FranchiseSlider = () => {
           {/* Cards Container */}
           <div className="row g-4 justify-content-center mt-4">
             {getVisibleCards().map((franchise, index) => (
-              <div key={`${franchise.id}-${currentSlide}-${index}`} className={isMobile ? "col-12" : "col-lg-3 col-md-6"}>
-                <div 
+              <div
+                key={`${franchise.id}-${currentSlide}-${index}`}
+                className={isMobile ? "col-12" : "col-lg-3 col-md-6"}
+              >
+                <div
                   className="card h-100 border-0 shadow-sm"
-                  style={{ 
-                    borderRadius: '15px',
-                    transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+                  style={{
+                    borderRadius: "15px",
+                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-5px)';
-                    e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.15)';
+                    e.currentTarget.style.transform = "translateY(-5px)";
+                    e.currentTarget.style.boxShadow =
+                      "0 10px 25px rgba(0,0,0,0.15)";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0)';
-                    e.currentTarget.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.boxShadow =
+                      "0 2px 10px rgba(0,0,0,0.1)";
                   }}
                 >
-                  <div className="card-body p-4">
+                  <div className="card-body p-0">
                     {/* Logo Section */}
                     <div className="text-center mb-3 ">
-                      <div 
-                        className="justify-content-center card-image">
-                        <img 
-                          src={franchise.logo} 
+                      <div className="justify-content-center location-card-img">
+                        <img
+                          src={franchise.logo}
                           alt={franchise.name}
-                          className="img-fluid image-card"
+                          className="img-fluid "
                         />
                       </div>
                     </div>
 
                     {/* Content Section */}
-                    <h5 className="franchise-name">
-                      {franchise.name}
-                    </h5>
-                    <p className="franchise-description">
-                      {franchise.description}
-                    </p>
+                    <div className="p-2">
+                      <h5 className="franchise-name">{franchise.name}</h5>
+                      <p className="franchise-description">
+                        {franchise.description}
+                      </p>
 
-                    {/* Stats Section */}
+                      {/* Stats Section */}
                       <div className="card-stats">
                         <table className="table franchise-meta table-borderless mb-0">
                           <tbody>
@@ -258,8 +262,7 @@ const FranchiseSlider = () => {
                           </tbody>
                         </table>
                       </div>
-
-                 
+                    </div>
                   </div>
                 </div>
               </div>
@@ -270,7 +273,7 @@ const FranchiseSlider = () => {
         {/* Browse Button */}
         <div className="text-center Browse_section mt-4">
           <button className="browse-button">
-            Browse Franchise Opportunities 
+            Browse Franchise Opportunities
             <i class="bi bi-arrow-right right-arrow"></i>
           </button>
         </div>
@@ -293,4 +296,4 @@ const FranchiseSlider = () => {
   );
 };
 
-export default FranchiseSlider;
+export default Slider;

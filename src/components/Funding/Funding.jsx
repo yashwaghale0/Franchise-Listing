@@ -1,4 +1,9 @@
 import "./Funding.css";
+import fundNeed from "../../assets/images/fundneed.png";
+import Print from "../../assets/images/Print.png";
+import Sell from "../../assets/images/Sell.png";
+import Service from "../../assets/images/Service.png";
+import Way from "../../assets/images/Way.png";
 
 const FranchiseServices = [
   {
@@ -8,8 +13,7 @@ const FranchiseServices = [
       "Connect with Franchise lenders to help you secure an SBA-backed loan and financing for your franchise.",
     buttonText: "Get Pre-approved",
     buttonColor: "bg-[#00DB62] hover:[#00DB62] text-[#0D0D0D]",
-    image:
-      "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=280&h=200&fit=crop&crop=faces",
+    image: fundNeed,
     imageAlt: "Woman in business setting",
     layout: "right",
   },
@@ -20,8 +24,7 @@ const FranchiseServices = [
       "Connect with Franchise attorneys that can guide you through the legal details of your franchise agreement to protect your investment.",
     buttonText: "Find a Franchise Attorney",
     buttonColor: "bg-[#0DA2FF] hover:[#0DA2FF] text-[#fff]",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=280&h=200&fit=crop&crop=faces",
+    image: Print,
     imageAlt: "Businessman reviewing documents",
     layout: "left",
   },
@@ -32,8 +35,7 @@ const FranchiseServices = [
       "Connect with Immigration attorneys that can help you with your franchise visa process to support your long-term success in a new country.",
     buttonText: "Find an Immigration Attorney",
     buttonColor: "bg-[#00DB62] hover:[#00DB62] text-[#0D0D0D]",
-    image:
-      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=280&h=200&fit=crop&crop=center",
+    image: Way,
     imageAlt: "Business meeting with documents",
     layout: "right",
   },
@@ -44,8 +46,7 @@ const FranchiseServices = [
       "Connect with a Business broker that can help you list and market your franchise resale, connecting you with serious, qualified buyers.",
     buttonText: "Find a Business Broker",
     buttonColor: "bg-[#0DA2FF] hover:[#0DA2FF] text-[#fff]",
-    image:
-      "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=280&h=200&fit=crop&crop=center",
+    image: Sell,
     imageAlt: "Business handshake",
     layout: "left",
   },
@@ -57,8 +58,7 @@ const FranchiseServices = [
     buttonText: "Find a Franchise Services Pro",
     buttonColor:
       "bg-gradient-to-r from-[#00DB62] to-[#0DA2FF] text-white hover:from-[#00C456] hover:to-[#0B91E6]",
-    image:
-      "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=280&h=200&fit=crop&crop=center",
+    image: Service,
     imageAlt: "Business handshake",
     layout: "right",
   },
@@ -67,7 +67,7 @@ const FranchiseServices = [
 export default function Funding() {
   return (
     <>
-      <div className="bg-gray-50 min-h-screen py-16">
+      <div className=" min-h-screen py-16">
         <div className="max-w-7xl mx-auto px-6 function-cards">
           {FranchiseServices.map((service, index) => (
             <div
@@ -106,7 +106,7 @@ export default function Funding() {
               <div className="flex-1 flex justify-center">
                 <div className="relative">
                   {/* Main image container with border */}
-                  <div className="w-80 h-60 bg-white rounded-2xl shadow-lg overflow-hidden border-4 border-white">
+                  <div className="w-100 h-80 bg-white rounded-2xl overflow-hidden border-4 border-white">
                     <img
                       src={service.image}
                       alt={service.imageAlt}
@@ -115,11 +115,11 @@ export default function Funding() {
                   </div>
 
                   {/* Decorative background */}
-                  <div className="absolute -inset-3 bg-gradient-to-br from-blue-100 via-purple-50 to-pink-100 rounded-3xl -z-10 opacity-60"></div>
+                  {/* <div className="absolute -inset-3 bg-gradient-to-br from-blue-100 via-purple-50 to-pink-100 rounded-3xl -z-10 opacity-60"></div> */}
 
                   {/* Additional decorative element */}
-                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-blue-200 rounded-full opacity-40"></div>
-                  <div className="absolute -bottom-3 -left-3 w-8 h-8 bg-purple-200 rounded-full opacity-30"></div>
+                  {/* <div className="absolute -top-2 -right-2 w-6 h-6 bg-blue-200 rounded-full opacity-40"></div>
+                  <div className="absolute -bottom-3 -left-3 w-8 h-8 bg-purple-200 rounded-full opacity-30"></div> */}
                 </div>
               </div>
             </div>

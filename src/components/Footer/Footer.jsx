@@ -7,6 +7,8 @@ import {
 } from "react-icons/fa";
 import "./Footer.css";
 import { FaAngleRight } from "react-icons/fa6";
+import logo from "../../assets/images/fl-logo.svg";
+import footer from "../../assets/images/footer.svg";
 
 const Footer = () => {
   const [open, setOpen] = useState(null);
@@ -67,7 +69,8 @@ const Footer = () => {
           {/* Desktop layout */}
           <div className="footer-desktop">
             <div className="footer-logo-section">
-              <h2 className="footer-logo">franchiselistings.com</h2>
+              <img src={logo} alt="Main Header Logo" className="main-Logo" />
+
               <div className="social-icons">
                 <a href="#">
                   <FaLinkedinIn />
@@ -123,8 +126,12 @@ const Footer = () => {
 
             <div className="footer-logo-center">
               {/* <img src="/path-to-your-logo.svg" alt="Footer Logo" /> */}
-              <h4 className="py-3">franchiselistings</h4>
-              <div className="social-icons">
+              <img
+                src={footer}
+                alt="Main Header Logo"
+                className="mobile-logo"
+              />
+              <div className="social-icons ">
                 <a href="#">
                   <FaLinkedinIn />
                 </a>

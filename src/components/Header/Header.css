@@ -9,6 +9,20 @@
     gap: 10px;
 }
 
+.create_account, .sign_in {
+    font-size:14px;
+    color: #4B5563;
+    font-family: 'Inter'
+}
+
+.main-Logo {
+    display: block;
+}
+
+.mobile-logo {
+    display: none;
+}
+
 @media  (max-width:567px) {
     .header_section{
         width: 90%;
@@ -25,4 +39,77 @@
         border: 1px solid #fff;
         border-radius: 4px;
     }
+    
+    .main-Logo {
+        display: none;
+    }
+
+    .mobile-logo {
+        display: block;
+    }
+    
+    .Mobile-icon {
+        color: #fff;
+        font-size: 20px;
+    }
+}
+
+.signup-title {
+    font-family: 'poppins';
+    font-weight: 700;
+    font-size: 22px;
+    color: #2A2A33;
+    margin-bottom: 30px;
+}
+
+.tabchange-text {
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 14px;
+    color: #535364;
+    border-bottom: 1px solid #EDEDED !important;
+}
+
+.signin-form label, .signup-form label {
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 14px;
+    color: #2A2A33;
+    margin-bottom: 0px;
+}
+
+.signin-form input, .signup-form input, .signup-form select {
+    font-size: 14px;
+    color: #898989;
+    font-family: 'Inter';
+}
+
+.signin-btn {
+    background-color: #000B82;
+    font-weight: 700;
+    border-radius: 6px;
+}
+
+.forget-pass {
+    color: #0DA2FF;
+    font-size: 14px;
+    font-family: 'Inter';
+    text-decoration: none;
+}
+
+.social-login-btn button {
+    display: flex;
+    justify-content: center;
+}
+
+.password-requirements p{
+    margin-bottom: 2px;
+    font-family: 'Inter';
+    font-size: 12px;
+}
+
+.accept-terms {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    color: #535364 !important;
 }
