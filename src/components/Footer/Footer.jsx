@@ -12,9 +12,17 @@ import footer from "../../assets/images/footer.svg";
 
 const Footer = () => {
   const [open, setOpen] = useState(null);
+  const [submenuOpen, setSubmenuOpen] = useState({});
 
   const toggleSection = (index) => {
     setOpen(open === index ? null : index);
+  };
+
+  const toggleSubmenu = (title) => {
+    setSubmenuOpen((prev) => ({
+      ...prev,
+      [title]: !prev[title],
+    }));
   };
 
   const sections = [
@@ -44,9 +52,18 @@ const Footer = () => {
         "Franchisors",
         "Franchisees",
         "Commercial Real Estate Agents",
-        "Brokers ›",
-        "Attorneys ›",
-        "Franchise Service Pros ›",
+        {
+          title: "Brokers ›",
+          submenu: ["Franchise Broker", "Business Broker"],
+        },
+        {
+          title: "Attorneys ›",
+          submenu: ["Franchise Attorney", "Immigration Attorney"],
+        },
+        {
+          title: "Franchise Service Pros ›",
+          submenu: ["Marketing Experts", "Consultants", "Software Vendors"],
+        },
       ],
     },
     {
@@ -91,11 +108,40 @@ const Footer = () => {
               {sections.map((sec, i) => (
                 <div className="footer-column" key={i}>
                   <h5>{sec.title}</h5>
-                  {sec.links.map((link, j) => (
-                    <a href="#" key={j}>
-                      {link}
-                    </a>
-                  ))}
+                  {sec.links.map((link, j) => {
+                    if (typeof link === "string") {
+                      return (
+                        <a href="#" key={j} onClick={(e) => e.preventDefault()}>
+                          {link}
+                        </a>
+                      );
+                    } else {
+                      return (
+                        <div key={j}>
+                          <div
+                            className="submenu-toggle"
+                            onClick={() => toggleSubmenu(link.title)}
+                            style={{ cursor: "pointer" }}
+                          >
+                            <span>{link.title}</span>
+                          </div>
+                          {submenuOpen[link.title] && (
+                            <div className="submenu">
+                              {link.submenu.map((sublink, k) => (
+                                <a
+                                  href="#"
+                                  key={k}
+                                  onClick={(e) => e.preventDefault()}
+                                >
+                                  {sublink}
+                                </a>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    }
+                  })}
                 </div>
               ))}
             </div>
@@ -114,18 +160,50 @@ const Footer = () => {
                 </div>
                 {open === i && (
                   <div className="footer-mobile-links">
-                    {sec.links.map((link, j) => (
-                      <a href="#" key={j}>
-                        {link}
-                      </a>
-                    ))}
+                    {sec.links.map((link, j) => {
+                      if (typeof link === "string") {
+                        return (
+                          <a
+                            href="#"
+                            key={j}
+                            onClick={(e) => e.preventDefault()}
+                          >
+                            {link}
+                          </a>
+                        );
+                      } else {
+                        return (
+                          <div key={j}>
+                            <div
+                              className="submenu-toggle"
+                              onClick={() => toggleSubmenu(link.title)}
+                              style={{ cursor: "pointer" }}
+                            >
+                              <span>{link.title}</span>
+                            </div>
+                            {submenuOpen[link.title] && (
+                              <div className="submenu">
+                                {link.submenu.map((sublink, k) => (
+                                  <a
+                                    href="#"
+                                    key={k}
+                                    onClick={(e) => e.preventDefault()}
+                                  >
+                                    {sublink}
+                                  </a>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        );
+                      }
+                    })}
                   </div>
                 )}
               </div>
             ))}
 
             <div className="footer-logo-center">
-              {/* <img src="/path-to-your-logo.svg" alt="Footer Logo" /> */}
               <img
                 src={footer}
                 alt="Main Header Logo"

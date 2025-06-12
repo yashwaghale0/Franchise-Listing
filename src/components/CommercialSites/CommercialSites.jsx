@@ -219,10 +219,15 @@ const Sites = () => {
 
                     <div className="px-4 py-2">
                       {/* Content Section */}
-                      <h5 className="franchise-name">{franchise.name}</h5>
+                      <div className="d-flex justify-content-between align-items-center">
+                        <h5 className="franchise-name my-2">
+                          {franchise.name}
+                        </h5>
+                        <i class="bi bi-suit-heart"></i>
+                      </div>
 
                       {/* Stats Section */}
-                      <div className="card-stats">
+                      <div className="card-stats my-2">
                         <table className="table franchise-meta table-borderless mb-0">
                           <tbody>
                             <tr>
@@ -244,7 +249,7 @@ const Sites = () => {
         </div>
 
         {/* Browse Button */}
-        <div className="text-center Browse_section mt-4">
+        <div className="text-center Browse_section ">
           <button className="browse-button">
             Browse Franchise Opportunities
             <i class="bi bi-arrow-right right-arrow"></i>

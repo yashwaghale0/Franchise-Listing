@@ -66,9 +66,8 @@
     }
     
     .select-button {
-        background-color: #fff;
-        padding:14px;
-        border-radius: 10px;
+        padding:14px !important;
+        border-radius: 10px !important;
     } 
     
     
@@ -80,6 +79,10 @@
     
     .location_enabled {
         display: none !important;
+    }
+    
+    .next-button, .prev_button {
+        padding: 2px !important;
     }
 }
 

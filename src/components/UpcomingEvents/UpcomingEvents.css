@@ -20,3 +20,7 @@
         margin-bottom: 20px;
     }
 }
+
+.leading-tight {
+    font-size: 20px !important;
+}

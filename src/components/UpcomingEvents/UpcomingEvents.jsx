@@ -155,7 +155,7 @@ const UpcomingEvents = () => {
                     </div>
                   </div>
 
-                  <h4 className="text-l font-bold  mb-3 leading-tight">
+                  <h4 className=" font-bold  mb-3 leading-tight">
                     {article.title}
                   </h4>
 

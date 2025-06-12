@@ -101,6 +101,7 @@
   font-size: 14px;
   color: #535364;
   width: 60%;
+
 }
 
 .slider-button {
@@ -153,3 +154,12 @@
     margin-left: 10px;
 }
 
+.bi-suit-heart {
+   color: #4a4053;
+  font-size: 20px;
+  text-shadow: 0 0 0 2px white;
+}
+
+.sites-stats {
+    line-height: 26px;
+}

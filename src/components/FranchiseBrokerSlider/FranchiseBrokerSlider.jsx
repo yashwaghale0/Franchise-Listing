@@ -222,7 +222,7 @@ const Sites = () => {
                           </div>
                           <div className="badge-row py-1">
                             <span className="reviews">
-                              {franchise.reviews} Placement Reviews
+                              {franchise.reviews} Franchise Broker
                             </span>
                           </div>
                         </div>
@@ -261,7 +261,7 @@ const Sites = () => {
         </div>
 
         {/* Browse Button */}
-        <div className="text-center Browse_section mt-4">
+        <div className="text-center Browse_section ">
           <button className="browse-button">
             Find a Franchise Broker{" "}
             <i class="bi bi-arrow-right right-arrow"></i>
