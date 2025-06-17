@@ -11,7 +11,7 @@ import UpcomingEvents from "./components/UpcomingEvents/UpcomingEvents";
 import FreeAccount from "./components/FreeAccount/FreeAccount";
 import Footer from "./components/Footer/Footer";
 import SignIn from "./components/accounts/SignIn";
-import Testing from "./components/testing/Testing";
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -33,7 +33,6 @@ function HomePage() {
       <UpcomingEvents />
       <FreeAccount />
       <Footer />
-      <Testing />
     </>
   );
 }
