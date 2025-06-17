@@ -1,6 +1,6 @@
 .footer-container {
   background-color: #fff;
-  padding: 60px 20px;
+  padding: 60px 20px 20px 20px;
   border-top: 1px solid #eee;
   font-family: sans-serif;
 }
@@ -126,6 +126,13 @@
   margin-top: 10px;
 }
 
+.desktop-copyright {
+  padding-top: 30px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+}
+
 @media (max-width: 768px) {
   .footer-desktop {
     display: none;
@@ -160,6 +167,10 @@
   
   .FreeAccount_section{
     background-position: center;
+  }
+  
+  .desktop-copyright {
+    display: none;
   }
   
 }

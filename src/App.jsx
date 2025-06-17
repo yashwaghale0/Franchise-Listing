@@ -10,8 +10,16 @@ import Funding from "./components/Funding/Funding";
 import UpcomingEvents from "./components/UpcomingEvents/UpcomingEvents";
 import FreeAccount from "./components/FreeAccount/FreeAccount";
 import Footer from "./components/Footer/Footer";
+import SignIn from "./components/accounts/SignIn";
+import Testing from "./components/testing/Testing";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 
-function App() {
+function HomePage() {
   return (
     <>
       <Header />
@@ -25,7 +33,27 @@ function App() {
       <UpcomingEvents />
       <FreeAccount />
       <Footer />
+      <Testing />
     </>
+  );
+}
+
+function AppWrapper() {
+  const location = useLocation();
+
+  return (
+    <Routes>
+      <Route path="/franchise-listing" element={<HomePage />} />
+      <Route path="/franchise-listing/sign-in" element={<SignIn />} />
+    </Routes>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppWrapper />
+    </Router>
   );
 }
 

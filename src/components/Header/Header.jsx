@@ -1,4 +1,5 @@
 import "./Header.css";
+import { useNavigate } from "react-router-dom";
 import { BsList } from "react-icons/bs";
 import { PiSignInLight } from "react-icons/pi";
 import { CiUser } from "react-icons/ci";
@@ -10,6 +11,11 @@ import { useState } from "react";
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSignIn = () => {
+    navigate("/franchise-listing/sign-in");
+  };
 
   return (
     <>
@@ -28,7 +34,7 @@ export default function Header() {
           <div className="d-flex gap-10">
             <button
               className="btn d-flex align-items-center gap-2 sign_in"
-              onClick={() => setOpen(true)}
+              onClick={handleSignIn}
             >
               <PiSignInLight />
               Sign In
@@ -36,7 +42,7 @@ export default function Header() {
             <LoginModal isOpen={open} onClose={() => setOpen(false)} />
             <button
               className="btn d-flex align-items-center gap-2 create_account"
-              onClick={() => setOpen(true)}
+              onClick={handleSignIn}
             >
               <CiUser />
               Create Account

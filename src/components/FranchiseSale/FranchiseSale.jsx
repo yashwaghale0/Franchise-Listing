@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import pickUp from "../../assets/images/pick-location.png";
 import anchord from "../../assets/images/anchord-location.png";
 import snapology from "../../assets/images/snapolofy.png";
@@ -8,52 +8,18 @@ import { FaMoneyBillWave, FaCalendarAlt } from "react-icons/fa";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { TbCirclePercentage } from "react-icons/tb";
 
-const FranchiseSale = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+const Testing = () => {
+  const sliderRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Check if screen is mobile
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-
     checkMobile();
     window.addEventListener("resize", checkMobile);
-
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
-
-  // Load Bootstrap CSS and Icons
-  useEffect(() => {
-    // Bootstrap CSS
-    const bootstrapCSS = document.createElement("link");
-    bootstrapCSS.rel = "stylesheet";
-    bootstrapCSS.href =
-      "https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css";
-    document.head.appendChild(bootstrapCSS);
-
-    // Bootstrap Icons
-    const bootstrapIcons = document.createElement("link");
-    bootstrapIcons.rel = "stylesheet";
-    bootstrapIcons.href =
-      "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.css";
-    document.head.appendChild(bootstrapIcons);
-
-    return () => {
-      document.head.removeChild(bootstrapCSS);
-      document.head.removeChild(bootstrapIcons);
-    };
-  }, []);
-
-  // Auto-slide functionality
-  // useEffect(() => {
-  //   const autoSlideInterval = setInterval(() => {
-  //     setCurrentSlide((prev) => (prev + 1) % franchiseData.length);
-  //   }, 10000); // Auto-slide every 10 seconds
-
-  //   return () => clearInterval(autoSlideInterval);
-  // }, []);
 
   const franchiseData = [
     {
@@ -118,181 +84,121 @@ const FranchiseSale = () => {
     },
   ];
 
-  const itemsPerSlide = isMobile ? 1 : 4;
-  const totalSlides = franchiseData.length;
+  const scrollByAmount = () => {
+    if (!sliderRef.current) return;
+    const card = sliderRef.current.querySelector(".franchise-card");
+    return card.offsetWidth + 20; // +gap
+  };
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides);
+    sliderRef.current.scrollBy({ left: scrollByAmount(), behavior: "smooth" });
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
-  };
-
-  const getVisibleCards = () => {
-    const visibleCards = [];
-    for (let i = 0; i < itemsPerSlide; i++) {
-      const cardIndex = (currentSlide + i) % franchiseData.length;
-      visibleCards.push(franchiseData[cardIndex]);
-    }
-    return visibleCards;
+    sliderRef.current.scrollBy({ left: -scrollByAmount(), behavior: "smooth" });
   };
 
   return (
     <div className="franchise-slider">
       <div className="container">
         {/* Header Section */}
-        <div className="row mb-4">
-          <div className="col-12">
-            <h2 className="buy-heading">Find a Franchise for Sale</h2>
-            <p className="subtext">
-              Explore fully operational franchise resale listings in your area
-              and take over an existing business.
-            </p>
-            <p className="location_enabled">
-              <CiLocationOn size={18} />
-              Populated Result Based on Location Enabled
-            </p>
-          </div>
+        <div className="mb-4">
+          <h2 className="buy-heading">
+            {" "}
+            Not Sure What Franchise is Best for You?
+          </h2>
+          <p className="subtext">
+            Connect with an expert franchise broker to help you navigate
+            options, streamline the process, and find the right fit. It’s 100%
+            free.
+          </p>
+          <p className="location_enabled">
+            <CiLocationOn size={18} />
+            Populated Result Based on Location Enabled
+          </p>
         </div>
 
-        {/* Slider Section */}
-        <div className="position-relative">
-          {/* Navigation Arrows */}
-          <button
-            className=" prev_button"
-            style={{
-              left: isMobile ? "-15px" : "93%",
-              width: isMobile ? "30px" : "40px",
-              height: isMobile ? "30px" : "40px",
-            }}
-            onClick={prevSlide}
-          >
-            <i class="bi bi-arrow-left"></i>
+        {/* Arrows */}
+        <div className="arrow-buttons">
+          <button className="prev_button" onClick={prevSlide}>
+            <i className="bi bi-chevron-left"></i>
           </button>
-
-          <button
-            className=" next-button"
-            style={{
-              right: isMobile ? "-15px" : "0px",
-              width: isMobile ? "30px" : "40px",
-              height: isMobile ? "30px" : "40px",
-            }}
-            onClick={nextSlide}
-          >
-            <i class="bi bi-arrow-right"></i>
+          <button className="next-button" onClick={nextSlide}>
+            <i className="bi bi-chevron-right"></i>
           </button>
+        </div>
 
-          {/* Cards Container */}
-          <div className="row g-4 justify-content-center mt-4">
-            {getVisibleCards().map((franchise, index) => (
-              <div
-                key={`${franchise.id}-${currentSlide}-${index}`}
-                className={isMobile ? "col-12" : "col-lg-3 col-md-6"}
-              >
-                <div
-                  className="card h-100 border-0 shadow-sm"
-                  style={{
-                    borderRadius: "15px",
-                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateY(-5px)";
-                    e.currentTarget.style.boxShadow =
-                      "0 10px 25px rgba(0,0,0,0.15)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "translateY(0)";
-                    e.currentTarget.style.boxShadow =
-                      "0 2px 10px rgba(0,0,0,0.1)";
-                  }}
-                >
-                  <div className="card-body p-0">
-                    {/* Logo Section */}
-                    <div className="text-center mb-3 ">
-                      <div className="justify-content-center location-card-img">
-                        <img
-                          src={franchise.logo}
-                          alt={franchise.name}
-                          className="img-fluid "
-                        />
-                      </div>
-                    </div>
+        {/* Scrollable Cards */}
+        <div className="slider-container" ref={sliderRef}>
+          {franchiseData.map((franchise) => (
+            <div key={franchise.id} className="franchise-card">
+              <div className="card h-100 border-0 shadow-sm">
+                <div className="card-body p-4">
+                  <div className="text-center mb-3 location-card-img">
+                    <img
+                      src={franchise.logo}
+                      alt={franchise.name}
+                      className="img-fluid "
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h5 className="franchise-name">{franchise.name}</h5>
+                    <p className="franchise-description">
+                      {franchise.description}
+                    </p>
 
-                    {/* Content Section */}
-                    <div className="p-4">
-                      <h5 className="franchise-name">{franchise.name}</h5>
-                      <p className="franchise-description">
-                        {franchise.description}
-                      </p>
-
-                      {/* Stats Section */}
-                      <div className="card-stats">
-                        <table className="table franchise-meta table-borderless mb-0">
-                          <tbody>
-                            <tr>
-                              <td className="text-start align-middle">
-                                <span className="d-inline-flex align-items-center stats-content">
-                                  <FaMoneyBillWave className="me-2" />
-                                  {franchise.price}
-                                </span>
-                              </td>
-                              <td className="text-start align-middle">
-                                <span className="d-inline-flex align-items-center stats-content">
-                                  <FaCalendarAlt className="me-2" />
-                                  {franchise.year}
-                                </span>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td className="text-start align-middle">
-                                <span className="d-inline-flex align-items-center stats-content">
-                                  <TbCirclePercentage className="me-2" />
-                                  {franchise.roi}
-                                </span>
-                              </td>
-                              <td className="text-start align-middle">
-                                <span className="d-inline-flex align-items-center stats-content">
-                                  <MdOutlineLocationOn className="me-2" />
-                                  {franchise.units}
-                                </span>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
+                    {/* Stats Section */}
+                    <div className="card-stats">
+                      <table className="table franchise-meta table-borderless mb-0">
+                        <tbody>
+                          <tr>
+                            <td className="text-start align-middle">
+                              <span className="d-inline-flex align-items-center stats-content">
+                                <FaMoneyBillWave className="me-2" />
+                                {franchise.price}
+                              </span>
+                            </td>
+                            <td className="text-start align-middle">
+                              <span className="d-inline-flex align-items-center stats-content">
+                                <FaCalendarAlt className="me-2" />
+                                {franchise.year}
+                              </span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td className="text-start align-middle">
+                              <span className="d-inline-flex align-items-center stats-content">
+                                <TbCirclePercentage className="me-2" />
+                                {franchise.roi}
+                              </span>
+                            </td>
+                            <td className="text-start align-middle">
+                              <span className="d-inline-flex align-items-center stats-content">
+                                <MdOutlineLocationOn className="me-2" />
+                                {franchise.units}
+                              </span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
 
         {/* Browse Button */}
-        <div className="text-center Browse_section ">
+        <div className="text-center Browse_section">
           <button className="browse-button">
             Browse Franchise Opportunities
-            <i class="bi bi-arrow-right right-arrow"></i>
+            <i className="bi bi-arrow-right right-arrow"></i>
           </button>
         </div>
-
-        {/* Slide Indicators
-        <div className="text-center mt-4">
-          {Array.from({ length: franchiseData.length }).map((_, index) => (
-            <button
-              key={index}
-              className={`btn btn-sm rounded-circle mx-1 ${
-                currentSlide === index ? 'btn-primary' : 'btn-outline-secondary'
-              }`}
-              style={{ width: '12px', height: '12px', padding: '0' }}
-              onClick={() => setCurrentSlide(index)}
-            />
-          ))}
-        </div> */}
       </div>
     </div>
   );
 };
 
-export default FranchiseSale;
+export default Testing;

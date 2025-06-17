@@ -40,3 +40,37 @@ p {
 .Browse_section {
     margin-top: 80px !important;
 }
+
+.prev_button {
+    top: -40px;
+    z-index: 10; 
+    border: 1px solid rgb(138, 138, 138);
+    padding: 6px;
+    border-radius: 50%;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: 50px;
+}
+
+.next-button {
+    top: -40px;
+    z-index: 10; 
+    border: 1px solid rgb(132, 132, 132);
+    padding: 6px;
+    border-radius: 50%;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: 0px;
+}
+
+@media (max-width: 567px) {
+   .slider-container {
+    margin-top: 90px;
+  }
+  
+  .next-button,  .prev_button {
+    top: -25px !important;
+  }
+}

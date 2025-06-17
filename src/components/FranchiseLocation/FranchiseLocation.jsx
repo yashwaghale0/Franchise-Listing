@@ -128,7 +128,7 @@ const Sites = () => {
   };
 
   return (
-    <div className="franchise-slider">
+    <div className="franchiseLocation-slider">
       <div className="container">
         {/* Header Section */}
         <div className="row mb-4">
@@ -157,7 +157,7 @@ const Sites = () => {
             }}
             onClick={prevSlide}
           >
-            <i class="bi bi-arrow-left"></i>
+            <i class="bi bi-chevron-left"></i>
           </button>
 
           <button
@@ -169,7 +169,7 @@ const Sites = () => {
             }}
             onClick={nextSlide}
           >
-            <i class="bi bi-arrow-right"></i>
+            <i class="bi bi-chevron-right"></i>
           </button>
 
           {/* Cards Container */}
