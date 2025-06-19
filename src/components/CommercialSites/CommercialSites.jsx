@@ -4,6 +4,7 @@ import anchord from "../../assets/images/anchord-location.png";
 import snapology from "../../assets/images/snapolofy.png";
 import jam from "../../assets/images/Sacramento.png";
 import { CiLocationOn } from "react-icons/ci";
+import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
 import { FaMoneyBillWave, FaCalendarAlt } from "react-icons/fa";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { TbCirclePercentage } from "react-icons/tb";
@@ -118,10 +119,10 @@ const Testing = () => {
         {/* Arrows */}
         <div className="arrow-buttons">
           <button className="prev_button" onClick={prevSlide}>
-            <i className="bi bi-chevron-left"></i>
+            <IoChevronBackOutline />
           </button>
           <button className="next-button" onClick={nextSlide}>
-            <i className="bi bi-chevron-right"></i>
+            <IoChevronForwardOutline />
           </button>
         </div>
 
@@ -130,7 +131,7 @@ const Testing = () => {
           {franchiseData.map((franchise) => (
             <div key={franchise.id} className="franchise-card">
               <div className="card h-100 border-0 shadow-sm">
-                <div className="card-body p-4">
+                <div className="card-body p-0">
                   <div className="text-center mb-3 location-card-img">
                     <img
                       src={franchise.logo}
@@ -141,12 +142,12 @@ const Testing = () => {
                   <div className="px-4 py-2">
                     {/* Content Section */}
                     <div className="d-flex justify-content-between align-items-center">
-                      <h5 className="franchise-name my-2">{franchise.name}</h5>
+                      <h5 className="franchise-name ">{franchise.name}</h5>
                       <i class="bi bi-suit-heart"></i>
                     </div>
 
                     {/* Stats Section */}
-                    <div className="card-stats my-2">
+                    <div className="card-stats ">
                       <table className="table franchise-meta table-borderless mb-0">
                         <tbody>
                           <tr>

@@ -1,13 +1,12 @@
 .franchiseSale-slider {
   padding: 30px 40px;
-  /* background: linear-gradient(to right, #E3F7FF, #FFFFFF); */
+  background: linear-gradient(to right, #FFFEF3, #FFFFFF);
   font-family: 'Inter', sans-serif;
 }
 
 .franchise-slider h2 {
   font-size: 20px;
   font-weight: 700;
-  margin-bottom: 8px;
   color: #2A2A33;
   font-family: 'poppins';
 }
@@ -15,7 +14,7 @@
 .franchise-slider p.subtext {
   font-size: 14px;
   color: #535364;
-  margin-bottom: 24px;
+  margin-bottom: 10px;
   font-family: 'Inter';
 }
 
@@ -65,12 +64,7 @@
   font-family: "Inter";
 }
 
-.franchise-meta {
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
-  color: #4b5563;
-}
+
 
 .franchise-meta div {
   display: flex;
@@ -132,6 +126,78 @@
 
 .slick-slide {
     margin: 0px 20px !important;
+}
+
+.franchiseSale-Slider {
+  margin-top: 70px !important;
+}
+
+
+/* ============================= */
+
+.slider-flex-wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.fixed-card {
+  flex: 0 0 345px; /* Adjust width to your fixed card design */
+  min-width: 300px;
+  margin-top: 46px;
+}
+
+.slider-container.franchiseSale-Slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  flex: 1;
+}
+
+.franchiseSale-card {
+  flex: 0 0 calc(25% - -100px); /* Show 3.5 cards on desktop */
+  max-width: 400px;
+  width: 400px;
+  transition: transform 0.3s ease;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 15px;
+  border-radius: 12px !important;
+}
+
+.fixedcard-heading {
+  font-size: 16px;
+  text-align: left;
+}
+
+.homeloan-card span {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111116;
+}
+
+.homeloan-card {
+  border-radius: 20px !important;
+}
+
+.lets-get-started {
+  padding: 14px 10px !important;
+  background-color: #000B82 !important;
+}
+
+@media (max-width: 567px) {
+  .franchiseSale-slider {
+    padding: 30px 20px !important
+  }
+  
+  .fixed-card {
+    display: none;
+  }
+  
+  .franchiseSale-card {
+        flex: 0 0 calc(25% - -190px);
+  }
 }
 
 

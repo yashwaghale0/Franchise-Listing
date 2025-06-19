@@ -8,6 +8,8 @@ import { CiLocationOn } from "react-icons/ci";
 import { FaMoneyBillWave, FaCalendarAlt } from "react-icons/fa";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { TbCirclePercentage } from "react-icons/tb";
+import { IoChevronBackOutline } from "react-icons/io5";
+import { IoChevronForwardOutline } from "react-icons/io5";
 
 const FranchiseSlider = () => {
   const sliderRef = useRef(null);
@@ -124,10 +126,10 @@ const FranchiseSlider = () => {
         {/* Arrows */}
         <div className="arrow-buttons">
           <button className="prev_button" onClick={prevSlide}>
-            <i className="bi bi-chevron-left"></i>
+            <IoChevronBackOutline />
           </button>
           <button className="next-button" onClick={nextSlide}>
-            <i className="bi bi-chevron-right"></i>
+            <IoChevronForwardOutline />
           </button>
         </div>
 
@@ -136,7 +138,7 @@ const FranchiseSlider = () => {
           {franchiseData.map((franchise) => (
             <div key={franchise.id} className="franchise-card">
               <div className="card h-100 border-0 shadow-sm">
-                <div className="card-body p-4">
+                <div className="card-body p-2">
                   <div className="text-center mb-3 card-image">
                     <img
                       src={franchise.logo}
@@ -145,7 +147,7 @@ const FranchiseSlider = () => {
                     />
                   </div>
                   <h5 className="franchise-name">{franchise.name}</h5>
-                  <p className="franchise-description">
+                  <p className="franchise-description mb-0">
                     {franchise.description}
                   </p>
                   <table className="table franchise-meta table-borderless mb-0">
@@ -181,7 +183,7 @@ const FranchiseSlider = () => {
                       <tr>
                         <td>
                           <span className="unique_code">
-                            MLS #{franchise.code}
+                            MLS ID #{franchise.code}
                           </span>
                         </td>
                       </tr>

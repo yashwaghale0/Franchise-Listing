@@ -3,10 +3,12 @@ import pickUp from "../../assets/images/pick-location.png";
 import anchord from "../../assets/images/anchord-location.png";
 import snapology from "../../assets/images/snapolofy.png";
 import jam from "../../assets/images/Sacramento.png";
+import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
 import { CiLocationOn } from "react-icons/ci";
 import { FaMoneyBillWave, FaCalendarAlt } from "react-icons/fa";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { TbCirclePercentage } from "react-icons/tb";
+import "./FranchiseSale.css";
 
 const Testing = () => {
   const sliderRef = useRef(null);
@@ -99,18 +101,14 @@ const Testing = () => {
   };
 
   return (
-    <div className="franchise-slider">
+    <div className="franchiseSale-slider">
       <div className="container">
         {/* Header Section */}
         <div className="mb-4">
-          <h2 className="buy-heading">
-            {" "}
-            Not Sure What Franchise is Best for You?
-          </h2>
+          <h2 className="buy-heading">Find a Franchise for Sale</h2>
           <p className="subtext">
-            Connect with an expert franchise broker to help you navigate
-            options, streamline the process, and find the right fit. It’s 100%
-            free.
+            Explore fully operational franchise resale listings in your area and
+            take over an existing business.
           </p>
           <p className="location_enabled">
             <CiLocationOn size={18} />
@@ -121,72 +119,113 @@ const Testing = () => {
         {/* Arrows */}
         <div className="arrow-buttons">
           <button className="prev_button" onClick={prevSlide}>
-            <i className="bi bi-chevron-left"></i>
+            <IoChevronBackOutline />
           </button>
           <button className="next-button" onClick={nextSlide}>
-            <i className="bi bi-chevron-right"></i>
+            <IoChevronForwardOutline />
           </button>
         </div>
 
-        {/* Scrollable Cards */}
-        <div className="slider-container" ref={sliderRef}>
-          {franchiseData.map((franchise) => (
-            <div key={franchise.id} className="franchise-card">
-              <div className="card h-100 border-0 shadow-sm">
-                <div className="card-body p-4">
-                  <div className="text-center mb-3 location-card-img">
-                    <img
-                      src={franchise.logo}
-                      alt={franchise.name}
-                      className="img-fluid "
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h5 className="franchise-name">{franchise.name}</h5>
-                    <p className="franchise-description">
-                      {franchise.description}
-                    </p>
+        {/* Main Slider Section */}
+        <div className="slider-flex-wrapper align-items-center">
+          {/* Fixed Card */}
+          <div className="fixed-card">
+            {/* Mimic Zillow BuyAbility card here */}
+            <div className="card border shadow-sm p-3 text-center h-max-content homeloan-card">
+              <h5 className="fixedcard-heading">Franchise Home Loans™</h5>
+              <div className="d-flex justify-content-between align-items-center ">
+                <div className="my-2 d-flex flex-column align-items-start ">
+                  <span>$--</span>
+                  <small>Suggested target price</small>
+                </div>
+                <div className="my-2 d-flex flex-column align-items-start">
+                  <span>$--</span>
+                  <small>BuyAbility™</small>
+                </div>
+              </div>
+              <div className=" d-flex justify-content-between align-items-center">
+                <div className="my-2 d-flex flex-column align-items-start">
+                  <span>$--</span>
+                  <small>Mo. payment</small>
+                </div>
+                <div className="my-2 d-flex flex-column align-items-start">
+                  <span>--%</span>
+                  <small>Today's rate</small>
+                </div>
+                <div className="my-2 d-flex flex-column align-items-start">
+                  <span>--%</span>
+                  <small>APR</small>
+                </div>
+              </div>
+            </div>
+            <button className="btn btn-primary w-100 mt-3 lets-get-started">
+              Let’s get started
+            </button>
+          </div>
 
-                    {/* Stats Section */}
-                    <div className="card-stats">
-                      <table className="table franchise-meta table-borderless mb-0">
-                        <tbody>
-                          <tr>
-                            <td className="text-start align-middle">
-                              <span className="d-inline-flex align-items-center stats-content">
-                                <FaMoneyBillWave className="me-2" />
-                                {franchise.price}
-                              </span>
-                            </td>
-                            <td className="text-start align-middle">
-                              <span className="d-inline-flex align-items-center stats-content">
-                                <FaCalendarAlt className="me-2" />
-                                {franchise.year}
-                              </span>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td className="text-start align-middle">
-                              <span className="d-inline-flex align-items-center stats-content">
-                                <TbCirclePercentage className="me-2" />
-                                {franchise.roi}
-                              </span>
-                            </td>
-                            <td className="text-start align-middle">
-                              <span className="d-inline-flex align-items-center stats-content">
-                                <MdOutlineLocationOn className="me-2" />
-                                {franchise.units}
-                              </span>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+          {/* Scrollable Slider */}
+          <div
+            className="slider-container franchiseSale-Slider"
+            ref={sliderRef}
+          >
+            {franchiseData.map((franchise) => (
+              <div key={franchise.id} className="franchiseSale-card">
+                <div className="card h-100 border-0 shadow-sm">
+                  <div className="card-body p-0">
+                    <div className="text-center mb-3 location-card-img">
+                      <img
+                        src={franchise.logo}
+                        alt={franchise.name}
+                        className="img-fluid "
+                      />
+                    </div>
+                    <div className="p-2">
+                      <h5 className="franchise-name">{franchise.name}</h5>
+                      <p className="franchise-description mb-0">
+                        {franchise.description}
+                      </p>
+
+                      {/* Stats Section */}
+                      <div className="card-stats">
+                        <table className="table franchise-meta table-borderless mb-0">
+                          <tbody>
+                            <tr>
+                              <td className="text-start align-middle">
+                                <span className="d-inline-flex align-items-center stats-content">
+                                  <FaMoneyBillWave className="me-2" />
+                                  {franchise.price}
+                                </span>
+                              </td>
+                              <td className="text-start align-middle">
+                                <span className="d-inline-flex align-items-center stats-content">
+                                  <FaCalendarAlt className="me-2" />
+                                  {franchise.year}
+                                </span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td className="text-start align-middle">
+                                <span className="d-inline-flex align-items-center stats-content">
+                                  <TbCirclePercentage className="me-2" />
+                                  {franchise.roi}
+                                </span>
+                              </td>
+                              <td className="text-start align-middle">
+                                <span className="d-inline-flex align-items-center stats-content">
+                                  <MdOutlineLocationOn className="me-2" />
+                                  {franchise.units}
+                                </span>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* Browse Button */}

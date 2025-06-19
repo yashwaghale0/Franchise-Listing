@@ -37,12 +37,7 @@
   font-family: "Inter";
 }
 
-.franchise-meta {
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
-  color: #4b5563;
-}
+
 
 .franchise-meta div {
   display: flex;
@@ -352,11 +347,7 @@
     flex-direction: column;
   }
   
-  .broker-card {
-    width: 300px !important;
-    height: 360px !important;
-    margin: 0px !important;
-  }
+  
   
   .slick-slide {
     margin: 0px 0px !important;
@@ -371,7 +362,7 @@
     display: block;
   }
   
-  .desktop-broker, .rating-desktop {
+  .rating-desktop {
     display: none;
   }
   

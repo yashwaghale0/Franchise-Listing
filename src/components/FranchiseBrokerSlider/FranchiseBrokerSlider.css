@@ -1,6 +1,6 @@
 .franchiseBroker-slider {
   padding: 30px 40px;
-  background: linear-gradient(to right, #FFFFFF, #E3F7FF);
+  background: linear-gradient(to right, #FFFFFF, #EEFFF6);
   font-family: 'Inter', sans-serif;
 }
 
@@ -37,12 +37,7 @@
   font-family: "Inter";
 }
 
-.franchise-meta {
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
-  color: #4b5563;
-}
+
 
 .franchise-meta div {
   display: flex;
@@ -353,9 +348,9 @@
   }
   
   .broker-card {
-    width: 300px !important;
+    width: 98% !important;
     height: 360px !important;
-    margin: 0px !important;
+    margin: 0px auto !important;
   }
   
   .slick-slide {
@@ -371,7 +366,7 @@
     display: block;
   }
   
-  .desktop-broker, .rating-desktop {
+  .rating-desktop {
     display: none;
   }
   
@@ -404,8 +399,83 @@
   font-size: 14px;
   padding: 6px 12px;
 }
+
+.franchiseBroker-slider {
+  padding: 30px 10px !important
+}
+
+.franchisebroker-slider .scroll-item {
+  margin-top: 20px !important;
+  min-width: 80%;
+  width: 80%;
+}
   
+.mobile-broker {
+  display: flex !important;
+  gap: 20px;
+}
+
+.rating-badge, .desktop-badge {
+  display: none !important;
+}
+
+.desktop-broker {
+  text-align: center !important;
+}
+
+.desktop-broker .franchise-review-mob {
+  justify-content: center;
   
 }
+
+.franchise-review-mob .reviews {
+  background-color: #fff;
+  border: 1px solid #000;
+  padding: 4px 20px;
+}
+  
+}
+
+.mobile-broker {
+  display: none;
+}
+
+
+/* ===================== */
+
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  gap: 16px;
+  padding-bottom: 10px;
+}
+
+.scroll-item {
+  flex: 0 0 calc(40% - 10px);
+  scroll-snap-align: start;
+  min-width: 320px;
+  max-width: 490px;
+}
+
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+@media (max-width: 768px) {
+  .scroll-item {
+    flex: 0 0 90%;
+  }
+}
+
 
 

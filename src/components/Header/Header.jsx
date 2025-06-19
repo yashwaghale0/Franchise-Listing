@@ -5,16 +5,20 @@ import { PiSignInLight } from "react-icons/pi";
 import { CiUser } from "react-icons/ci";
 import logo from "../../assets/images/fl-logo.svg";
 import mobileLogo from "../../assets/images/mobile-logo.svg";
-import LoginModal from "./LoginModel";
 import { useState } from "react";
+import { IoChevronForwardOutline } from "react-icons/io5";
 
 export default function Header() {
-  const [open, setOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [submenuOpen, setSubmenuOpen] = useState(null);
   const navigate = useNavigate();
 
   const handleSignIn = () => {
     navigate("/franchise-listing/sign-in");
+  };
+
+  const toggleSubmenu = (menu) => {
+    setSubmenuOpen(submenuOpen === menu ? null : menu);
   };
 
   return (
@@ -39,7 +43,7 @@ export default function Header() {
               <PiSignInLight />
               Sign In
             </button>
-            <LoginModal isOpen={open} onClose={() => setOpen(false)} />
+
             <button
               className="btn d-flex align-items-center gap-2 create_account"
               onClick={handleSignIn}
@@ -52,7 +56,7 @@ export default function Header() {
 
         {/* Dropdown Menu */}
         {menuOpen && (
-          <div className="dropdown-mega-menu mega-menu">
+          <div className="dropdown-mega-menu mega-menu desktop-only">
             <div className="row px-5 py-5">
               <div className="col">
                 <h6>Buy a Franchise</h6>
@@ -97,6 +101,126 @@ export default function Header() {
                 <a href="#">Franchise Events</a>
                 <a href="#">Franchise News</a>
                 <a href="#">Get Listed</a>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Mobile Sidebar */}
+        {menuOpen && (
+          <div className="mobile-sidebar mobile-only">
+            <div className="sidebar-header">
+              <button
+                className="back-button"
+                onClick={() => setMenuOpen(false)}
+              >
+                &larr;
+              </button>
+            </div>
+            <div className="sidebar-menu">
+              <div className="dropdown-section">
+                <h6 onClick={() => toggleSubmenu("buy")}>
+                  Buy a Franchise <IoChevronForwardOutline />
+                </h6>
+                {submenuOpen === "buy" && (
+                  <div className="submenu">
+                    <a href="#">Franchise Opportunities</a>
+                    <a href="#">Franchise Resales</a>
+                  </div>
+                )}
+              </div>
+              <div className="dropdown-section">
+                <h6 onClick={() => toggleSubmenu("sell")}>
+                  Sell a Franchise <IoChevronForwardOutline />
+                </h6>
+                {submenuOpen === "sell" && (
+                  <div className="submenu">
+                    <a href="#">List my Franchise</a>
+                  </div>
+                )}
+              </div>
+              <div className="dropdown-section">
+                <h6 onClick={() => toggleSubmenu("broker")}>
+                  Find a Broker <IoChevronForwardOutline />
+                </h6>
+                {submenuOpen === "broker" && (
+                  <div className="submenu">
+                    <a href="#">Franchise Broker</a>
+                    <a href="#">Business Broker</a>
+                    <a href="#">Commercial Real Estate Broker</a>
+                  </div>
+                )}
+              </div>
+              <div className="dropdown-section">
+                <h6 onClick={() => toggleSubmenu("site")}>
+                  Site Selection <IoChevronForwardOutline />
+                </h6>
+                {submenuOpen === "site" && (
+                  <div className="submenu">
+                    <a href="#">Commercial Real Estate Listings</a>
+                  </div>
+                )}
+              </div>
+              <div className="dropdown-section">
+                <h6 onClick={() => toggleSubmenu("services")}>
+                  Find a Franchise Service Pro
+                  <IoChevronForwardOutline />
+                </h6>
+                {submenuOpen === "services" && (
+                  <div className="submenu">
+                    <a href="#">Franchise Attorney</a>
+                    <a href="#">Immigration Attorney</a>
+                    <a href="#">Other Franchise Service Pros</a>
+                  </div>
+                )}
+              </div>
+              <div className="dropdown-section">
+                <h6 onClick={() => toggleSubmenu("funding")}>
+                  Get Franchise Funding
+                  <IoChevronForwardOutline />
+                </h6>
+                {submenuOpen === "funding" && (
+                  <div className="submenu">
+                    <a href="#">Apply Now</a>
+                  </div>
+                )}
+              </div>
+              <div className="dropdown-section">
+                <h6 onClick={() => toggleSubmenu("network")}>
+                  Join Our Network
+                  <IoChevronForwardOutline />
+                </h6>
+                {submenuOpen === "network" && (
+                  <div className="submenu">
+                    <a href="#">Franchisors</a>
+                    <a href="#">Franchisees</a>
+                    <a href="#">Commercial Real Estate Agents</a>
+                    <a href="#">Franchise Brokers</a>
+                    <a href="#">Franchise Attorney</a>
+                    <a href="#">Immigration Attorney</a>
+                    <a href="#">Other Franchise Service Pros</a>
+                  </div>
+                )}
+              </div>
+              <div className="dropdown-section">
+                <h6 onClick={() => toggleSubmenu("learn")}>
+                  Learn More <IoChevronForwardOutline />
+                </h6>
+                {submenuOpen === "learn" && (
+                  <div className="submenu">
+                    <a href="#">Franchise Events</a>
+                    <a href="#">Franchise News</a>
+                    <a href="#">Get Listed</a>
+                  </div>
+                )}
+              </div>
+              <div className="text-center mt-4">
+                <button
+                  className="sign_in mobile-signin"
+                  onClick={handleSignIn}
+                >
+                  Sign in
+                </button>
               </div>
             </div>
           </div>

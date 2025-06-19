@@ -71,6 +71,13 @@ input::placeholder {
     padding: 12px 10px;
 }
 
+.create-account-btn {
+    background-color: #000B82;
+    font-weight: 700;
+    border-radius: 6px;
+    padding: 12px 10px; 
+}
+
 .forget-pass {
     color: #0DA2FF;
     font-size: 14px;
@@ -164,4 +171,18 @@ input::placeholder {
   font-size: 14px;
   border: none;
   border-radius: 0px;
+}
+
+@media(max-width: 567px) {
+  .image-column {
+    display: none !important;
+  }
+  
+  .signin-column {
+    padding: 35px !important;
+  }
+  
+  .tabchange-text {
+    width: 60% !important;
+  }
 }
