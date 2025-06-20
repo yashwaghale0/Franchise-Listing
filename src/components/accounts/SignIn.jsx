@@ -74,7 +74,7 @@ const SignIn = () => {
                   onChange={(e) => setRole(e.target.value)}
                   className="form-select mb-3"
                 >
-                  <option value="">I am</option>
+                  <option value="">I am:</option>
                   <option value="buyer">Looking to Buy Franchise</option>
                   <option value="franchisor">Franchisor</option>
                   <option value="franchisee">Franchisee</option>

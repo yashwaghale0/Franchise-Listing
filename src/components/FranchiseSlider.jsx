@@ -183,7 +183,7 @@ const FranchiseSlider = () => {
                       <tr>
                         <td>
                           <span className="unique_code">
-                            MLS ID #{franchise.code}
+                            FLS ID #OPPO{franchise.code}
                           </span>
                         </td>
                       </tr>

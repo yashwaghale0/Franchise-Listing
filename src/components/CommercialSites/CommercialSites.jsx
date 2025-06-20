@@ -33,6 +33,7 @@ const Testing = () => {
       year: "2023",
       roi: "6%",
       units: "50 units",
+      code: "00002124",
     },
     {
       id: 2,
@@ -43,6 +44,7 @@ const Testing = () => {
       year: "2023",
       roi: "6%",
       units: "20 units",
+      code: "00002245",
     },
     {
       id: 3,
@@ -53,6 +55,7 @@ const Testing = () => {
       year: "2023",
       roi: "6%",
       units: "30 units",
+      code: "00002249",
     },
     {
       id: 4,
@@ -63,6 +66,7 @@ const Testing = () => {
       year: "2023",
       roi: "6%",
       units: "40 units",
+      code: "00002457",
     },
     {
       id: 5,
@@ -73,6 +77,7 @@ const Testing = () => {
       year: "2023",
       roi: "8%",
       units: "100 units",
+      code: "00002365",
     },
     {
       id: 6,
@@ -83,6 +88,7 @@ const Testing = () => {
       year: "2023",
       roi: "10%",
       units: "200 units",
+      code: "00002478",
     },
   ];
 
@@ -154,6 +160,13 @@ const Testing = () => {
                             <td className="text-start align-middle p-0">
                               <span className="d-inline-flex align-items-center sites-stats">
                                 {franchise.address}
+                              </span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <span className="unique_code">
+                                FLS ID #CRE{franchise.code}
                               </span>
                             </td>
                           </tr>

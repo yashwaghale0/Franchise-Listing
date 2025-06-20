@@ -1,6 +1,12 @@
 .franchiseBroker-slider {
   padding: 30px 40px;
-  background: linear-gradient(to right, #FFFFFF, #EEFFF6);
+  background: linear-gradient(to right,
+    #FFFFFF 0%,
+    #FFFFFF 40%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(238, 255, 246, 0) 50%,
+    #EEFFF6 60%,
+    #EEFFF6 100%);
   font-family: 'Inter', sans-serif;
 }
 

@@ -10,7 +10,7 @@ import { MdOutlineLocationOn } from "react-icons/md";
 import { TbCirclePercentage } from "react-icons/tb";
 import "./FranchiseSale.css";
 
-const Testing = () => {
+const FranchiseSale = () => {
   const sliderRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -33,6 +33,7 @@ const Testing = () => {
       year: "2023",
       roi: "6%",
       units: "50 units",
+      code: "0000002456",
     },
     {
       id: 2,
@@ -43,6 +44,7 @@ const Testing = () => {
       year: "2023",
       roi: "6%",
       units: "20 units",
+      code: "0000002125",
     },
     {
       id: 3,
@@ -53,6 +55,7 @@ const Testing = () => {
       year: "2023",
       roi: "6%",
       units: "30 units",
+      code: "0000002458",
     },
     {
       id: 4,
@@ -63,6 +66,7 @@ const Testing = () => {
       year: "2023",
       roi: "6%",
       units: "40 units",
+      code: "0000002129",
     },
     {
       id: 5,
@@ -73,6 +77,7 @@ const Testing = () => {
       year: "2023",
       roi: "8%",
       units: "100 units",
+      code: "0000002356",
     },
     {
       id: 6,
@@ -83,12 +88,13 @@ const Testing = () => {
       year: "2023",
       roi: "10%",
       units: "200 units",
+      code: "0000002457",
     },
   ];
 
   const scrollByAmount = () => {
     if (!sliderRef.current) return;
-    const card = sliderRef.current.querySelector(".franchise-card");
+    const card = sliderRef.current.querySelector(".franchiseSale-card");
     return card.offsetWidth + 20; // +gap
   };
 
@@ -116,6 +122,43 @@ const Testing = () => {
           </p>
         </div>
 
+        <div className="mobilefixed-card ">
+          {/* Mimic Zillow BuyAbility card here */}
+          <div className="card border shadow-sm p-3 text-center h-max-content homeloan-card">
+            <h5 className="fixedcard-heading m-0">FranAbility™</h5>
+            <p className="fixedcard-subhead">
+              Find a franchise you can afford.
+            </p>
+            <div className="d-flex justify-content-between align-items-center ">
+              <div className="my-2 d-flex flex-column align-items-start ">
+                <span>$--</span>
+                <small>Suggested franchise price</small>
+              </div>
+              <div className="my-2 d-flex flex-column align-items-start">
+                <span>$--</span>
+                <small>FranAbility™</small>
+              </div>
+            </div>
+            <div className=" d-flex justify-content-between align-items-center">
+              <div className="my-2 d-flex flex-column align-items-start">
+                <span>$--</span>
+                <small>Mo. payment</small>
+              </div>
+              <div className="my-2 d-flex flex-column align-items-start">
+                <span>--%</span>
+                <small>Today's rate</small>
+              </div>
+              <div className="my-2 d-flex flex-column align-items-start">
+                <span>--%</span>
+                <small>APR</small>
+              </div>
+            </div>
+          </div>
+          <button className="btn btn-primary w-100 mt-3 lets-get-started">
+            Let’s get started
+          </button>
+        </div>
+
         {/* Arrows */}
         <div className="arrow-buttons">
           <button className="prev_button" onClick={prevSlide}>
@@ -132,15 +175,18 @@ const Testing = () => {
           <div className="fixed-card">
             {/* Mimic Zillow BuyAbility card here */}
             <div className="card border shadow-sm p-3 text-center h-max-content homeloan-card">
-              <h5 className="fixedcard-heading">Franchise Home Loans™</h5>
+              <h5 className="fixedcard-heading m-0">FranAbility™</h5>
+              <p className="fixedcard-subhead">
+                Find a franchise you can afford.
+              </p>
               <div className="d-flex justify-content-between align-items-center ">
                 <div className="my-2 d-flex flex-column align-items-start ">
                   <span>$--</span>
-                  <small>Suggested target price</small>
+                  <small>Suggested franchise price</small>
                 </div>
                 <div className="my-2 d-flex flex-column align-items-start">
                   <span>$--</span>
-                  <small>BuyAbility™</small>
+                  <small>FranAbility™</small>
                 </div>
               </div>
               <div className=" d-flex justify-content-between align-items-center">
@@ -217,6 +263,13 @@ const Testing = () => {
                                 </span>
                               </td>
                             </tr>
+                            <tr>
+                              <td>
+                                <span className="unique_code">
+                                  FLS ID #RES{franchise.code}
+                                </span>
+                              </td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -231,7 +284,7 @@ const Testing = () => {
         {/* Browse Button */}
         <div className="text-center Browse_section">
           <button className="browse-button">
-            Browse Franchise Opportunities
+            Browse Franchise Resale
             <i className="bi bi-arrow-right right-arrow"></i>
           </button>
         </div>
@@ -240,4 +293,4 @@ const Testing = () => {
   );
 };
 
-export default Testing;
+export default FranchiseSale;
