@@ -5,8 +5,11 @@ import { PiSignInLight } from "react-icons/pi";
 import { CiUser } from "react-icons/ci";
 import logo from "../../assets/images/fl-logo.svg";
 import mobileLogo from "../../assets/images/mobile-logo.svg";
+import sidebarLogo from "../../assets/images/sidebar-logo.svg";
 import { useState } from "react";
 import { IoChevronForwardOutline } from "react-icons/io5";
+import { FaArrowRightLong } from "react-icons/fa6";
+import { RxTextAlignJustify } from "react-icons/rx";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -114,7 +117,19 @@ export default function Header() {
                 className="back-button"
                 onClick={() => setMenuOpen(false)}
               >
-                &larr;
+                <RxTextAlignJustify />
+              </button>
+
+              <img
+                src={sidebarLogo}
+                alt="Main Header Logo"
+                className="mobile-logo"
+              />
+              <button
+                className="back-button"
+                onClick={() => setMenuOpen(false)}
+              >
+                <FaArrowRightLong />
               </button>
             </div>
             <div className="sidebar-menu">
@@ -214,7 +229,7 @@ export default function Header() {
                   </div>
                 )}
               </div>
-              <div className="text-center mt-4">
+              <div className="text-center mt-4 sidebar-signin">
                 <button
                   className="sign_in mobile-signin"
                   onClick={handleSignIn}

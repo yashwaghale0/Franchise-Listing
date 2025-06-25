@@ -92,38 +92,37 @@ const FranchiseSale = () => {
     },
   ];
 
-  const scrollByAmount = () => {
+  const rightScrollByAmount = () => {
     if (!sliderRef.current) return;
     const card = sliderRef.current.querySelector(".franchiseSale-card");
     return card.offsetWidth + 20; // +gap
   };
 
+  const leftScrollByAmount = () => {
+    if (!sliderRef.current) return;
+    const card = sliderRef.current.querySelector(".franchiseSale-card");
+    return card.offsetWidth + 100; // +gap
+  };
+
   const nextSlide = () => {
-    sliderRef.current.scrollBy({ left: scrollByAmount(), behavior: "smooth" });
+    sliderRef.current.scrollBy({
+      left: rightScrollByAmount(),
+      behavior: "smooth",
+    });
   };
 
   const prevSlide = () => {
-    sliderRef.current.scrollBy({ left: -scrollByAmount(), behavior: "smooth" });
+    sliderRef.current.scrollBy({
+      left: -leftScrollByAmount(),
+      behavior: "smooth",
+    });
   };
 
   return (
     <div className="franchiseSale-slider">
       <div className="container">
-        {/* Header Section */}
-        <div className="mb-4">
-          <h2 className="buy-heading">Find a Franchise for Sale</h2>
-          <p className="subtext">
-            Explore fully operational franchise resale listings in your area and
-            take over an existing business.
-          </p>
-          <p className="location_enabled">
-            <CiLocationOn size={18} />
-            Populated Result Based on Location Enabled
-          </p>
-        </div>
-
-        <div className="mobilefixed-card ">
-          {/* Mimic Zillow BuyAbility card here */}
+        {/* <div className="mobilefixed-card ">
+          
           <div className="card border shadow-sm p-3 text-center h-max-content homeloan-card">
             <h5 className="fixedcard-heading m-0">FranAbility™</h5>
             <p className="fixedcard-subhead">
@@ -157,6 +156,19 @@ const FranchiseSale = () => {
           <button className="btn btn-primary w-100 mt-3 lets-get-started">
             Let’s get started
           </button>
+        </div> */}
+
+        {/* Header Section */}
+        <div className="mb-4">
+          <h2 className="buy-heading">Find a Franchise for Sale</h2>
+          <p className="subtext">
+            Explore fully operational franchise resale listings in your area and
+            take over an existing business.
+          </p>
+          <p className="location_enabled">
+            <CiLocationOn size={18} />
+            Populated Result Based on Location Enabled
+          </p>
         </div>
 
         {/* Arrows */}
@@ -172,8 +184,8 @@ const FranchiseSale = () => {
         {/* Main Slider Section */}
         <div className="slider-flex-wrapper align-items-center">
           {/* Fixed Card */}
-          <div className="fixed-card">
-            {/* Mimic Zillow BuyAbility card here */}
+          {/* <div className="fixed-card">
+            
             <div className="card border shadow-sm p-3 text-center h-max-content homeloan-card">
               <h5 className="fixedcard-heading m-0">FranAbility™</h5>
               <p className="fixedcard-subhead">
@@ -207,7 +219,7 @@ const FranchiseSale = () => {
             <button className="btn btn-primary w-100 mt-3 lets-get-started">
               Let’s get started
             </button>
-          </div>
+          </div> */}
 
           {/* Scrollable Slider */}
           <div

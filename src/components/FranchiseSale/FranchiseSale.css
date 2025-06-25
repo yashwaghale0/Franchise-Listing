@@ -139,68 +139,13 @@
 
 /* ============================= */
 
-.slider-flex-wrapper {
-  display: flex;
-  gap: 20px;
-  align-items: stretch;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-}
-
-.fixed-card {
-  flex: 0 0 345px; /* Adjust width to your fixed card design */
-  min-width: 300px;
-  margin-top: 46px;
-}
-
-.mobilefixed-card {
-  flex: 0 0 345px; /* Adjust width to your fixed card design */
-  min-width: 300px;
-  margin-top: 46px;
-  display: none;
-}
-
-.slider-container.franchiseSale-Slider {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  flex: 1;
-}
-
 .franchiseSale-card {
-  flex: 0 0 calc(25% - -100px); /* Show 3.5 cards on desktop */
+  flex: 0 0 calc(25% - -20px); /* Show 3.5 cards on desktop */
   max-width: 400px;
   width: 400px;
   transition: transform 0.3s ease;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 15px;
   border-radius: 12px !important;
-}
-
-.fixedcard-heading {
-  font-size: 16px;
-  text-align: left;
-}
-
-.homeloan-card span {
-  font-size: 20px;
-  font-weight: 600;
-  color: #111116;
-}
-
-.homeloan-card {
-  border-radius: 20px !important;
-}
-
-.lets-get-started {
-  padding: 14px 10px !important;
-  background-color: #000B82 !important;
-}
-
-.fixedcard-subhead {
-  text-align: left;
-  font-size: 12px;
-  margin: 0px;
 }
 
 @media (max-width: 567px) {

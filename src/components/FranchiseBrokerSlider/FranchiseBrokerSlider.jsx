@@ -4,7 +4,7 @@ import { CiLocationOn } from "react-icons/ci";
 import { FaFacebookF, FaStar } from "react-icons/fa";
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
 
-const Sites = () => {
+const FranchiseBrokerSlider = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -184,4 +184,4 @@ const Sites = () => {
   );
 };
 
-export default Sites;
+export default FranchiseBrokerSlider;

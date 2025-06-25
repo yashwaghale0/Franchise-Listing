@@ -108,6 +108,10 @@
   text-align: left;
 }
 
+.footer-mobile-links div {
+  padding: 3px 0px;
+}
+
 .footer-mobile-links a {
   padding: 6px 0px;
   color: #000;

@@ -140,3 +140,273 @@
 .sites-stats {
     line-height: 26px;
 }
+
+.commercialSlider-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  flex: 1;
+}
+
+.franchisecomm-card {
+  flex: 0 0 calc(25% - -100px); /* Show 3.5 cards on desktop */
+  max-width: 400px;
+  width: 400px;
+  transition: transform 0.3s ease;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 15px;
+  border-radius: 12px !important;
+}
+
+.slider-flex-wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.fixed-card {
+  flex: 0 0 345px; /* Adjust width to your fixed card design */
+  min-width: 300px;
+  margin-top: 30px;
+}
+
+.mobilefixed-card {
+  flex: 0 0 345px; /* Adjust width to your fixed card design */
+  min-width: 300px;
+  margin-top: 46px;
+  display: none;
+}
+
+.slider-container.franchiseSale-Slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  flex: 1;
+}
+
+
+
+.fixedcard-heading {
+  font-size: 16px;
+  text-align: left;
+}
+
+.homeloan-card span {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111116;
+}
+
+.homeloan-card {
+  border-radius: 20px !important;
+  height: 230px;
+  justify-content: center;
+}
+
+.lets-get-started {
+  padding: 14px 10px !important;
+  background-color: #000B82 !important;
+}
+
+.fixedcard-subhead {
+  text-align: left;
+  font-size: 12px;
+  margin: 0px;
+}
+
+@media (max-width: 567px) {
+  .fixed-card {
+    display: none;
+  }
+  
+  .franchisecomm-card {
+        flex: 0 0 calc(25% - -190px);
+  }
+  
+  .mobilefixed-card {
+    display: block;
+    margin-bottom: 40px;
+  }
+}
+
+/* ===================== popup css ======================= */
+
+/* Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Modal Box */
+.modal-container {
+  background: white;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 540px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  position: relative;
+}
+
+/* Header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  border-bottom: 1px solid #cdcdd3;
+}
+
+.modal-header::after {
+  border-bottom: 1px solid #ccc !important;
+}
+
+.modal-header h2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+.close-btn {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Body */
+.modal-subheading {
+  margin-top: 12px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+}
+.modal-text {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #111116;
+  font-weight: 700;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label, .input-wrapper label{
+  font-size: 16px;
+  font-weight: 700;
+  color: #111116;
+  margin-bottom: 10px;
+}
+.form-group .required {
+  color: red;
+}
+.form-group select,
+.form-group input {
+  width: 100%;
+  padding: 16px 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  background-color: #f7f7f7;
+}
+
+.input-wrapper input {
+  background-color: #f7f7f7;
+}
+
+.form-group small, .input-wrapper small {
+  font-size: 12px;
+  color: #666;
+  font-weight: 400;
+}
+
+/* Footer */
+.modal-footer {
+  
+  justify-content: center;
+  padding: 24px;
+  border-top: 1px solid #cdcdd3;
+}
+.privacy-text {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 10px;
+}
+.privacy-text a {
+  color: #666;
+  text-decoration: underline;
+}
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #000B82;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Trigger Button */
+.open-modal-btn {
+  background: #5f00d9;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.modal-body {
+  height: 650px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  padding: 24px;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.centered-input {
+  width: 100%;
+  padding: 16px 40px; /* space for prefix/suffix */
+  text-align: left;
+  border: 2px solid #c2c2ff;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+}
+
+.prefix,
+.suffix {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #555;
+  pointer-events: none;
+}
+
+.prefix {
+  left: 10px;
+}
+
+.suffix {
+  right: 10px;
+}
+

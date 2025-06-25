@@ -65,7 +65,7 @@ const Sites = () => {
   ];
 
   const nextSlide = () => {
-    const container = document.querySelector(".scroll-container");
+    const container = document.querySelector(".scroll-Locationcontainer");
     if (container) {
       const card = container.querySelector(".scroll-item");
       const cardWidth = card?.offsetWidth || 300;
@@ -74,7 +74,7 @@ const Sites = () => {
   };
 
   const prevSlide = () => {
-    const container = document.querySelector(".scroll-container");
+    const container = document.querySelector(".scroll-Locationcontainer");
     if (container) {
       const card = container.querySelector(".scroll-item");
       const cardWidth = card?.offsetWidth || 300;
@@ -108,7 +108,7 @@ const Sites = () => {
           </button>
 
           <div
-            className="scroll-container d-flex gap-3 overflow-auto franchisebroker-slider"
+            className="scroll-Locationcontainer d-flex gap-3 overflow-auto franchisebroker-slider"
             style={{ scrollSnapType: "x mandatory" }}
           >
             {franchiseData.map((franchise) => (
@@ -172,8 +172,8 @@ const Sites = () => {
 
         <div className="text-center Browse_section mt-4">
           <button className="browse-button">
-            Find a Franchise Broker{" "}
-            <i className="bi bi-arrow-right right-arrow"></i>
+            Find a Real Estate Agent{" "}
+            <i class="bi bi-arrow-right right-arrow"></i>
           </button>
         </div>
       </div>

@@ -93,18 +93,30 @@ const FranchiseSlider = () => {
     },
   ];
 
-  const scrollByAmount = () => {
+  const rightScrollByAmount = () => {
     if (!sliderRef.current) return;
     const card = sliderRef.current.querySelector(".franchise-card");
     return card.offsetWidth + 20; // +gap
   };
 
+  const leftScrollByAmount = () => {
+    if (!sliderRef.current) return;
+    const card = sliderRef.current.querySelector(".franchise-card");
+    return card.offsetWidth + 100; // +gap
+  };
+
   const nextSlide = () => {
-    sliderRef.current.scrollBy({ left: scrollByAmount(), behavior: "smooth" });
+    sliderRef.current.scrollBy({
+      left: rightScrollByAmount(),
+      behavior: "smooth",
+    });
   };
 
   const prevSlide = () => {
-    sliderRef.current.scrollBy({ left: -scrollByAmount(), behavior: "smooth" });
+    sliderRef.current.scrollBy({
+      left: -leftScrollByAmount(),
+      behavior: "smooth",
+    });
   };
 
   return (
