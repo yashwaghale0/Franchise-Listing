@@ -154,7 +154,10 @@ const Testing = () => {
               </div>
             </div>
           </div>
-          <button className="btn btn-primary w-100 mt-3 lets-get-started">
+          <button
+            className="btn btn-primary w-100 mt-3 lets-get-started"
+            onClick={() => setIsOpen(true)}
+          >
             Let’s get started
           </button>
         </div>

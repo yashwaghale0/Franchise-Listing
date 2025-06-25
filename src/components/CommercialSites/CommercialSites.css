@@ -230,6 +230,11 @@
     display: block;
     margin-bottom: 40px;
   }
+  
+  .modal-container {
+    max-height: 100vh !important;
+    margin: 10px !important;
+  }
 }
 
 /* ===================== popup css ======================= */
