@@ -25,13 +25,13 @@ function HomePage() {
       <Header />
       <Hero />
       <FranchiseSlider />
-      <FranchiseBrokerSlider />
+      {/* <FranchiseBrokerSlider />
       <FranchiseSale />
-      <FranchiseLocation />
+      <FranchiseLocation /> */}
       <CommercialSites />
-      <Funding />
+      {/* <Funding /> */}
       <UpcomingEvents />
-      <FreeAccount />
+      {/* <FreeAccount /> */}
       <Footer />
     </>
   );

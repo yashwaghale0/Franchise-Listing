@@ -78,9 +78,9 @@ const UpcomingEvents = () => {
         <div className="mb-20">
           <div className="flex justify-between items-center mb-12 upcoming_header">
             <h2 className="upcoming_heading">Upcoming Franchise Events</h2>
-            <button className="bg-gradient-to-r from-[#009A45] to-[#00DB62] text-[#fff] px-6 py-2 rounded font-semibold hover:bg-[#00C456] transition-colors duration-200">
+            {/* <button className="bg-gradient-to-r from-[#009A45] to-[#00DB62] text-[#fff] px-6 py-2 rounded font-semibold hover:bg-[#00C456] transition-colors duration-200">
               View All Events →
-            </button>
+            </button> */}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -121,7 +121,7 @@ const UpcomingEvents = () => {
         </div>
 
         {/* Franchise News Section */}
-        <div>
+        {/* <div>
           <div className="flex justify-between items-center mb-12 upcoming_header">
             <h2 className="upcoming_heading">Franchise News</h2>
             <button className="bg-gradient-to-r from-[#000B82] to-[#0DA2FF] text-[#fff] px-6 py-2 rounded font-semibold hover:bg-[#0B91E6] transition-colors duration-200">
@@ -159,24 +159,16 @@ const UpcomingEvents = () => {
                     {article.title}
                   </h4>
 
-                  {/* <p className="text-[#6D758F] mb-4 line-clamp-2">
-                    {article.excerpt}
-                  </p> */}
-
                   <div className="flex justify-between items-center">
                     <button className="text-[#0DA2FF] text-sm hover:text-[#0B91E6] transition-colors duration-200">
                       Read more →
                     </button>
-                    {/* <div className="flex items-center gap-1 text-sm text-gray-500">
-                      <Clock className="w-4 h-4" />
-                      <span>{article.readTime}</span>
-                    </div> */}
                   </div>
                 </div>
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

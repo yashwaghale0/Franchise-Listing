@@ -28,9 +28,9 @@ export default function Header() {
     <>
       <div className="header-container d-flex justify-content-between align-items-center  position-relative">
         <div className="d-flex justify-content-between align-items-center header_section">
-          <span className="Mobile-icon" onClick={() => setMenuOpen(!menuOpen)}>
+          {/* <span className="Mobile-icon" onClick={() => setMenuOpen(!menuOpen)}>
             <BsList />
-          </span>
+          </span> */}
           <img src={logo} alt="Main Header Logo" className="main-Logo" />
           <img
             src={mobileLogo}
@@ -47,13 +47,13 @@ export default function Header() {
               Sign In
             </button>
 
-            <button
+            {/* <button
               className="btn d-flex align-items-center gap-2 create_account"
               onClick={handleSignIn}
             >
               <CiUser />
               Create Account
-            </button>
+            </button> */}
           </div>
         </div>
 

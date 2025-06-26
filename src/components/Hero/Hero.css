@@ -1,5 +1,5 @@
 .hero_section {
-    background: url("../../assets/images/banner-home.svg");
+    background: url("../../assets/images/banner-home.png");
     background-size: cover;
     background-position: center;
     height: 370px;
@@ -30,6 +30,10 @@
     gap: 10px;
 }
 
+.FilterPopup {
+    width: 750px !important
+}
+
 .select-button {
     padding: 10px !important;
     color: #2A2A33;
@@ -39,6 +43,9 @@
     border-radius: 10px !important;
 }
 
+.Applyfilter-btn {
+    background-color: #0DA2FF;
+}
 
 .hero-searchbar {
     width: 650px;
@@ -101,8 +108,16 @@
 
 
 .price-range {
-    accent-color: blue;
+    
+    background: white;
+  border: 2px solid #00DB62;
+  cursor: pointer;
 }
+
+
+
+
+
 
 
 

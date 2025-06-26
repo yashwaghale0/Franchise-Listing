@@ -4,7 +4,7 @@ export default function FilterPopup({ onClose }) {
   const [range, setRange] = useState(0);
 
   return (
-    <div className="absolute top-[280px] left-1/2 transform -translate-x-1/2 z-50 w-full max-w-4xl px-4">
+    <div className="absolute top-[280px] left-1/2 transform -translate-x-1/2 z-50 w-full max-w-4xl px-4 FilterPopup">
       <div className="bg-white rounded-2xl p-6 shadow-xl border">
         <h4 className="font-semibold mb-6 text-start apply_filter">
           Apply Filters
@@ -13,7 +13,7 @@ export default function FilterPopup({ onClose }) {
         {/* Grid for dropdowns */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
           {[
-            "Select Search",
+            "Select Listing",
             "Select Country",
             "Select Category",
             "Select Subcategory",
@@ -35,7 +35,7 @@ export default function FilterPopup({ onClose }) {
         {/* Price Range */}
         <div className="mb-6 text-start">
           <label className="block text-sm  mb-2 ">
-            Price Range Up to ${" "}
+            Investment Range Up to ${" "}
             <span className="text-green-600 font-bold">{range}</span>
           </label>
           <input
@@ -53,11 +53,11 @@ export default function FilterPopup({ onClose }) {
         <div className="flex justify-end gap-4">
           <button
             onClick={onClose}
-            className="border border-gray-300 px-5 py-2 rounded  hover:bg-gray-100"
+            className="border border-gray-300 px-3 py-2 rounded  hover:bg-gray-100"
           >
             Clear All
           </button>
-          <button className="bg-blue-600 text-white px-5 py-2 rounded hover:bg-blue-700">
+          <button className="Applyfilter-btn text-white px-3 py-2 rounded hover:bg-blue-700">
             Apply
           </button>
         </div>
