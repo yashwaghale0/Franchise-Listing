@@ -91,6 +91,11 @@
     .next-button, .prev_button {
         padding: 8px !important;
     }
+    
+    .FilterPopup {
+        width: 100% !important;
+        margin: auto !important;
+    }
 }
 
 .apply_filter {

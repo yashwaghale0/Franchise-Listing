@@ -164,10 +164,13 @@ const Testing = () => {
 
         {/* Header Section */}
         <div className="mb-4">
-          <h2 className="buy-heading"> Browse Commercial Real Estate Sites</h2>
+          <h2 className="buy-heading">
+            {" "}
+            Find Franchise you can afford with FranAbility℠
+          </h2>
           <p className="subtext">
-            Search franchise ready real estate listings to secure your ideal
-            business location.
+            Answer a few questions. We'll highlight franchises you're likely to
+            qualify for.
           </p>
           <p className="location_enabled">
             <CiLocationOn size={18} />
@@ -440,12 +443,12 @@ const Testing = () => {
         </div>
 
         {/* Browse Button */}
-        <div className="text-center Browse_section">
+        {/* <div className="text-center Browse_section">
           <button className="browse-button">
             Browse Franchise Opportunities
             <i class="bi bi-arrow-right right-arrow"></i>
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

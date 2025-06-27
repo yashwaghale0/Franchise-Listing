@@ -30,7 +30,7 @@ const SignIn = () => {
               >
                 Sign In
               </button>
-              <button
+              {/* <button
                 onClick={() => setTab("signup")}
                 className={`flex-fill btn border-bottom sign-tabs-head ${
                   tab === "signup"
@@ -39,7 +39,7 @@ const SignIn = () => {
                 }`}
               >
                 New Account
-              </button>
+              </button> */}
             </div>
 
             {/* Form */}

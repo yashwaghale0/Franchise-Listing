@@ -72,7 +72,7 @@ const UpcomingEvents = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-r from-[#000B82] to-[#0D0D0D] min-h-screen py-16">
+    <div className="bg-gradient-to-r from-[#000B82] to-[#0D0D0D]  py-4">
       <div className="max-w-7xl mx-auto px-6">
         {/* Upcoming Franchise Events Section */}
         <div className="mb-20">

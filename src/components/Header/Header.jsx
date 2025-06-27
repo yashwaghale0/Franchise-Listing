@@ -31,6 +31,7 @@ export default function Header() {
           {/* <span className="Mobile-icon" onClick={() => setMenuOpen(!menuOpen)}>
             <BsList />
           </span> */}
+          <span></span>
           <img src={logo} alt="Main Header Logo" className="main-Logo" />
           <img
             src={mobileLogo}

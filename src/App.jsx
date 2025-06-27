@@ -11,6 +11,7 @@ import UpcomingEvents from "./components/UpcomingEvents/UpcomingEvents";
 import FreeAccount from "./components/FreeAccount/FreeAccount";
 import Footer from "./components/Footer/Footer";
 import SignIn from "./components/accounts/SignIn";
+import TempFooter from "./components/Footer/TempFooter";
 
 import {
   BrowserRouter as Router,
@@ -32,7 +33,8 @@ function HomePage() {
       {/* <Funding /> */}
       <UpcomingEvents />
       {/* <FreeAccount /> */}
-      <Footer />
+      {/* <Footer /> */}
+      <TempFooter />
     </>
   );
 }

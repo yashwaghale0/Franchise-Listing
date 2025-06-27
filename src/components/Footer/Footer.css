@@ -137,6 +137,10 @@
   font-size: 14px;
 }
 
+.footer-logo {
+  margin: auto;
+}
+
 @media (max-width: 768px) {
   .footer-desktop {
     display: none;
