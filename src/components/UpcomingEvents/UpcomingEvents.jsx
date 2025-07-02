@@ -16,7 +16,7 @@ const UpcomingEvents = () => {
       description:
         "Discover the top franchise opportunity that matches your interests and financial investment profile.",
       image: Miami,
-      buttonText: "Visit Event",
+      buttonText: "Coming Soon",
       featured: true,
     },
     {
@@ -26,7 +26,7 @@ const UpcomingEvents = () => {
       description:
         "Connect with leading franchise brands and explore investment opportunities.",
       image: NYC,
-      buttonText: "Comming Soon",
+      buttonText: "Coming Soon",
       featured: false,
     },
     {
@@ -36,7 +36,7 @@ const UpcomingEvents = () => {
       description:
         "Join industry leaders and discover your perfect franchise match.",
       image: California,
-      buttonText: "Comming Soon",
+      buttonText: "Coming Soon",
       featured: false,
     },
   ];

@@ -1,4 +1,14 @@
-
+.franchisecomm-slider {
+  padding: 60px 40px;
+  background: linear-gradient(to right,
+    #FFFFFF 0%,
+    #FFFFFF 40%,
+    rgba(227, 247, 255, 0) 50%,
+    rgba(255, 255, 255, 0) 50%,
+    #EEFFF6 60%,
+    #EEFFF6 100%);
+    opacity: 0.9;
+}
 
 .buy-heading {
     font-size: 20px;
@@ -15,14 +25,11 @@
   font-family: 'Inter';
 }
 
-
-
-.franchise-name {
-  font-weight: 600;
-  font-size: 16px;
-  color: #2A2A33;
-  margin-bottom: 4px;
-  font-family: 'poppins';
+.commfranchise-name {
+  background-color: #eeeef0;
+  width: 80%;
+  border-radius: 20px;
+  color: #eeeef0;
 }
 
 .franchise-description {
@@ -71,9 +78,10 @@
 }
 
 .sites-stats {
-  font-size: 14px;
-  color: #535364;
-  width: 60%;
+  background-color: #eeeef0;
+  width: 100%;
+  border-radius: 20px;
+  color: #eeeef0;
 
 }
 
@@ -102,7 +110,7 @@
   background-color: #fff;
   border: none;
   cursor: pointer;
-  z-index: 1;
+  z-index: 0;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -133,9 +141,7 @@
   text-shadow: 0 0 0 2px white;
 }
 
-.sites-stats {
-    line-height: 26px;
-}
+
 
 .commercialSlider-container {
   display: flex;
@@ -183,7 +189,9 @@
   flex: 1;
 }
 
-
+.commercialSlider-container {
+    display: flex !important;
+  }
 
 .fixedcard-heading {
   font-size: 16px;
@@ -198,7 +206,7 @@
 
 .homeloan-card {
   border-radius: 20px !important;
-  height: 230px;
+  height: 200px;
   justify-content: center;
 }
 
@@ -230,6 +238,10 @@
   .modal-container {
     max-height: 100vh !important;
     margin: 10px !important;
+  }
+  
+  .commercialSlider-container {
+    display: none !important;
   }
 }
 

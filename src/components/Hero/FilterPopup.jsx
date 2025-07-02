@@ -13,8 +13,8 @@ export default function FilterPopup({ onClose }) {
         {/* Grid for dropdowns */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
           {[
-            "Select Listing",
-            "Select Country",
+            // "Select Listing",
+            // "Select Country",
             "Select Category",
             "Select Subcategory",
           ].map((label, index) => (

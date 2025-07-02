@@ -120,8 +120,24 @@ const Testing = () => {
   };
 
   return (
-    <div className="franchise-slider">
+    <div className="franchisecomm-slider">
       <div className="container">
+        {/* Header Section */}
+        <div className="mb-4">
+          <h2 className="buy-heading">
+            {" "}
+            Find Franchise you can afford with FranAbility℠
+          </h2>
+          <p className="subtext">
+            Answer a few questions. We'll highlight franchises you're likely to
+            qualify for.
+          </p>
+          <p className="location_enabled">
+            <CiLocationOn size={18} />
+            Populated Result Based on Location Enabled
+          </p>
+        </div>
+
         <div className="mobilefixed-card ">
           {/* Mimic Zillow BuyAbility card here */}
           <div className="card border shadow-sm p-3 text-center h-max-content homeloan-card">
@@ -162,22 +178,6 @@ const Testing = () => {
           </button>
         </div>
 
-        {/* Header Section */}
-        <div className="mb-4">
-          <h2 className="buy-heading">
-            {" "}
-            Find Franchise you can afford with FranAbility℠
-          </h2>
-          <p className="subtext">
-            Answer a few questions. We'll highlight franchises you're likely to
-            qualify for.
-          </p>
-          <p className="location_enabled">
-            <CiLocationOn size={18} />
-            Populated Result Based on Location Enabled
-          </p>
-        </div>
-
         {/* Arrows */}
         <div className="arrow-buttons">
           <button className="prev_button" onClick={prevSlide}>
@@ -188,7 +188,7 @@ const Testing = () => {
           </button>
         </div>
 
-        <div className="slider-flex-wrapper align-items-center">
+        <div className="slider-flex-wrapper align-items-center commercialSlider-container">
           {/* Fixed Card */}
           <div className="fixed-card">
             {/* Mimic Zillow BuyAbility card here */}
@@ -409,7 +409,9 @@ const Testing = () => {
                     <div className="px-4 py-2">
                       {/* Content Section */}
                       <div className="d-flex justify-content-between align-items-center">
-                        <h5 className="franchise-name ">{franchise.name}</h5>
+                        <h5 className="commfranchise-name ">
+                          {franchise.name}
+                        </h5>
                         <i class="bi bi-suit-heart"></i>
                       </div>
 
@@ -420,17 +422,24 @@ const Testing = () => {
                             <tr>
                               <td className="text-start align-middle p-0">
                                 <span className="d-inline-flex align-items-center sites-stats">
-                                  {franchise.address}
+                                  {franchise.code}
                                 </span>
                               </td>
                             </tr>
                             <tr>
+                              <td className="text-start align-middle p-0">
+                                <span className="d-inline-flex align-items-center sites-stats">
+                                  {franchise.code}
+                                </span>
+                              </td>
+                            </tr>
+                            {/* <tr>
                               <td>
                                 <span className="unique_code">
                                   FLS ID #CRE{franchise.code}
                                 </span>
                               </td>
-                            </tr>
+                            </tr> */}
                           </tbody>
                         </table>
                       </div>

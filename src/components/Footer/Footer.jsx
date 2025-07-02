@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   FaLinkedinIn,
   FaFacebookF,
@@ -23,6 +24,13 @@ const Footer = () => {
       ...prev,
       [title]: !prev[title],
     }));
+  };
+
+  const getLinkPath = (text) => {
+    const routes = {
+      "Franchise Opportunities": "Franchise-Listing/franchise-opportunities",
+    };
+    return routes[text] || "#";
   };
 
   const sections = [
@@ -111,9 +119,9 @@ const Footer = () => {
                   {sec.links.map((link, j) => {
                     if (typeof link === "string") {
                       return (
-                        <a href="#" key={j} onClick={(e) => e.preventDefault()}>
+                        <Link to={getLinkPath(link)} key={j}>
                           {link}
-                        </a>
+                        </Link>
                       );
                     } else {
                       return (

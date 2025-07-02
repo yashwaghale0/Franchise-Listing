@@ -1,0 +1,69 @@
+.sticky-scroll-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+  z-index: 9999;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+  padding: 10px 20px;
+}
+
+.sticky-scroll-header.visible {
+  transform: translateY(0);
+}
+
+.sticky-header-content {
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+  width: 1290px;
+  margin: auto;
+}
+
+.sticky-logo {
+  height: 20px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  padding: 4px 10px;
+  gap: 8px;
+  width: 100%;
+  max-width: 500px;
+  background: #fff;
+}
+
+.search-container input {
+  border: none;
+  outline: none;
+  flex: 1;
+  padding: 4px 8px;
+}
+
+.search-btn,
+.stickyfilter-btn {
+  background: none;
+  border: none;
+  color: #555;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.stickyfilter-btn {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.sticky-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}

@@ -1,8 +1,8 @@
 .franchise-slider {
   padding: 30px 40px;
   background: linear-gradient(to right,
-  #EEFFF6 0%,
-  #EEFFF6 40%,
+  #E3F7FF 0%,
+  #E3F7FF 40%,
   rgba(227, 247, 255, 0) 50%,
   rgba(255, 255, 255, 0) 50%,
   #FFFFFF 60%,
@@ -109,7 +109,7 @@
   background-color: #fff;
   border: none;
   cursor: pointer;
-  z-index: 1;
+  z-index: 0;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -174,8 +174,8 @@
     flex: 0 0 85%;
   }
   
-  .slider-container {
-    margin-top: 90px;
+  .arrow-buttons {
+    display: none !important;
   }
   
   .next-button .prev_button {

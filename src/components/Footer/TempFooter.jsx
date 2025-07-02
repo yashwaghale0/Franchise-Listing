@@ -4,7 +4,7 @@ import footer from "../../assets/images/footer.svg";
 export default function TempFooter() {
   return (
     <>
-      <div className="TempFooter-section py-4 text-center">
+      <div className="TempFooter-section pt-4 text-center">
         <img
           src={logo}
           alt="Main Header Logo m-auto"
@@ -15,7 +15,7 @@ export default function TempFooter() {
           alt="Main Header Logo m-auto"
           className="mobile-logo footer-logo"
         />
-        <p className="copyright py-2">
+        <p className="copyright py-1">
           Franchise Listings, LLC 2025 © All Rights Reserved
         </p>
       </div>

@@ -1,3 +1,4 @@
+import axios from "axios";
 import logo from "../../assets/images/fl-logo.svg";
 import { useState } from "react";
 import { FaGoogle, FaApple, FaFacebookF } from "react-icons/fa";
@@ -7,6 +8,49 @@ import full_login_bg from "../../assets/images/full_login_bg.png";
 const SignIn = () => {
   const [tab, setTab] = useState("signin");
   const [role, setRole] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [signupEmail, setSignupEmail] = useState("");
+  const [signupPassword, setSignupPassword] = useState("");
+  const [signupRole, setSignupRole] = useState("");
+
+  const handleLogin = async () => {
+    try {
+      const res = await axios.post(
+        "http://localhost:5000/api/auth/login",
+        email,
+        password
+      );
+      if (res.status === 200) {
+        // Handle successful login
+        alert("Login successful!");
+        console.log("Login successful", res.data);
+      }
+    } catch (error) {
+      console.error("Login failed", error);
+      alert("Login failed: " + (error.response?.data?.msg || "Server error"));
+      // Handle login failure
+    }
+  };
+
+  const handleSignup = async () => {
+    try {
+      const res = await axios.post("http://localhost:5000/api/auth/register", {
+        email: signupEmail,
+        password: signupPassword,
+        role: signupRole, // optional if you're storing role in DB
+      });
+
+      if (res.status === 201 || res.status === 200) {
+        alert("Signup successful!");
+        localStorage.setItem("token", res.data.token);
+        window.location.href = "/dashboard"; // or your home/dashboard route
+      }
+    } catch (error) {
+      console.error("Signup failed", error);
+      alert("Signup failed: " + (error.response?.data?.msg || "Server error"));
+    }
+  };
 
   return (
     <div className="sign-container vh-100">
@@ -30,7 +74,7 @@ const SignIn = () => {
               >
                 Sign In
               </button>
-              {/* <button
+              <button
                 onClick={() => setTab("signup")}
                 className={`flex-fill btn border-bottom sign-tabs-head ${
                   tab === "signup"
@@ -39,7 +83,7 @@ const SignIn = () => {
                 }`}
               >
                 New Account
-              </button> */}
+              </button>
             </div>
 
             {/* Form */}
@@ -50,14 +94,21 @@ const SignIn = () => {
                   type="email"
                   className="form-control mb-3"
                   placeholder="Enter email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
                 <label>Password</label>
                 <input
                   type="password"
                   className="form-control mb-3"
                   placeholder="Enter password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
-                <button className="btn btn-primary w-100 mb-3 signin-btn">
+                <button
+                  className="btn btn-primary w-100 mb-3 signin-btn"
+                  onClick={handleLogin}
+                >
                   Sign In
                 </button>
                 <div className="text-start">
@@ -70,8 +121,8 @@ const SignIn = () => {
               <div className="signup-form">
                 <label>Select Role</label>
                 <select
-                  value={role}
-                  onChange={(e) => setRole(e.target.value)}
+                  value={signupRole}
+                  onChange={(e) => setSignupRole(e.target.value)}
                   className="form-select mb-3"
                 >
                   <option value="">I am:</option>
@@ -92,12 +143,16 @@ const SignIn = () => {
                   type="email"
                   className="form-control mb-3"
                   placeholder="Enter email"
+                  value={signupEmail}
+                  onChange={(e) => setSignupEmail(e.target.value)}
                 />
                 <label>Password</label>
                 <input
                   type="password"
                   className="form-control mb-2"
                   placeholder="Create password"
+                  value={signupPassword}
+                  onChange={(e) => setSignupPassword(e.target.value)}
                 />
                 <div className="small text-muted mb-3">
                   <p>

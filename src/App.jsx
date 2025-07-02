@@ -12,6 +12,9 @@ import FreeAccount from "./components/FreeAccount/FreeAccount";
 import Footer from "./components/Footer/Footer";
 import SignIn from "./components/accounts/SignIn";
 import TempFooter from "./components/Footer/TempFooter";
+import StickyScrollHeader from "./components/Header/StickyScrollHeader";
+import SearchResults from "./components/AllProperty/SearchResults";
+import FranchiseOpportunities from "./components/AllProperty/FranchiseOppirtunities";
 
 import {
   BrowserRouter as Router,
@@ -24,6 +27,7 @@ function HomePage() {
   return (
     <>
       <Header />
+      <StickyScrollHeader />
       <Hero />
       <FranchiseSlider />
       {/* <FranchiseBrokerSlider />
@@ -46,6 +50,11 @@ function AppWrapper() {
     <Routes>
       <Route path="/franchise-listing" element={<HomePage />} />
       <Route path="/franchise-listing/sign-in" element={<SignIn />} />
+      <Route path="/search" element={<SearchResults />} />
+      <Route
+        path="/franchise-listing/franchise-Opportunities"
+        element={<FranchiseOpportunities />}
+      />
     </Routes>
   );
 }
