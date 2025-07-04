@@ -1,9 +1,6 @@
 import axios from "axios";
-import logo from "../../assets/images/fl-logo.svg";
 import { useState } from "react";
-import { FaGoogle, FaApple, FaFacebookF } from "react-icons/fa";
 import "./SignIn.css";
-import full_login_bg from "../../assets/images/full_login_bg.png";
 
 const SignIn = () => {
   const [tab, setTab] = useState("signin");
