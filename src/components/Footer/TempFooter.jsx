@@ -5,15 +5,15 @@ export default function TempFooter() {
   return (
     <>
       <div className="TempFooter-section pt-4 text-center">
-        <img
+        {/* <img
           src={logo}
           alt="Main Header Logo m-auto"
           className="main-Logo footer-logo"
-        />
+        /> */}
         <img
           src={footer}
           alt="Main Header Logo m-auto"
-          className="mobile-logo footer-logo"
+          className=" footer-logo"
         />
         <p className="copyright py-1">
           Franchise Listings, LLC 2025 © All Rights Reserved

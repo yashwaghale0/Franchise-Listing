@@ -4,6 +4,6 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: "/franchise_list/",
   plugins: [react(), tailwindcss()],
-  base: "/franchise-listing/",
 });

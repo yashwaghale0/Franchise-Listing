@@ -30,7 +30,7 @@ const PropertyListing = ({ query }) => {
 
   return (
     <div className="property-listing-wrapper">
-      <div className="grid">
+      <div className="grid col-sm-12">
         {currentItems.map((item) => (
           <PropertyCard key={item.id} data={item} />
         ))}

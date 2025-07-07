@@ -209,10 +209,15 @@ const FranchiseSlider = () => {
 
         {/* Browse Button */}
         <div className="text-center Browse_section">
-          <button className="browse-button">
-            Browse Franchise Opportunities
-            <i className="bi bi-arrow-right right-arrow"></i>
-          </button>
+          <a
+            href="/franchise_list/franchise-Opportunities"
+            className="text-decoration-none"
+          >
+            <button className="browse-button">
+              Browse Franchise Opportunities
+              <i className="bi bi-arrow-right right-arrow"></i>
+            </button>
+          </a>
         </div>
       </div>
     </div>

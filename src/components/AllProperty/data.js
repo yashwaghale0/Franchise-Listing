@@ -1,4 +1,15 @@
-import pickUp from "../../assets/images/pick-location.png";
+import Acaibanner from "../../assets/images/Acai-Banner.jpg";
+import BREEZEMEDBANNER from "../../assets/images/BREEZEMED-BANNER.png";
+import BuenaBanner from "../../assets/images/Buena-Banner.jpg";
+import GyromaniaBanner from "../../assets/images/Gyromania-Banner.jpg";
+import KraveBanner from "../../assets/images/Krave-Banner.jpg";
+import LittleBanner from "../../assets/images/Little-Banner.png";
+import RoofBanner from "../../assets/images/Roof-Banner.jpg";
+import WorldBanner from "../../assets/images/World-Banner.jpg";
+import TrueBanner from "../../assets/images/True-Banner.jpg";
+import TinaBanner from "../../assets/images/Tina-Banner.png";
+import TacoBanner from "../../assets/images/Taco-Banner.jpg";
+import SugaringBanner from "../../assets/images/Sugaring-Banner.jpg";
 
 const data = [
   {
@@ -10,7 +21,7 @@ const data = [
     date: "01.15.2023",
     returns: "7%",
     units: 5,
-    image: pickUp,
+    image: TrueBanner,
     code: "OPP0000001",
   },
   {
@@ -22,7 +33,7 @@ const data = [
     date: "01.15.2023",
     returns: "5%",
     units: 2,
-    image: pickUp, // replace if needed
+    image: TacoBanner, // replace if needed
     code: "OPP0000002",
   },
   {
@@ -34,7 +45,7 @@ const data = [
     date: "01.15.2023",
     returns: "5.5%",
     units: 10,
-    image: pickUp,
+    image: TinaBanner,
     code: "OPP0000003",
   },
   {
@@ -46,7 +57,7 @@ const data = [
     date: "01.15.2023",
     returns: "6%",
     units: 5,
-    image: pickUp,
+    image: KraveBanner,
     code: "OPP0000004",
   },
   {
@@ -58,7 +69,7 @@ const data = [
     date: "01.15.2023",
     returns: "6%",
     units: 7,
-    image: pickUp,
+    image: Acaibanner,
     code: "OPP0000005",
   },
   {
@@ -70,7 +81,7 @@ const data = [
     date: "01.15.2023",
     returns: "5.5%",
     units: 3,
-    image: pickUp,
+    image: BREEZEMEDBANNER,
     code: "OPP0000006",
   },
   {
@@ -82,7 +93,7 @@ const data = [
     date: "01.15.2023",
     returns: "6%",
     units: 2,
-    image: pickUp,
+    image: BuenaBanner,
     code: "OPP0000007",
   },
   {
@@ -94,7 +105,7 @@ const data = [
     date: "01.15.2023",
     returns: "6%",
     units: 2,
-    image: pickUp,
+    image: GyromaniaBanner,
     code: "OPP0000008",
   },
   {
@@ -106,7 +117,7 @@ const data = [
     date: "01.15.2023",
     returns: "6%",
     units: 12,
-    image: pickUp,
+    image: LittleBanner,
     code: "OPP0000009",
   },
   {
@@ -118,7 +129,7 @@ const data = [
     date: "01.15.2023",
     returns: "7%",
     units: 0,
-    image: pickUp,
+    image: RoofBanner,
     code: "OPP0000010",
   },
   {
@@ -130,7 +141,7 @@ const data = [
     date: "01.15.2023",
     returns: "5%",
     units: 124,
-    image: pickUp,
+    image: SugaringBanner,
     code: "OPP0000011",
   },
   {
@@ -142,7 +153,7 @@ const data = [
     date: "01.15.2023",
     returns: "8%",
     units: 8,
-    image: pickUp,
+    image: WorldBanner,
     code: "OPP0000012",
   },
 ];

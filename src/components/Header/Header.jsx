@@ -16,9 +16,9 @@ export default function Header() {
   const [submenuOpen, setSubmenuOpen] = useState(null);
   const navigate = useNavigate();
 
-  const handleSignIn = () => {
-    navigate("/franchise-listing/sign-in");
-  };
+  // const handleSignIn = () => {
+  //   navigate("/franchise-listing/sign-in");
+  // };
 
   const toggleSubmenu = (menu) => {
     setSubmenuOpen(submenuOpen === menu ? null : menu);
@@ -36,6 +36,7 @@ export default function Header() {
           </span>
 
           <img src={logo} alt="Main Header Logo" className="main-Logo" />
+
           <img
             src={mobileLogo}
             alt="Main Header Logo"
@@ -43,21 +44,25 @@ export default function Header() {
           />
 
           <div className="d-flex gap-10">
-            <button
-              className="btn d-flex align-items-center gap-2 sign_in"
-              onClick={handleSignIn}
+            <a
+              href="https://dev.franchiselistings.com/franchise_admin/login"
+              style={{ textDecoration: "none" }}
             >
-              <PiSignInLight />
-              Sign In
-            </button>
+              <button className="btn d-flex align-items-center gap-2 sign_in">
+                <PiSignInLight />
+                Sign In
+              </button>
+            </a>
 
-            {/* <button
-              className="btn d-flex align-items-center gap-2 create_account"
-              onClick={handleSignIn}
+            <a
+              href="https://dev.franchiselistings.com/franchise_admin/login"
+              style={{ textDecoration: "none" }}
             >
-              <CiUser />
-              Create Account
-            </button> */}
+              <button className="btn d-flex align-items-center gap-2 create_account">
+                <CiUser />
+                Create Account
+              </button>
+            </a>
           </div>
         </div>
 
@@ -234,12 +239,9 @@ export default function Header() {
                 )}
               </div>
               <div className="text-center mt-4 sidebar-signin">
-                <button
-                  className="sign_in mobile-signin"
-                  onClick={handleSignIn}
-                >
-                  Sign in
-                </button>
+                <a href="https://dev.franchiselistings.com/franchise_admin/login">
+                  <button className="sign_in mobile-signin">Sign in</button>
+                </a>
               </div>
             </div>
           </div>

@@ -10,7 +10,7 @@ const PropertyCard = ({ data }) => {
       <div className="searchfranchise-card">
         <div className="card h-100 border-0 shadow-sm">
           <div className="card-body p-2">
-            <div className="text-center mb-3 ">
+            <div className="text-center mb-3 image-container">
               <img
                 src={data.image}
                 alt={data.title}

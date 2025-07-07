@@ -16,12 +16,7 @@ import StickyScrollHeader from "./components/Header/StickyScrollHeader";
 import SearchResults from "./components/AllProperty/SearchResults";
 import FranchiseOpportunities from "./components/AllProperty/FranchiseOppirtunities";
 
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useLocation,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 function HomePage() {
   return (
@@ -43,27 +38,19 @@ function HomePage() {
   );
 }
 
-function AppWrapper() {
-  const location = useLocation();
-
-  return (
-    <Routes>
-      <Route path="/franchise-listing" element={<HomePage />} />
-      <Route path="/franchise-listing/sign-in" element={<SignIn />} />
-      <Route path="/search" element={<SearchResults />} />
-      <Route
-        path="/franchise-listing/franchise-Opportunities"
-        element={<FranchiseOpportunities />}
-      />
-    </Routes>
-  );
-}
-
 function App() {
   return (
-    <Router>
-      <AppWrapper />
-    </Router>
+    <BrowserRouter basename="/franchise_list">
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/search" element={<SearchResults />} />
+        <Route
+          path="/franchise-Opportunities"
+          element={<FranchiseOpportunities />}
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

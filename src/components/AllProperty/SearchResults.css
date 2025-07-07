@@ -82,3 +82,24 @@
     /* box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 15px; */
     border-radius: 12px !important;
 }
+
+.image-container {
+  height: 185px;
+    object-fit: cover;
+    overflow: hidden;
+    justify-content: center;
+    display: flex;
+}
+
+@media (max-width: 567px) {
+  .grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr) !important; /* Fixed 4 columns */
+  gap: 20px;
+  
+}
+
+.franchise-opportunities {
+  width: 90%;
+}
+}

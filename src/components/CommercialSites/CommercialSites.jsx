@@ -179,14 +179,14 @@ const Testing = () => {
         </div>
 
         {/* Arrows */}
-        <div className="arrow-buttons">
+        {/* <div className="arrow-buttons">
           <button className="prev_button" onClick={prevSlide}>
             <IoChevronBackOutline />
           </button>
           <button className="next-button" onClick={nextSlide}>
             <IoChevronForwardOutline />
           </button>
-        </div>
+        </div> */}
 
         <div className="slider-flex-wrapper align-items-center commercialSlider-container">
           {/* Fixed Card */}
