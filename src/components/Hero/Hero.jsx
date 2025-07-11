@@ -1,11 +1,31 @@
 import { useState } from "react";
 import { BsSliders } from "react-icons/bs";
-import FilterPopup from "./FilterPopup"; // import this
-import "./Hero.css"; // import your CSS file
+import FilterPopup from "./FilterPopup";
+import "./Hero.css";
 import { IoSearch } from "react-icons/io5";
 
 export default function Hero() {
   const [showFilter, setShowFilter] = useState(false);
+  const [filters, setFilters] = useState({
+    category: "",
+    subcategory: "",
+    range: 0,
+  });
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleApplyFilters = (appliedFilters) => {
+    setFilters(appliedFilters);
+    setShowFilter(false);
+
+    // 👉 You can log or send the filter values to a parent or backend
+    console.log("Applied Filters:", appliedFilters);
+  };
+
+  const handleSearch = () => {
+    console.log("Search Term:", searchTerm);
+    console.log("With Filters:", filters);
+    // You can trigger your search/filtering logic here
+  };
 
   return (
     <div className="hero_section relative">
@@ -26,15 +46,26 @@ export default function Hero() {
         <span className="hero-searchbar d-flex align-items-center justify-content-between">
           <input
             type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Search for Franchise Opportunities, Locations, Etc..."
             className="w-100 outline-0"
           />
-          <IoSearch size={20} />
+          <IoSearch
+            size={20}
+            onClick={handleSearch}
+            style={{ cursor: "pointer" }}
+          />
         </span>
       </div>
 
-      {/* Popup */}
-      {showFilter && <FilterPopup onClose={() => setShowFilter(false)} />}
+      {/* Filter Popup */}
+      {showFilter && (
+        <FilterPopup
+          onClose={() => setShowFilter(false)}
+          onApplyFilters={handleApplyFilters}
+        />
+      )}
     </div>
   );
 }

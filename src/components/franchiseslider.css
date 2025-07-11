@@ -25,6 +25,28 @@
   font-family: 'Inter';
 }
 
+.franchisecard-name {
+  font-weight: 600;
+  font-size: 20px;
+  color: #2A2A33;
+  margin-bottom: 8px;
+  font-family: 'poppins';
+  width: 60%;
+  margin: auto;
+}
+
+.See-more-btn {
+  border: 1px solid transparent;
+  border-radius: 12px; /* optional */
+  background-image: linear-gradient(white, white), linear-gradient(to right, #00DB62, #0DA2FF);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  padding: 10px 20px;
+  width: 80%;
+  margin: auto;
+  color: #535364;
+  text-decoration: none;
+}
 
 
 .franchise-name {
@@ -164,7 +186,7 @@
 @media (max-width: 567px) {
   
   .franchise-slider {
-    padding: 30px 10px !important
+    padding: 20px 10px !important
   }
   
 }

@@ -1,37 +1,35 @@
 import { FaMoneyBillWave, FaCalendarAlt } from "react-icons/fa";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { TbCirclePercentage } from "react-icons/tb";
-import { IoChevronBackOutline } from "react-icons/io5";
-import { IoChevronForwardOutline } from "react-icons/io5";
 
 const PropertyCard = ({ data }) => {
+  const { title, description, image, price, date, returns, units } = data;
+
   return (
     <div className="property-card">
       <div className="searchfranchise-card">
         <div className="card h-100 border-0 shadow-sm">
           <div className="card-body p-2">
-            <div className="text-center mb-3 image-container">
-              <img
-                src={data.image}
-                alt={data.title}
-                className="img-fluid image-card"
-              />
+            <div className="text-center mb-0 image-container">
+              <img src={image} alt={title} className="img-fluid image-card" />
             </div>
-            <h5 className="franchise-name">{data.title}</h5>
-            <p className="franchise-description mb-0">{data.description}</p>
+            <h5 className="franchise-name">{title}</h5>
+            <p className="franchise-description mb-0 line-clamp-2">
+              {description}
+            </p>
             <table className="table franchise-meta table-borderless mb-0">
               <tbody>
                 <tr>
                   <td>
                     <span className="stats-content">
                       <FaMoneyBillWave className="me-2" />
-                      {data.price}
+                      {price}
                     </span>
                   </td>
                   <td>
                     <span className="stats-content">
                       <FaCalendarAlt className="me-2" />
-                      {data.date}
+                      {date}
                     </span>
                   </td>
                 </tr>
@@ -39,23 +37,16 @@ const PropertyCard = ({ data }) => {
                   <td>
                     <span className="stats-content">
                       <TbCirclePercentage className="me-2" />
-                      {data.returns}
+                      {returns}
                     </span>
                   </td>
                   <td>
                     <span className="stats-content">
                       <MdOutlineLocationOn className="me-2" />
-                      {data.units}
+                      {units}
                     </span>
                   </td>
                 </tr>
-                {/* <tr>
-                  <td>
-                    <span className="unique_code">
-                      FLS ID #OPPO{franchise.code}
-                    </span>
-                  </td>
-                </tr> */}
               </tbody>
             </table>
           </div>

@@ -9,6 +9,22 @@
     gap: 10px;
 }
 
+.create_account:hover {
+  background: linear-gradient(to right, #00DB62, #0DA2FF);
+  color: #fff !important;
+  border: 1px solid #fff !important;
+}
+
+.sign_in:hover {
+  border: 1px solid transparent;
+  border-radius: 12px; /* optional */
+  background-image: linear-gradient(white, white), linear-gradient(to right, #00DB62, #0DA2FF);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+
+
 .create_account {
     border: 1px solid #4B5563 !important;
     border-radius: 6px !important;

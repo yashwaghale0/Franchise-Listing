@@ -336,6 +336,11 @@
   .Browse_section {
     text-align: left !important;
     margin-top: 10px;
+    margin: 20px 0px !important;
+  }
+  
+  .browse-button {
+    padding: 8px 24px !important;
   }
   
   .slick-track {

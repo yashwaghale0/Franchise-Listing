@@ -218,13 +218,13 @@ const Footer = () => {
                 className="mobile-logo"
               />
               <div className="social-icons ">
-                <a href="#">
+                <a href="https://www.linkedin.com/company/franchiselistings/">
                   <FaLinkedinIn />
                 </a>
-                <a href="#">
+                <a href="https://www.facebook.com/franchiselistings">
                   <FaFacebookF />
                 </a>
-                <a href="#">
+                <a href="https://www.instagram.com/franchiselistings">
                   <FaInstagram />
                 </a>
                 <a href="#">

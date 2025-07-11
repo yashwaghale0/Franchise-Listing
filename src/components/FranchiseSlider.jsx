@@ -91,6 +91,13 @@ const FranchiseSlider = () => {
       units: "200 units",
       code: "000002568",
     },
+    {
+      id: "explore",
+      logo: snapology,
+      name: "Discover Other Franchises",
+      link: "/franchise_list/franchise-Opportunities",
+      isExploreCard: true,
+    },
   ];
 
   const rightScrollByAmount = () => {
@@ -147,64 +154,93 @@ const FranchiseSlider = () => {
 
         {/* Scrollable Cards */}
         <div className="slider-container" ref={sliderRef}>
-          {franchiseData.map((franchise) => (
-            <div key={franchise.id} className="franchise-card">
-              <div className="card h-100 border-0 shadow-sm">
-                <div className="card-body p-2">
-                  <div className="text-center mb-3 card-image">
-                    <img
-                      src={franchise.logo}
-                      alt={franchise.name}
-                      className="img-fluid image-card"
-                    />
+          {franchiseData.map((franchise) => {
+            if (franchise.isExploreCard) {
+              return (
+                <div key={franchise.id} className="franchise-card">
+                  <div className="card h-100 border-0 shadow-sm text-center p-4 d-flex flex-column justify-content-between">
+                    <div className="mb-3 d-flex justify-content-center">
+                      <img
+                        src={franchise.logo}
+                        alt="Explore Logo"
+                        className="img-fluid"
+                        style={{
+                          width: 50,
+                          height: 50,
+                          objectFit: "contain",
+                          borderRadius: "50%",
+                        }}
+                      />
+                    </div>
+                    <h3 className="franchisecard-name">{franchise.name}</h3>
+                    <a href={franchise.link} className="See-more-btn">
+                      See more <span className="text-success fs-20">→</span>
+                    </a>
                   </div>
-                  <h5 className="franchise-name">{franchise.name}</h5>
-                  <p className="franchise-description mb-0">
-                    {franchise.description}
-                  </p>
-                  <table className="table franchise-meta table-borderless mb-0">
-                    <tbody>
-                      <tr>
-                        <td>
-                          <span className="stats-content">
-                            <FaMoneyBillWave className="me-2" />
-                            {franchise.price}
-                          </span>
-                        </td>
-                        <td>
-                          <span className="stats-content">
-                            <FaCalendarAlt className="me-2" />
-                            {franchise.year}
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <span className="stats-content">
-                            <TbCirclePercentage className="me-2" />
-                            {franchise.roi}
-                          </span>
-                        </td>
-                        <td>
-                          <span className="stats-content">
-                            <MdOutlineLocationOn className="me-2" />
-                            {franchise.units}
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <span className="unique_code">
-                            FLS ID #OPPO{franchise.code}
-                          </span>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                </div>
+              );
+            }
+
+            // 👉 Regular franchise card
+            return (
+              <div key={franchise.id} className="franchise-card">
+                <div className="card h-100 border-0 shadow-sm">
+                  <div className="card-body p-2">
+                    <div className="text-center mb-3 card-image">
+                      <img
+                        src={franchise.logo}
+                        alt={franchise.name}
+                        className="img-fluid image-card"
+                      />
+                    </div>
+                    <h5 className="franchise-name">{franchise.name}</h5>
+                    <p className="franchise-description mb-0">
+                      {franchise.description}
+                    </p>
+                    <table className="table franchise-meta table-borderless mb-0">
+                      <tbody>
+                        <tr>
+                          <td>
+                            <span className="stats-content">
+                              <FaMoneyBillWave className="me-2" />
+                              {franchise.price}
+                            </span>
+                          </td>
+                          <td>
+                            <span className="stats-content">
+                              <FaCalendarAlt className="me-2" />
+                              {franchise.year}
+                            </span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <span className="stats-content">
+                              <TbCirclePercentage className="me-2" />
+                              {franchise.roi}
+                            </span>
+                          </td>
+                          <td>
+                            <span className="stats-content">
+                              <MdOutlineLocationOn className="me-2" />
+                              {franchise.units}
+                            </span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <span className="unique_code">
+                              FLS ID #OPPO{franchise.code}
+                            </span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Browse Button */}
