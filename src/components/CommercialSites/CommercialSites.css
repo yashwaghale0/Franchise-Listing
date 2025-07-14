@@ -149,6 +149,7 @@
   overflow-x: auto;
   scroll-behavior: smooth;
   flex: 1;
+  margin-top: 10px;
 }
 
 .franchisecomm-card {
@@ -171,7 +172,7 @@
 .fixed-card {
   flex: 0 0 345px; /* Adjust width to your fixed card design */
   min-width: 300px;
-  margin-top: 30px;
+  /* margin-top: 30px; */
 }
 
 .mobilefixed-card {
@@ -242,6 +243,10 @@
   
   .commercialSlider-container {
     display: none !important;
+  }
+  
+  .franchisecomm-slider .container {
+    padding: 0px !important;
   }
 }
 

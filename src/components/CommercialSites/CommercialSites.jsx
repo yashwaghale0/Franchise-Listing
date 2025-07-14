@@ -123,7 +123,7 @@ const Testing = () => {
     <div className="franchisecomm-slider">
       <div className="container">
         {/* Header Section */}
-        <div className="mb-4">
+        <div className="mb-0">
           <h2 className="buy-heading">
             {" "}
             Find Franchise you can afford with FranAbility℠

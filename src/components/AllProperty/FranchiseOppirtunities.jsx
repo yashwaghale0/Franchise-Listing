@@ -3,6 +3,7 @@ import PropertyListing from "../AllProperty/PropertyListing";
 import { BsSliders } from "react-icons/bs";
 import { IoSearch } from "react-icons/io5";
 import Footer from "../Footer/Footer";
+import TempFooter from "../Footer/TempFooter";
 import Header from "../Header/Header";
 import "./SearchResults.css";
 import FilterPopup from "../Hero/FilterPopup";
@@ -40,7 +41,7 @@ const FranchiseOpportunities = () => {
 
         <PropertyListing query={query} />
       </div>
-      <Footer />
+      <TempFooter />
     </>
   );
 };

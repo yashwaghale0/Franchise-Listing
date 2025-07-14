@@ -15,7 +15,10 @@ const PropertyListing = ({ query }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/opportunities");
+        const res = await axios.get(
+          "https://dev.franchiselistings.com/franchise_backend/api/opportunities"
+        );
+        // const res = await axios.get("http://localhost:5000/api/opportunities");
         const formatted = res.data.map((item) => ({
           id: item._id,
           title: item.brandName || "No Title",

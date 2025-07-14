@@ -36,7 +36,7 @@ export default function FilterPopup({ onClose, onApplyFilters }) {
   };
 
   return (
-    <div className="absolute top-[280px] left-1/2 transform -translate-x-1/2 z-50 w-full max-w-4xl px-4 FilterPopup">
+    <div className="absolute top-[245px] left-1/2 transform -translate-x-1/2 z-50 w-full max-w-4xl px-4 FilterPopup">
       <div className="bg-white rounded-2xl p-6 shadow-xl border">
         <h4 className="font-semibold mb-6 text-start apply_filter">
           Apply Filters
