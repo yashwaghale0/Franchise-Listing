@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function FilterPopup({ onClose, onApplyFilters }) {
   const [range, setRange] = useState(0);
@@ -33,6 +33,23 @@ export default function FilterPopup({ onClose, onApplyFilters }) {
     setRange(0);
     onApplyFilters({ category: "", subcategory: "", range: 0 });
     onClose();
+  };
+
+  useEffect(() => {
+    const input = document.getElementById("rangeSlider");
+    if (input) {
+      updateSliderBackground(input);
+    }
+  }, []);
+
+  const updateSliderBackground = (input) => {
+    const min = parseInt(input.min);
+    const max = parseInt(input.max);
+    const val = parseInt(input.value);
+
+    const percentage = ((val - min) / (max - min)) * 100;
+
+    input.style.background = `linear-gradient(to right, #00db75 0%, #00b4db ${percentage}%, #ddd ${percentage}%)`;
   };
 
   return (
@@ -89,21 +106,21 @@ export default function FilterPopup({ onClose, onApplyFilters }) {
             max={999}
             step={100}
             value={range}
-            onChange={(e) => setRange(e.target.value)}
+            onChange={(e) => {
+              setRange(e.target.value);
+              updateSliderBackground(e.target);
+            }} // Add this line}
             className="w-full price-range"
           />
         </div>
 
-        <div className="flex justify-end gap-4">
-          <button
-            onClick={handleClear}
-            className="border border-gray-300 px-3 py-2 rounded hover:bg-gray-100"
-          >
+        <div className="flex justify-end gap-3">
+          <button onClick={handleClear} className=" clear-all-btn">
             Clear All
           </button>
           <button
             onClick={handleApply}
-            className="Applyfilter-btn text-white px-3 py-2 rounded hover:bg-blue-700"
+            className="Applyfilter-btn  apply-filter-btn"
           >
             Apply
           </button>

@@ -182,3 +182,11 @@
   }
   
 }
+
+.TempFooter-section {
+  border-top: 0px solid transparent;
+  background-image: linear-gradient(to right, #000B82, #0DA2FF, #00DB62); /* purple → blue → green */
+  background-size: 100% 6px;
+  background-repeat: no-repeat;
+  background-position: top;
+}

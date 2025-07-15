@@ -3,6 +3,7 @@ import pickUp from "../assets/images/pickup.svg";
 import anchord from "../assets/images/anchored.svg";
 import snapology from "../assets/images/snapology.svg";
 import jam from "../assets/Jamba.svg";
+import Discover from "../assets/images/Discover-image.jpeg";
 import "./franchiseslider.css";
 import { CiLocationOn } from "react-icons/ci";
 import { FaMoneyBillWave, FaCalendarAlt } from "react-icons/fa";
@@ -93,7 +94,7 @@ const FranchiseSlider = () => {
     },
     {
       id: "explore",
-      logo: snapology,
+      logo: Discover,
       name: "Discover Other Franchises",
       link: "/franchise_list/franchise-Opportunities",
       isExploreCard: true,
@@ -165,10 +166,9 @@ const FranchiseSlider = () => {
                         alt="Explore Logo"
                         className="img-fluid"
                         style={{
-                          width: 50,
-                          height: 50,
                           objectFit: "contain",
                           borderRadius: "50%",
+                          width: "70%",
                         }}
                       />
                     </div>

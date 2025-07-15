@@ -43,7 +43,7 @@ export default function Header() {
             className="mobile-logo"
           />
 
-          <div className="d-flex gap-13">
+          <div className="d-flex signin-btns">
             <a
               href="https://dev.franchiselistings.com/franchise_admin/login"
               style={{ textDecoration: "none" }}

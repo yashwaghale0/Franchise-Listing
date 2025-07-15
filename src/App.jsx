@@ -15,7 +15,7 @@ import TempFooter from "./components/Footer/TempFooter";
 import StickyScrollHeader from "./components/Header/StickyScrollHeader";
 import SearchResults from "./components/AllProperty/SearchResults";
 import FranchiseOpportunities from "./components/AllProperty/FranchiseOppirtunities";
-
+import FranchiseDetail from "./components/AllProperty/FranchiseDetail";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 function HomePage() {
@@ -49,6 +49,7 @@ function App() {
           path="/franchise-Opportunities"
           element={<FranchiseOpportunities />}
         />
+        <Route path="/franchise/:id" element={<FranchiseDetail />} />
       </Routes>
     </BrowserRouter>
   );

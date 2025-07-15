@@ -91,6 +91,129 @@
     display: flex;
 }
 
+.franchise-category {
+  padding: 4px 20px;
+  color: #6D758F;
+  border: 1px solid #6D758F;
+  font-size: 14px;
+  border-radius: 20px;
+}
+
+.franchise-folloers span {
+  font-size: 20px;
+  color: #535364;
+}
+
+.franchise-folloers span strong {
+  color: #000;
+}
+
+.bg-gradients {
+  display: flex;
+  padding: 4px 15px;
+  background: linear-gradient(90deg, #00DB62, #0DA2FF);
+  color: #fff;
+  gap: 4px;
+  align-items: center;
+  font-size: 14px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.send-request-btn {
+  padding: 8px 15px;
+  background: linear-gradient(90deg, #00DB62, #0DA2FF);
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.message-gradients {
+  display: flex;
+  padding: 4px 15px;
+  /* background: linear-gradient(90deg, #00DB62, #0DA2FF); */
+  background-color: #0DA2FF;
+  color: #fff;
+  gap: 4px;
+  align-items: center;
+  font-size: 14px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.links-gradients {
+   display: flex;
+  padding: 4px 15px;
+  background-color: #E1E9EE;
+  color: #535364;
+  gap: 4px;
+  align-items: center;
+  font-size: 14px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.franchise-details-tabs {
+  padding: 4px 20px;
+  border: 1px solid #CFEDFF;
+  border-radius: 30px;
+  font-size: 14px;
+  color: #6D758F;
+  font-weight: 500;
+}
+
+.button-tabs .active {
+  background-color: #CFEDFF;
+  border: 1px solid #CFEDFF;
+}
+
+.franchise-about-head {
+  font-size: 26px;
+  color: #2A2A33;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.franchise-deatils-description {
+  font-size: 16px;
+  color: #2A2A33;
+  font-weight: 400;
+}
+
+.label-heading {
+  font-size: 14px !important;
+  color: #2A2A33 !important;
+  font-weight: 700 !important;
+  margin-bottom: 4px !important;
+}
+
+.details-form-heading {
+  background-color: #000B82;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 20px 20px 0px 0px !important;
+}
+
+.franchise-details-sidebar {
+  border-radius: 20px !important;
+}
+
+.franchise-details-form input {
+  border: 1px solid #CDCDD3;
+  font-size: 14px;
+  color: #898989;
+  padding: 14px 12px;
+}
+
+.fs-14 {
+  font-size: 14px !important;
+}
+
 @media (max-width: 567px) {
   .grid {
   display: grid;

@@ -37,7 +37,7 @@
     padding: 10px !important;
     color: #2A2A33;
     font-family: 'Inter';
-    font-size: 14px;
+    font-size: 18px;
     border: 3px solid #fff;
     border-radius: 10px !important;
 }
@@ -48,7 +48,7 @@
 
 .hero-searchbar {
     width: 650px;
-    font-size: 14px;
+    font-size: 18px;
     color: #2A2A33;
     font-family: 'Inter';
     border-radius: 10px;
@@ -133,14 +133,44 @@
 .price-range {
     
     background: white;
-  border: 2px solid #00DB62;
+    color: #535364;
   cursor: pointer;
 }
 
+.clear-all-btn {
+    border: 1px solid #6D758F;
+    color: #6D758F;
+    font-size: 14px;
+    padding: 6px 20px;
+    border-radius: 8px;
+}
 
+.apply-filter-btn {
+    font-size: 14px;
+    padding: 6px 15px;
+    border-radius: 8px;
+    background-color: #0DA2FF;
+    color: #fff;
+}
 
+.price-range {
+  -webkit-appearance: none;
+  height: 8px;
+  border-radius: 5px;
+  background: linear-gradient(to right, #00db75 0%, #00b4db 0%, #ddd 0%);
+  outline: none;
+  transition: background 450ms ease-in;
+}
 
-
-
+.price-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #00db75;
+  cursor: pointer;
+  
+}
 
 
