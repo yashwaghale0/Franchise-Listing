@@ -30,7 +30,7 @@ const FranchiseDetail = () => {
     const fetchFranchise = async () => {
       try {
         const res = await axios.get(
-          "https://dev.franchiselistings.com/franchise_backend/api/opportunities"
+          `https://dev.franchiselistings.com/franchise_backend/api/opportunities/${id}`
         );
         // const res = await axios.get(
         //   `http://localhost:5000/api/opportunities/${id}`
@@ -47,7 +47,7 @@ const FranchiseDetail = () => {
     fetchFranchise();
   }, [id]);
 
-  if (loading) return <p className="text-center">Loading...132345</p>;
+  if (loading) return <p className="text-center">Loading...</p>;
   if (!franchise) return <p className="text-center">Franchise not found.</p>;
 
   return (
