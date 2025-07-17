@@ -1,4 +1,6 @@
+import axios from "axios";
 import React, { useRef, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import pickUp from "../assets/images/pickup.svg";
 import anchord from "../assets/images/anchored.svg";
 import snapology from "../assets/images/snapology.svg";
@@ -15,6 +17,7 @@ import { IoChevronForwardOutline } from "react-icons/io5";
 const FranchiseSlider = () => {
   const sliderRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [franchiseData, setFranchiseData] = useState([]);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -25,81 +28,124 @@ const FranchiseSlider = () => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  const franchiseData = [
-    {
-      id: 1,
-      logo: pickUp,
-      name: "PickUp USA Basketball",
-      description: "PickUp USA is known for our world-class facilities",
-      price: "$500,000",
-      year: "2023",
-      roi: "6%",
-      units: "50 units",
-      code: "0000002023",
-    },
-    {
-      id: 2,
-      logo: snapology,
-      name: "Snapology",
-      description: "At Snapology, we believe learning should be fun.",
-      price: "$200,000",
-      year: "2023",
-      roi: "6%",
-      units: "20 units",
-      code: "00002565",
-    },
-    {
-      id: 3,
-      logo: anchord,
-      name: "Anchored Tiny Homes",
-      description: "Anchored Tiny Homes was a Sacramento-area...",
-      price: "$700,000",
-      year: "2023",
-      roi: "6%",
-      units: "30 units",
-      code: "00002565",
-    },
-    {
-      id: 4,
-      logo: jam,
-      name: "Jamba",
-      description: "Founded in the seaside town",
-      price: "$600,000",
-      year: "2023",
-      roi: "6%",
-      units: "40 units",
-      code: "000002568",
-    },
-    {
-      id: 5,
-      logo: anchord,
-      name: "Subway",
-      description: "World famous sandwich franchise",
-      price: "$300,000",
-      year: "2023",
-      roi: "8%",
-      units: "100 units",
-      code: "00002565",
-    },
-    {
-      id: 6,
-      logo: snapology,
-      name: "McDonald's",
-      description: "Leading fast food franchise globally",
-      price: "$1,500,000",
-      year: "2023",
-      roi: "10%",
-      units: "200 units",
-      code: "000002568",
-    },
-    {
-      id: "explore",
-      logo: Discover,
-      name: "Discover Other Franchises",
-      link: "/franchise_list/franchise-Opportunities",
-      isExploreCard: true,
-    },
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(
+          "https://dev.franchiselistings.com/franchise_backend/api/opportunities"
+        );
+
+        // const res = await axios.get("http://localhost:5000/api/opportunities");
+
+        const formatted = res.data.slice(0, 7).map((item, index) => ({
+          id: item._id || index,
+          logo: item.brandLogo || "/placeholder.jpg",
+          name: item.brandName || "No Title",
+          description: item.aboutUs || "No Description",
+          price: `$${item.investmentLow || 0}`,
+          year: item.foundedDate
+            ? new Date(item.foundedDate).getFullYear()
+            : "N/A",
+          roi: item.royaltyFee || "N/A",
+          units: item.franchiseLocations
+            ? `${item.franchiseLocations} Units`
+            : "N/A",
+          code: item._id?.slice(-6) || "000000",
+        }));
+
+        // Append the static Explore card
+        const exploreCard = {
+          id: "explore",
+          logo: Discover,
+          name: "Discover Other Franchises",
+          link: "/franchise_list/franchise-Opportunities",
+          isExploreCard: true,
+        };
+
+        setFranchiseData([...formatted, exploreCard]);
+      } catch (err) {
+        console.error("Error fetching data:", err);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  // const franchiseData = [
+  //   {
+  //     id: 1,
+  //     logo: pickUp,
+  //     name: "PickUp USA Basketball",
+  //     description: "PickUp USA is known for our world-class facilities",
+  //     price: "$500,000",
+  //     year: "2023",
+  //     roi: "6%",
+  //     units: "50 units",
+  //     code: "0000002023",
+  //   },
+  //   {
+  //     id: 2,
+  //     logo: snapology,
+  //     name: "Snapology",
+  //     description: "At Snapology, we believe learning should be fun.",
+  //     price: "$200,000",
+  //     year: "2023",
+  //     roi: "6%",
+  //     units: "20 units",
+  //     code: "00002565",
+  //   },
+  //   {
+  //     id: 3,
+  //     logo: anchord,
+  //     name: "Anchored Tiny Homes",
+  //     description: "Anchored Tiny Homes was a Sacramento-area...",
+  //     price: "$700,000",
+  //     year: "2023",
+  //     roi: "6%",
+  //     units: "30 units",
+  //     code: "00002565",
+  //   },
+  //   {
+  //     id: 4,
+  //     logo: jam,
+  //     name: "Jamba",
+  //     description: "Founded in the seaside town",
+  //     price: "$600,000",
+  //     year: "2023",
+  //     roi: "6%",
+  //     units: "40 units",
+  //     code: "000002568",
+  //   },
+  //   {
+  //     id: 5,
+  //     logo: anchord,
+  //     name: "Subway",
+  //     description: "World famous sandwich franchise",
+  //     price: "$300,000",
+  //     year: "2023",
+  //     roi: "8%",
+  //     units: "100 units",
+  //     code: "00002565",
+  //   },
+  //   {
+  //     id: 6,
+  //     logo: snapology,
+  //     name: "McDonald's",
+  //     description: "Leading fast food franchise globally",
+  //     price: "$1,500,000",
+  //     year: "2023",
+  //     roi: "10%",
+  //     units: "200 units",
+  //     code: "000002568",
+  //   },
+  //   {
+  //     id: "explore",
+  //     logo: Discover,
+  //     name: "Discover Other Franchises",
+  //     link: "/franchise_list/franchise-Opportunities",
+  //     isExploreCard: true,
+  //   },
+  // ];
 
   const rightScrollByAmount = () => {
     if (!sliderRef.current) return;
@@ -184,60 +230,65 @@ const FranchiseSlider = () => {
             // 👉 Regular franchise card
             return (
               <div key={franchise.id} className="franchise-card">
-                <div className="card h-100 border-0 shadow-sm">
-                  <div className="card-body p-2">
-                    <div className="text-center mb-3 card-image">
-                      <img
-                        src={franchise.logo}
-                        alt={franchise.name}
-                        className="img-fluid image-card"
-                      />
+                <Link
+                  to={`/franchise/${franchise.id}`}
+                  className="text-decoration-none text-dark"
+                >
+                  <div className="card h-100 border-0 shadow-sm">
+                    <div className="card-body p-2">
+                      <div className="text-center mb-3 card-image">
+                        <img
+                          src={franchise.logo}
+                          alt={franchise.name}
+                          className="img-fluid image-card"
+                        />
+                      </div>
+                      <h5 className="franchise-name">{franchise.name}</h5>
+                      <p className="franchise-description mb-0 line-clamp-2">
+                        {franchise.description}
+                      </p>
+                      <table className="table franchise-meta table-borderless mb-0">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <span className="stats-content">
+                                <FaMoneyBillWave className="me-2" />
+                                {franchise.price}
+                              </span>
+                            </td>
+                            <td>
+                              <span className="stats-content">
+                                <FaCalendarAlt className="me-2" />
+                                {franchise.year}
+                              </span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <span className="stats-content">
+                                <TbCirclePercentage className="me-2" />
+                                {franchise.roi}
+                              </span>
+                            </td>
+                            <td>
+                              <span className="stats-content">
+                                <MdOutlineLocationOn className="me-2" />
+                                {franchise.units}
+                              </span>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <span className="unique_code">
+                                FLS ID #OPPO{franchise.code}
+                              </span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
-                    <h5 className="franchise-name">{franchise.name}</h5>
-                    <p className="franchise-description mb-0">
-                      {franchise.description}
-                    </p>
-                    <table className="table franchise-meta table-borderless mb-0">
-                      <tbody>
-                        <tr>
-                          <td>
-                            <span className="stats-content">
-                              <FaMoneyBillWave className="me-2" />
-                              {franchise.price}
-                            </span>
-                          </td>
-                          <td>
-                            <span className="stats-content">
-                              <FaCalendarAlt className="me-2" />
-                              {franchise.year}
-                            </span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <span className="stats-content">
-                              <TbCirclePercentage className="me-2" />
-                              {franchise.roi}
-                            </span>
-                          </td>
-                          <td>
-                            <span className="stats-content">
-                              <MdOutlineLocationOn className="me-2" />
-                              {franchise.units}
-                            </span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <span className="unique_code">
-                              FLS ID #OPPO{franchise.code}
-                            </span>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
                   </div>
-                </div>
+                </Link>
               </div>
             );
           })}

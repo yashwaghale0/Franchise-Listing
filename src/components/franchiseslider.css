@@ -43,7 +43,7 @@
   background-clip: padding-box, border-box;
   padding: 10px 20px;
   width: 80%;
-  margin: auto;
+  margin: 20px auto 0px;
   color: #535364;
   text-decoration: none;
 }
@@ -93,8 +93,9 @@
     display: flex;
 }
 
-.image-card {
+.franchise-card .image-card {
     width: 100%;
+    object-fit: contain;
 }
 
 .stats-content {
@@ -169,6 +170,8 @@
   padding-bottom: 20px;
   scrollbar-width: none; /* Firefox */
   margin-top: 50px;
+  padding-top: 10px;
+  padding-left: 4px;
 }
 .slider-container::-webkit-scrollbar {
   display: none; /* Chrome, Safari */

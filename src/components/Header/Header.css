@@ -27,6 +27,12 @@
   gap: 24px;
 }
 
+span.Mobile-icon {
+    padding: 10px;
+    border: 1px solid #E1E4ED;
+    border-radius: 30px;
+}
+
 .create_account {
     border: 1px solid #4B5563 !important;
     border-radius: 6px !important;

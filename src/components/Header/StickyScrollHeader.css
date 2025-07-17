@@ -17,14 +17,13 @@
 .sticky-header-content {
   display: flex;
   align-items: center;
-
-  gap: 20px;
+  gap: 80px;
   width: 1290px;
   margin: auto;
 }
 
 .sticky-logo {
-  height: 20px;
+  height: 24px;
 }
 
 .search-container {
@@ -35,7 +34,7 @@
   padding: 4px 10px;
   gap: 8px;
   width: 100%;
-  max-width: 500px;
+  max-width: 700px;
   background: #fff;
 }
 

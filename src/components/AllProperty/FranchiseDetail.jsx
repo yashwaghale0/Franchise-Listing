@@ -108,7 +108,7 @@ const FranchiseDetail = () => {
             <div className="">
               <div className="d-flex gap-3 mt-3 franchise-folloers">
                 <span>
-                  <strong>1.5M</strong> Franchisers
+                  <strong>1.5M</strong> Franchisees
                 </span>
                 <span>
                   <strong>10k</strong> Likes

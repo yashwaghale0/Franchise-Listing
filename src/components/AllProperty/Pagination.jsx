@@ -1,3 +1,5 @@
+import { SlArrowRightCircle, SlArrowLeftCircle } from "react-icons/sl";
+
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
@@ -6,7 +8,9 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
       <button
         disabled={currentPage === 1}
         onClick={() => onPageChange(currentPage - 1)}
+        className="d-flex gap-10"
       >
+        <SlArrowLeftCircle size={24} />
         Previous
       </button>
 
@@ -23,8 +27,10 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
       <button
         disabled={currentPage === totalPages}
         onClick={() => onPageChange(currentPage + 1)}
+        className="d-flex gap-10"
       >
         Next
+        <SlArrowRightCircle size={24} />
       </button>
     </div>
   );

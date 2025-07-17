@@ -35,7 +35,9 @@ export default function Header() {
             <BsList />
           </span>
 
-          <img src={logo} alt="Main Header Logo" className="main-Logo" />
+          <a href="/">
+            <img src={logo} alt="Main Header Logo" className="main-Logo" />
+          </a>
 
           <img
             src={mobileLogo}
@@ -45,7 +47,7 @@ export default function Header() {
 
           <div className="d-flex signin-btns">
             <a
-              href="https://dev.franchiselistings.com/franchise_admin/login"
+              href="http://localhost:3000/login?tab=signin"
               style={{ textDecoration: "none" }}
             >
               <button className="btn d-flex align-items-center gap-2 sign_in">
@@ -55,7 +57,7 @@ export default function Header() {
             </a>
 
             <a
-              href="https://dev.franchiselistings.com/franchise_admin/login"
+              href="http://localhost:3000/login?tab=signup"
               style={{ textDecoration: "none" }}
             >
               <button className="btn d-flex align-items-center gap-2 create_account">
