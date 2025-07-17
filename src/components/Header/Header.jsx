@@ -47,7 +47,7 @@ export default function Header() {
 
           <div className="d-flex signin-btns">
             <a
-              href="http://localhost:3000/login?tab=signin"
+              href="https://dev.franchiselistings.com/franchise_admin/login?tab=signin"
               style={{ textDecoration: "none" }}
             >
               <button className="btn d-flex align-items-center gap-2 sign_in">
@@ -57,7 +57,7 @@ export default function Header() {
             </a>
 
             <a
-              href="http://localhost:3000/login?tab=signup"
+              href="https://dev.franchiselistings.com/franchise_admin/login?tab=signup"
               style={{ textDecoration: "none" }}
             >
               <button className="btn d-flex align-items-center gap-2 create_account">
