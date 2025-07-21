@@ -18,6 +18,18 @@
   font-family: 'poppins';
 }
 
+.label-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #d03c0b; /* red */
+  color: white;
+  padding: 4px 8px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
 .subtext {
   font-size: 14px;
   color: #535364;

@@ -37,19 +37,49 @@
   justify-content: center;
 }
 
+.banner-image {
+  border-radius: 10px;
+}
+
+.Listing-main-logo {
+  width: 220px;
+  height: 220px;
+  border: 6px solid #00b4db;
+  /* border-image: linear-gradient(to right, #00db75, #00b4db) 1; */
+  border-radius: 50%; /* makes it a circle */
+  object-fit: cover;
+  margin-top: -120px;
+}
+
+.mainlogo-wrapper {
+  padding: 0px 50px;
+}
+
+.brandname {
+  font-size: 34px !important;
+  font-weight: 600;
+  font-family: 'poppins';
+}
+
+
+
 .pagination button {
   margin: 0 5px;
   padding: 6px 12px;
   background: #fff;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
   font-size: 16px;
   color: #535364;
+  font-family: 'Inter';
 }
 
 .pagination .active {
   background-color: #2A2A33;
   color: white;
+  width: 40px;
+  height: 40px;
+  padding: 0px !important;
 }
 
 .franchise-opportunities {
@@ -93,6 +123,16 @@
     display: flex;
 }
 
+.franchise-socials-buttons {
+  font-family: 'Inter';
+  
+}
+
+.franchise-socials-buttons button {
+  font-size: 12px;
+  padding: 10px 23px;
+}
+
 .franchise-category {
   padding: 4px 20px;
   color: #6D758F;
@@ -104,6 +144,7 @@
 .franchise-folloers span {
   font-size: 20px;
   color: #535364;
+  font-family: 'Inter';
 }
 
 .franchise-folloers span strong {
@@ -176,13 +217,43 @@
   font-size: 26px;
   color: #2A2A33;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  font-family: 'poppins';
+}
+
+.left-sidebar-content {
+  font-family: 'Inter';
+}
+
+.franchise-about-stats {
+  font-family: 'Inter';
+  color: #2A2A33;
+  font-size: 14px;
+}
+
+.franchise-about-label {
+  font-family: 'Inter';
+  font-size: 16px;
+  color: #2A2A33;
+  margin-bottom: 0px;
+  font-weight: 600;
+}
+
+.request-form-select {
+  font-size: 14px;
+  font-family: 'Inter';
+  color: #898989;
+}
+
+.form-check-label {
+    color: #535364;
 }
 
 .franchise-deatils-description {
   font-size: 16px;
   color: #2A2A33;
-  font-weight: 400;
+  font-weight: 300;
+  font-family: 'Inter';
 }
 
 .label-heading {
@@ -199,10 +270,12 @@
   font-weight: 600;
   text-align: center;
   border-radius: 20px 20px 0px 0px !important;
+  font-family: 'Inter';
 }
 
 .franchise-details-sidebar {
   border-radius: 20px !important;
+  font-family: 'Inter';
 }
 
 .franchise-details-form input {
@@ -227,4 +300,54 @@
 .franchise-opportunities {
   width: 90%;
 }
+
+.mainlogo-wrapper, .franchise-details-image {
+  display: block !important;
+}
+
+.mainlogo-wrapper {
+  padding: 10px !important;
+}
+
+.Listing-main-logo {
+  width: 140px;
+  height: 140px;
+  position: relative;
+  margin-top: -100px;
+}
+
+.brandname {
+  font-size: 30px;
+}
+
+.franchise-folloers span {
+  font-size: 16px;
+}
+
+.franchise-socials-buttons button {
+  padding: 8px 20px;
+}
+
+.franchise-about-head {
+  font-size: 16px;
+}
+
+.franchise-deatils-description {
+  width: 100% !important;
+}
+
+.button-tabs {
+  gap: 10px !important;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.left-sidebar-content div {
+  width: 100% !important;
+}
+
+
+
+
 }

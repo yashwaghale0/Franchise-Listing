@@ -52,35 +52,31 @@ const FranchiseDetail = () => {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <div className="container py-4">
         {/* Banner Section */}
         <div className="position-relative mb-4">
           <img
             src={franchise.brandBanner}
             alt={franchise.brandName}
-            className="w-100 rounded"
+            className="w-100 banner-image"
             style={{
               maxHeight: "300px",
               objectFit: "cover",
               borderRadius: "12px !important",
             }}
           />
-          <div className="d-flex align-items-center justify-content-around">
-            <div className="d-flex align-items-center gap-3 mt-3">
-              <img
-                src={franchise.brandLogo || "/placeholder.jpg"}
-                alt="Logo"
-                className="rounded-circle"
-                style={{
-                  width: "220px",
-                  height: "220px",
-                  border: "2px solid #fff",
-                  marginTop: "-120px",
-                }}
-              />
+          <div className="d-flex align-items-center justify-content-between mainlogo-wrapper">
+            <div className="d-flex align-items-center gap-3 mt-3 franchise-details-image">
+              <div className=".gradient-wrapper">
+                <img
+                  src={franchise.brandLogo || "/placeholder.jpg"}
+                  alt="Logo"
+                  className=" Listing-main-logo"
+                />
+              </div>
               <div>
-                <h2>{franchise.brandName}</h2>
+                <h2 className="brandname">{franchise.brandName}</h2>
                 <div className="d-flex gap-2 mt-1">
                   <button className="franchise-category">
                     {franchise.category}
@@ -142,7 +138,7 @@ const FranchiseDetail = () => {
         <hr className="" />
         <div className="row mt-4">
           {/* Left Content */}
-          <div className="col-lg-8">
+          <div className="col-lg-8 left-sidebar-content">
             {/* Tabs */}
             <div className="d-flex gap-3 mb-4 button-tabs">
               <button className="btn franchise-details-tabs active">
@@ -167,16 +163,18 @@ const FranchiseDetail = () => {
               <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
                 <span className="d-flex gap-10 align-items-center ">
                   <AiOutlineFlag size={20} />
-                  <strong>Founded</strong>
+                  <p className="franchise-about-label">Founded</p>
                 </span>
-                <span>{new Date(franchise.foundedDate).getFullYear()}</span>
+                <span className="franchise-about-stats">
+                  {new Date(franchise.foundedDate).getFullYear()}
+                </span>
               </div>
               <div className="d-flex justify-content-between mb-4 py-3 border-bottom">
                 <span className="d-flex gap-10 align-items-center ">
                   <CiShop size={20} />
-                  <strong>Franchising</strong>
+                  <p className="franchise-about-label">Franchising</p>
                 </span>
-                <span>
+                <span className="franchise-about-stats">
                   {new Date(franchise.franchisingSince).getFullYear()}
                 </span>
               </div>
@@ -188,23 +186,29 @@ const FranchiseDetail = () => {
               <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
                 <span className="d-flex gap-10 align-items-center ">
                   <GrLocationPin size={20} />
-                  <strong>Headquarters</strong>
+                  <p className="franchise-about-label">Headquarters</p>
                 </span>
-                <span>{franchise.headquarter || "N/A"}</span>
+                <span className="franchise-about-stats">
+                  {franchise.headquarter || "N/A"}
+                </span>
               </div>
               <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
                 <span className="d-flex gap-10 align-items-center ">
                   <MdOutlineLocationCity size={20} />
-                  <strong>Corporate Locations</strong>
+                  <p className="franchise-about-label">Corporate Locations</p>
                 </span>
-                <span>{franchise.corporateLocations || "N/A"}</span>
+                <span className="franchise-about-stats">
+                  {franchise.corporateLocations || "N/A"}
+                </span>
               </div>
               <div className="d-flex justify-content-between mb-4 py-3 border-bottom">
                 <span className="d-flex gap-10 align-items-center ">
                   <CiShop size={20} />
                   <strong>Franchise Units</strong>
                 </span>
-                <span>{franchise.franchiseLocations || "N/A"}</span>
+                <span className="franchise-about-stats">
+                  {franchise.franchiseLocations || "N/A"}
+                </span>
               </div>
             </div>
 
@@ -288,17 +292,17 @@ const FranchiseDetail = () => {
                 <label htmlFor="Desired Territory" className="label-heading">
                   Desired Territory
                 </label>
-                <div className="mb-3">
+                <div className="mb-3 request-form-select">
                   <select className="form-select" required>
                     <option>United States</option>
                   </select>
                 </div>
-                <div className="mb-3">
+                <div className="mb-3 request-form-select">
                   <select className="form-select" required>
                     <option>Select State</option>
                   </select>
                 </div>
-                <div className="mb-3">
+                <div className="mb-3 request-form-select">
                   <select className="form-select" required>
                     <option>Select City</option>
                   </select>
@@ -322,7 +326,7 @@ const FranchiseDetail = () => {
           </div>
         </div>
       </div>
-      <TempFooter />
+      {/* <TempFooter /> */}
     </>
   );
 };

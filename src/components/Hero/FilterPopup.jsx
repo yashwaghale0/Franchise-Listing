@@ -96,9 +96,9 @@ export default function FilterPopup({ onClose, onApplyFilters }) {
         </div>
 
         <div className="mb-6 text-start">
-          <label className="block text-sm  mb-2 ">
+          <label className="block text-sm  mb-2 price-range-label">
             Investment Range (Up to ${" "}
-            <span className="text-green-600 font-bold">{range}</span>)
+            <span className="price-range-amt font-bold">{range}</span>)
           </label>
           <input
             type="range"

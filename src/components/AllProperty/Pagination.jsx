@@ -10,7 +10,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         onClick={() => onPageChange(currentPage - 1)}
         className="d-flex gap-10"
       >
-        <SlArrowLeftCircle size={24} />
+        <SlArrowLeftCircle size={30} />
         Previous
       </button>
 
@@ -30,7 +30,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         className="d-flex gap-10"
       >
         Next
-        <SlArrowRightCircle size={24} />
+        <SlArrowRightCircle size={30} />
       </button>
     </div>
   );

@@ -36,13 +36,19 @@ const FranchiseSlider = () => {
         );
 
         // const res = await axios.get("http://localhost:5000/api/opportunities");
+        console.log(res.data);
 
         const formatted = res.data.slice(0, 7).map((item, index) => ({
           id: item._id || index,
           logo: item.brandLogo || "/placeholder.jpg",
           name: item.brandName || "No Title",
+          category: item.category || "No category",
+          subcategory: item.subcategory || "No subcategory",
           description: item.aboutUs || "No Description",
-          price: `$${item.investmentLow || 0}`,
+          priceLow: `$${item.investmentLow || 0}`,
+          priceHigh: `$${item.investmentHigh || 0}`,
+          franchisefee: `$${item.franchiseFee || 0}`,
+          royalty: `${item.royaltyFee || 0}%`,
           year: item.foundedDate
             ? new Date(item.foundedDate).getFullYear()
             : "N/A",
@@ -57,7 +63,7 @@ const FranchiseSlider = () => {
         const exploreCard = {
           id: "explore",
           logo: Discover,
-          name: "Discover Other Franchises",
+          name: "Discover More Opportunities",
           link: "/franchise_list/franchise-Opportunities",
           isExploreCard: true,
         };
@@ -235,7 +241,7 @@ const FranchiseSlider = () => {
                   className="text-decoration-none text-dark"
                 >
                   <div className="card h-100 border-0 shadow-sm">
-                    <div className="card-body p-2">
+                    <div className="card-body p-0">
                       <div className="text-center mb-3 card-image">
                         <img
                           src={franchise.logo}
@@ -243,49 +249,70 @@ const FranchiseSlider = () => {
                           className="img-fluid image-card"
                         />
                       </div>
-                      <h5 className="franchise-name">{franchise.name}</h5>
-                      <p className="franchise-description mb-0 line-clamp-2">
-                        {franchise.description}
-                      </p>
-                      <table className="table franchise-meta table-borderless mb-0">
-                        <tbody>
-                          <tr>
-                            <td>
-                              <span className="stats-content">
-                                <FaMoneyBillWave className="me-2" />
-                                {franchise.price}
-                              </span>
-                            </td>
-                            <td>
-                              <span className="stats-content">
-                                <FaCalendarAlt className="me-2" />
-                                {franchise.year}
-                              </span>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <span className="stats-content">
-                                <TbCirclePercentage className="me-2" />
-                                {franchise.roi}
-                              </span>
-                            </td>
-                            <td>
-                              <span className="stats-content">
-                                <MdOutlineLocationOn className="me-2" />
-                                {franchise.units}
-                              </span>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <span className="unique_code">
-                                FLS ID #OPPO{franchise.code}
-                              </span>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                      <hr />
+                      <h5 className="franchise-name px-1">{franchise.name}</h5>
+                      <div className="d-flex gap-10 my-1 px-1">
+                        <button className="category-btn">
+                          {franchise.category}
+                        </button>
+                        <button className="category-btn">
+                          {franchise.subcategory}
+                        </button>
+                      </div>
+                      <hr />
+                      <div className="px-1">
+                        <table className="table franchise-meta table-borderless mb-0 p-2">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <span className="stats-content gap-10">
+                                  {/* <FaMoneyBillWave className="me-2" /> */}
+                                  <span className="card-icon-head">
+                                    Inv Low
+                                  </span>
+                                  {franchise.priceLow}
+                                </span>
+                              </td>
+                              <td>
+                                <span className="stats-content gap-10">
+                                  {/* <FaCalendarAlt className="me-2" /> */}
+                                  <span className="card-icon-head">
+                                    Inv High
+                                  </span>{" "}
+                                  {franchise.priceHigh}
+                                </span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <span className="stats-content gap-10">
+                                  {/* <TbCirclePercentage className="me-2" /> */}
+                                  <span className="card-icon-head">
+                                    Franchise Fee
+                                  </span>
+                                  {franchise.franchisefee}
+                                </span>
+                              </td>
+                              <td>
+                                <span className="stats-content gap-10">
+                                  {/* <MdOutlineLocationOn className="me-2" /> */}
+                                  <span className="card-icon-head">
+                                    Royalty
+                                  </span>
+                                  {franchise.royalty}
+                                </span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <span className="unique_code">
+                                  FLS ID #OPPO{franchise.code}
+                                </span>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
                   </div>
                 </Link>

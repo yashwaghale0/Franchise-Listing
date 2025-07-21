@@ -405,6 +405,7 @@ const Testing = () => {
                         alt={franchise.name}
                         className="img-fluid "
                       />
+                      <p className="label-badge">Within BuyFranAbility™</p>
                     </div>
                     <div className="px-4 py-2">
                       {/* Content Section */}
