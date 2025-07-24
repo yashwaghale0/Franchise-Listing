@@ -226,9 +226,9 @@ const FranchiseSlider = () => {
                       />
                     </div>
                     <h3 className="franchisecard-name">{franchise.name}</h3>
-                    <a href={franchise.link} className="See-more-btn">
+                    <Link href={franchise.link} className="See-more-btn">
                       See more <span className="text-success fs-20">→</span>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               );
@@ -324,12 +324,12 @@ const FranchiseSlider = () => {
 
         {/* Browse Button */}
         <div className="text-center Browse_section">
-          <a href="/franchise-Opportunities" className="text-decoration-none">
+          <Link to="/franchise-Opportunities" className="text-decoration-none">
             <button className="browse-button">
               Browse Franchise Opportunities
               <i className="bi bi-arrow-right right-arrow"></i>
             </button>
-          </a>
+          </Link>
         </div>
       </div>
     </div>
