@@ -13,9 +13,7 @@
     font-family: 'Inter';
 }
 
-.upcoming-cards {
-    opacity: 0.5;
-}
+
 
 .upcoming-cards:hover {
     opacity: 1 !important;
@@ -40,4 +38,5 @@
 
 .leading-tight {
     font-size: 20px !important;
+    color: #fff;
 }

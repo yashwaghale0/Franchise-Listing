@@ -104,11 +104,12 @@
 }
 
 .category-btn {
-  padding: 2px 4px;
-  color: #6d758f;
-  border: 1px solid #6D758F;
+  padding: 2px 6px;
+  border: 1px solid #CFEDFF;
+  border-radius: 30px;
   font-size: 11px;
-  border-radius: 20px;
+  color: #6d758f;
+  font-weight: 500;
 }
 
 .stats-content {
@@ -211,6 +212,10 @@ hr {
     padding: 20px 10px !important
   }
   
+  .franchisecard-name {
+    width: 100%
+  }
+  
 }
 
 @media (max-width: 768px) {
@@ -224,6 +229,13 @@ hr {
   
   .next-button .prev_button {
     top: -25px !important;
+  }
+  
+  .stats-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px !important;
   }
 }
 

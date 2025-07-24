@@ -97,16 +97,16 @@ const Footer = () => {
               <img src={logo} alt="Main Header Logo" className="main-Logo" />
 
               <div className="social-icons">
-                <a href="#">
+                <a href="https://www.linkedin.com/company/franchiselistings/">
                   <FaLinkedinIn />
                 </a>
-                <a href="#">
+                <a href="https://www.facebook.com/franchiselistings">
                   <FaFacebookF />
                 </a>
-                <a href="#">
+                <a href="https://www.instagram.com/franchiselistings">
                   <FaInstagram />
                 </a>
-                <a href="#">
+                <a href="https://www.linkedin.com/company/franchiselistings/">
                   <FaYoutube />
                 </a>
               </div>

@@ -13,6 +13,7 @@ import { MdOutlineLocationOn } from "react-icons/md";
 import { TbCirclePercentage } from "react-icons/tb";
 import { IoChevronBackOutline } from "react-icons/io5";
 import { IoChevronForwardOutline } from "react-icons/io5";
+import { BACKEND_URL } from "../../env";
 
 const FranchiseSlider = () => {
   const sliderRef = useRef(null);
@@ -31,11 +32,11 @@ const FranchiseSlider = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(
-          "https://dev.franchiselistings.com/franchise_backend/api/opportunities"
-        );
+        // const res = await axios.get(
+        //   "https://dev.franchiselistings.com/franchise_backend/api/opportunities"
+        // );
 
-        // const res = await axios.get("http://localhost:5000/api/opportunities");
+        const res = await axios.get(`${BACKEND_URL}/api/opportunities`);
         console.log(res.data);
 
         const formatted = res.data.slice(0, 7).map((item, index) => ({
@@ -64,7 +65,7 @@ const FranchiseSlider = () => {
           id: "explore",
           logo: Discover,
           name: "Discover More Opportunities",
-          link: "/franchise_list/franchise-Opportunities",
+          link: "/franchise-Opportunities",
           isExploreCard: true,
         };
 
@@ -250,8 +251,8 @@ const FranchiseSlider = () => {
                         />
                       </div>
                       <hr />
-                      <h5 className="franchise-name px-1">{franchise.name}</h5>
-                      <div className="d-flex gap-10 my-1 px-1">
+                      <h5 className="franchise-name px-2">{franchise.name}</h5>
+                      <div className="d-flex gap-10 my-1 px-2">
                         <button className="category-btn">
                           {franchise.category}
                         </button>
@@ -259,8 +260,8 @@ const FranchiseSlider = () => {
                           {franchise.subcategory}
                         </button>
                       </div>
-                      <hr />
-                      <div className="px-1">
+
+                      <div className="px-2">
                         <table className="table franchise-meta table-borderless mb-0 p-2">
                           <tbody>
                             <tr>
@@ -323,10 +324,7 @@ const FranchiseSlider = () => {
 
         {/* Browse Button */}
         <div className="text-center Browse_section">
-          <a
-            href="/franchise_list/franchise-Opportunities"
-            className="text-decoration-none"
-          >
+          <a href="/franchise-Opportunities" className="text-decoration-none">
             <button className="browse-button">
               Browse Franchise Opportunities
               <i className="bi bi-arrow-right right-arrow"></i>

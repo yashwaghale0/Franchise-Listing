@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import PropertyCard from "./PropertyCard";
 import Pagination from "./Pagination";
+import { BACKEND_URL } from "../../../env.js";
 
 const ITEMS_PER_PAGE = 12;
 
@@ -15,15 +16,21 @@ const PropertyListing = ({ query }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(
-          "https://dev.franchiselistings.com/franchise_backend/api/opportunities"
-        );
-        // const res = await axios.get("http://localhost:5000/api/opportunities");
+        // const res = await axios.get(
+        //   "https://dev.franchiselistings.com/franchise_backend/api/opportunities"
+        // );
+        const res = await axios.get(`${BACKEND_URL}/api/opportunities`);
         const formatted = res.data.map((item) => ({
-          id: item._id,
-          title: item.brandName || "No Title",
+          id: item._id || index,
+          logo: item.brandBanner || "/placeholder.jpg",
+          name: item.brandName || "No Title",
+          category: item.category || "No category",
+          subcategory: item.subcategory || "No subcategory",
           description: item.aboutUs || "No Description",
-          price: `$${item.investmentLow || 0}`,
+          priceLow: `$${item.investmentLow || 0}`,
+          priceHigh: `$${item.investmentHigh || 0}`,
+          franchisefee: `$${item.franchiseFee || 0}`,
+          royalty: `${item.royaltyFee || 0}%`,
           date: item.foundedDate
             ? new Date(item.foundedDate).getFullYear()
             : "N/A",
@@ -32,6 +39,7 @@ const PropertyListing = ({ query }) => {
             ? `${item.franchiseLocations} Units`
             : "N/A",
           image: item.brandBanner || "/placeholder.jpg",
+          code: item._id?.slice(-6) || "000000",
         }));
         setAllData(formatted);
         setFilteredData(formatted);

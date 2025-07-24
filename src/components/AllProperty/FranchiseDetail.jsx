@@ -14,6 +14,7 @@ import t1 from "../../assets/images/review1.png";
 import t2 from "../../assets/images/review2.png";
 import t3 from "../../assets/images/review3.png";
 import "./SearchResults.css";
+import { BACKEND_URL } from "../../../env.js";
 
 const testimonials = [
   { name: "Michael Robert", img: t1 },
@@ -29,12 +30,10 @@ const FranchiseDetail = () => {
   useEffect(() => {
     const fetchFranchise = async () => {
       try {
-        const res = await axios.get(
-          `https://dev.franchiselistings.com/franchise_backend/api/opportunities/${id}`
-        );
         // const res = await axios.get(
-        //   `http://localhost:5000/api/opportunities/${id}`
+        //   `https://dev.franchiselistings.com/franchise_backend/api/opportunities/${id}`
         // );
+        const res = await axios.get(`${BACKEND_URL}/api/opportunities/${id}`);
         console.log(res.data);
         setFranchise(res.data);
       } catch (error) {
@@ -55,7 +54,7 @@ const FranchiseDetail = () => {
       {/* <Header /> */}
       <div className="container py-4">
         {/* Banner Section */}
-        <div className="position-relative mb-4">
+        <div className="position-relative mb-4 mt-3">
           <img
             src={franchise.brandBanner}
             alt={franchise.brandName}
@@ -77,7 +76,7 @@ const FranchiseDetail = () => {
               </div>
               <div>
                 <h2 className="brandname">{franchise.brandName}</h2>
-                <div className="d-flex gap-2 mt-1">
+                <div className="d-flex gap-2 mt-3">
                   <button className="franchise-category">
                     {franchise.category}
                   </button>
@@ -110,7 +109,7 @@ const FranchiseDetail = () => {
                   <strong>10k</strong> Likes
                 </span>
               </div>
-              <div className="d-flex gap-2 mt-2 franchise-socials-buttons">
+              <div className="d-flex gap-2 mt-3 franchise-socials-buttons">
                 <button className="btn btn-success btn-sm bg-gradients">
                   {" "}
                   <span>
@@ -118,14 +117,14 @@ const FranchiseDetail = () => {
                   </span>{" "}
                   Like
                 </button>
-                <button className="btn btn-primary btn-sm message-gradients">
+                <button className=" btn-primary btn-sm message-gradients">
                   {" "}
                   <span>
                     <PiChatsCircle />
                   </span>{" "}
                   Message
                 </button>
-                <button className="btn btn-secondary btn-sm links-gradients">
+                <button className=" btn-secondary btn-sm links-gradients">
                   Links
                 </button>
                 <button className="btn btn-outline-secondary btn-sm links-gradients">
@@ -239,8 +238,11 @@ const FranchiseDetail = () => {
           </div>
 
           {/* Right Sidebar */}
-          <div className="col-lg-4">
-            <div className="bg-white  pt-0 rounded shadow-sm border franchise-details-sidebar">
+          <div className="col-lg-4 ">
+            <div
+              className="bg-white  pt-0 rounded shadow-sm border franchise-details-sidebar sticky-sidebar"
+              id="request-info"
+            >
               <h5 className="text-white details-form-heading p-4 rounded">
                 Request Franchise Information
               </h5>
@@ -324,6 +326,14 @@ const FranchiseDetail = () => {
               </form>
             </div>
           </div>
+        </div>
+        <div class="sticky-bottom-bar">
+          <a href="/contact" class="btn contact-btn">
+            Contact
+          </a>
+          <a href="#request-info" class="btn request-btn">
+            Request Info
+          </a>
         </div>
       </div>
       {/* <TempFooter /> */}

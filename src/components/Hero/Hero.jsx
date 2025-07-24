@@ -60,12 +60,14 @@ export default function Hero() {
       </div>
 
       {/* Filter Popup */}
-      {showFilter && (
-        <FilterPopup
-          onClose={() => setShowFilter(false)}
-          onApplyFilters={handleApplyFilters}
-        />
-      )}
+      <div className="absolute top-[245px] left-1/2 transform -translate-x-1/2 z-50 w-full max-w-4xl px-4 FilterPopup">
+        {showFilter && (
+          <FilterPopup
+            onClose={() => setShowFilter(false)}
+            onApplyFilters={handleApplyFilters}
+          />
+        )}
+      </div>
     </div>
   );
 }

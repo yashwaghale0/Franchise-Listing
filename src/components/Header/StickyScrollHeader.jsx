@@ -1,27 +1,41 @@
 import { useEffect, useState } from "react";
 import logo from "../../assets/images/fl-logo.svg";
-import { FaSearch } from "react-icons/fa";
-import { FaSlidersH } from "react-icons/fa"; // filter icon
+import { FaSearch, FaSlidersH } from "react-icons/fa";
 import "./StickyScrollHeader.css";
+import FilterPopup from "../Hero/FilterPopup";
+
+// Optional: Import your FilterPopup component if available
+// import FilterPopup from "./FilterPopup";
 
 export default function StickyScrollHeader() {
   const [showSticky, setShowSticky] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [showFilter, setShowFilter] = useState(false);
+  const [filters, setFilters] = useState({}); // ✅ Add missing state
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      if (currentScrollY < lastScrollY && currentScrollY > 100) {
+
+      // Show sticky header when scrolling down past 100px
+      if (currentScrollY > 100) {
         setShowSticky(true);
       } else {
         setShowSticky(false);
       }
+
       setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, []);
+
+  const handleApplyFilters = (appliedFilters) => {
+    setFilters(appliedFilters);
+    setShowFilter(false);
+    console.log("Applied Filters:", appliedFilters);
+  };
 
   return (
     <div className={`sticky-scroll-header ${showSticky ? "visible" : ""}`}>
@@ -29,7 +43,10 @@ export default function StickyScrollHeader() {
         <img src={logo} alt="Logo" className="sticky-logo" />
 
         <div className="sticky-header-actions">
-          <button className="stickyfilter-btn">
+          <button
+            className="stickyfilter-btn"
+            onClick={() => setShowFilter(!showFilter)}
+          >
             <FaSlidersH />
           </button>
           <div className="search-container">
@@ -42,6 +59,15 @@ export default function StickyScrollHeader() {
             </button>
           </div>
         </div>
+      </div>
+      {/* Filter popup (optional if implemented) */}
+      <div className="relative top-[5px] left-1/2 transform -translate-x-1/2 z-50 w-full max-w-4xl px-4 stickyFilterPopup ml-2">
+        {showFilter && (
+          <FilterPopup
+            onClose={() => setShowFilter(false)}
+            onApplyFilters={handleApplyFilters}
+          />
+        )}
       </div>
     </div>
   );

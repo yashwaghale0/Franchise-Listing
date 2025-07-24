@@ -129,8 +129,8 @@
 }
 
 .franchise-socials-buttons button {
-  font-size: 12px;
-  padding: 10px 23px;
+  font-size: 14px;
+  padding: 8px 23px;
 }
 
 .franchise-category {
@@ -139,6 +139,7 @@
   border: 1px solid #6D758F;
   font-size: 14px;
   border-radius: 20px;
+  font-weight: 300;
 }
 
 .franchise-folloers span {
@@ -211,6 +212,7 @@
 .button-tabs .active {
   background-color: #CFEDFF;
   border: 1px solid #CFEDFF;
+  color: #535364;
 }
 
 .franchise-about-head {
@@ -347,7 +349,58 @@
   width: 100% !important;
 }
 
+.searchfranchise-card {
+  width: 100%;
+}
+
+.sticky-bottom-bar {
+  display: flex !important;
+}
+
 
 
 
 }
+
+.sticky-sidebar {
+  position: sticky;
+  top: 80px; /* adjust depending on your header height */
+}
+
+.sticky-bottom-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white; /* matches your site */
+  justify-content: space-around;
+  padding: 10px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.sticky-bottom-bar .btn {
+  flex: 1;
+  margin: 0 5px;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.contact-btn {
+  font-family: "Inter";
+  font-size: 16px;
+  color: #0DA2FF;
+  font-weight: 500;
+  border: 1px solid #0DA2FF;
+}
+
+.request-btn {
+  background-color: #0DA2FF;
+  font-family: "Inter";
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+}
+

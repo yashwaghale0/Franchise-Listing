@@ -8,6 +8,7 @@ import Header from "../Header/Header";
 import "./SearchResults.css";
 import FilterPopup from "../Hero/FilterPopup";
 import StickyScrollHeader from "../Header/StickyScrollHeader";
+import TempHeader from "../Header/TempHeader";
 
 const FranchiseOpportunities = () => {
   const [showFilter, setShowFilter] = useState(false);
@@ -15,7 +16,7 @@ const FranchiseOpportunities = () => {
 
   return (
     <>
-      <Header />
+      <TempHeader />
       <StickyScrollHeader />
       <div className="franchise-opportunities">
         <div className="filter-section d-flex gap-10 justify-content-center py-4 relative z-40">

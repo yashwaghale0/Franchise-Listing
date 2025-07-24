@@ -66,3 +66,28 @@
     gap: 10px;
     width: 100%;
 }
+
+.stickyFilterPopup {
+  width: 800px;
+  margin-left: 58px;
+}
+
+@media (max-width: 567px) {
+  .sticky-logo {
+    display: none;
+  }
+  
+  .search-container {
+    max-width: 100%;
+  }
+  
+  .sticky-header-content {
+    width: 100%;
+  }
+  
+  .stickyFilterPopup {
+    width: 100%;
+    margin-left: 0px;
+    padding: 0px !important;
+  }
+}

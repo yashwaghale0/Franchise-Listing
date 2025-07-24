@@ -17,11 +17,13 @@ import SearchResults from "./components/AllProperty/SearchResults";
 import FranchiseOpportunities from "./components/AllProperty/FranchiseOppirtunities";
 import FranchiseDetail from "./components/AllProperty/FranchiseDetail";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import TempHeader from "./components/Header/TempHeader";
 
 function HomePage() {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
+      <TempHeader />
       <StickyScrollHeader />
       <Hero />
       <FranchiseSlider />
@@ -40,7 +42,7 @@ function HomePage() {
 
 function App() {
   return (
-    <BrowserRouter basename="/franchise_list">
+    <BrowserRouter basename="/">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/sign-in" element={<SignIn />} />
