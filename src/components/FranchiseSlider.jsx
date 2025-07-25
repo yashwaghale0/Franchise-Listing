@@ -14,6 +14,7 @@ import { TbCirclePercentage } from "react-icons/tb";
 import { IoChevronBackOutline } from "react-icons/io5";
 import { IoChevronForwardOutline } from "react-icons/io5";
 import { BACKEND_URL } from "../../env";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const FranchiseSlider = () => {
   const sliderRef = useRef(null);
@@ -324,10 +325,13 @@ const FranchiseSlider = () => {
 
         {/* Browse Button */}
         <div className="text-center Browse_section">
-          <Link to="/franchise-Opportunities" className="text-decoration-none">
-            <button className="browse-button">
+          <Link
+            to="/franchise-Opportunities"
+            className="text-decoration-none justify-content-center d-flex"
+          >
+            <button className="browse-button d-flex align-items-center gap-10">
               Browse Franchise Opportunities
-              <i className="bi bi-arrow-right right-arrow"></i>
+              <FaArrowRightLong size={20} />
             </button>
           </Link>
         </div>

@@ -253,6 +253,10 @@ hr {
   margin-bottom: -50px;
 }
 
+.browse-button svg {
+  color: #00DB62;
+}
+
 /* .prev_button,
 .next-button {
   border: none;

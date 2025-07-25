@@ -328,7 +328,10 @@ const FranchiseDetail = () => {
           </div>
         </div>
         <div class="sticky-bottom-bar">
-          <a href="/contact" class="btn contact-btn">
+          <a
+            href="https://dev.franchiselistings.com/franchise_admin/login?tab=signup"
+            class="btn contact-btn"
+          >
             Contact
           </a>
           <a href="#request-info" class="btn request-btn">

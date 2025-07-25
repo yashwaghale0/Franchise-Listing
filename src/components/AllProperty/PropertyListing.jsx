@@ -2,25 +2,22 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import PropertyCard from "./PropertyCard";
 import Pagination from "./Pagination";
+import AdCard from "./AdCard"; // Make sure this path is correct
 import { BACKEND_URL } from "../../../env.js";
 
-const ITEMS_PER_PAGE = 12;
+const LISTINGS_PER_PAGE = 10; // 10 real listings, 2 ads = 12 cards total
 
 const PropertyListing = ({ query }) => {
-  const [allData, setAllData] = useState([]); // all data from API
-  const [filteredData, setFilteredData] = useState([]); // filtered on search
+  const [allData, setAllData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
 
-  // Fetch data from API once on mount
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // const res = await axios.get(
-        //   "https://dev.franchiselistings.com/franchise_backend/api/opportunities"
-        // );
         const res = await axios.get(`${BACKEND_URL}/api/opportunities`);
-        const formatted = res.data.map((item) => ({
+        const formatted = res.data.map((item, index) => ({
           id: item._id || index,
           logo: item.brandBanner || "/placeholder.jpg",
           name: item.brandName || "No Title",
@@ -53,13 +50,12 @@ const PropertyListing = ({ query }) => {
     fetchData();
   }, []);
 
-  // Apply search filtering
   useEffect(() => {
     if (query && allData.length > 0) {
       const lowerQuery = query.toLowerCase();
       const result = allData.filter(
         (item) =>
-          item.title.toLowerCase().includes(lowerQuery) ||
+          item.name.toLowerCase().includes(lowerQuery) ||
           item.description.toLowerCase().includes(lowerQuery)
       );
       setFilteredData(result);
@@ -69,10 +65,32 @@ const PropertyListing = ({ query }) => {
     setCurrentPage(1);
   }, [query, allData]);
 
-  // Pagination logic
-  const indexOfLastItem = currentPage * ITEMS_PER_PAGE;
-  const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE;
+  const indexOfLastItem = currentPage * LISTINGS_PER_PAGE;
+  const indexOfFirstItem = indexOfLastItem - LISTINGS_PER_PAGE;
   const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
+
+  const renderCardsWithAds = () => {
+    const cards = [];
+    let listingIndex = 0;
+
+    for (let position = 1; position <= 12; position++) {
+      if (position === 4 && listingIndex < currentItems.length) {
+        cards.push(<AdCard key="ad-4" type="white" />);
+      } else if (position === 9 && listingIndex < currentItems.length) {
+        cards.push(<AdCard key="ad-9" type="purple" />);
+      } else if (listingIndex < currentItems.length) {
+        cards.push(
+          <PropertyCard
+            key={currentItems[listingIndex].id}
+            data={currentItems[listingIndex]}
+          />
+        );
+        listingIndex++;
+      }
+    }
+
+    return cards;
+  };
 
   if (loading) return <p className="text-center">Loading...</p>;
   if (!filteredData.length)
@@ -80,14 +98,10 @@ const PropertyListing = ({ query }) => {
 
   return (
     <div className="property-listing-wrapper">
-      <div className="grid col-sm-12">
-        {currentItems.map((item) => (
-          <PropertyCard key={item.id} data={item} />
-        ))}
-      </div>
+      <div className="grid col-sm-12">{renderCardsWithAds()}</div>
       <Pagination
         currentPage={currentPage}
-        totalPages={Math.ceil(filteredData.length / ITEMS_PER_PAGE)}
+        totalPages={Math.ceil(filteredData.length / LISTINGS_PER_PAGE)}
         onPageChange={setCurrentPage}
       />
     </div>

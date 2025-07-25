@@ -1,7 +1,7 @@
 .property-listing-wrapper .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Fixed 4 columns */
-  gap: 20px;
+  grid-template-columns: repeat(4, 1fr); /* Fixed 4 columns */
+  gap: 10px;
   
 }
 
@@ -83,7 +83,7 @@
 }
 
 .franchise-opportunities {
-    width: 1200px;
+    width: 1400px;
     margin: auto;
     padding: 40px 0px;
 }
@@ -93,7 +93,7 @@
     font-size: 14px;
     color: #2A2A33;
     font-family: 'Inter';
-    border-radius: 10px;
+    border-radius: 15px;
     border: 1px solid #ddd;
 
     background-color: #fff;
@@ -103,7 +103,11 @@
 .searchFilter {
     padding: 12px;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 15px !important;
+}
+
+.searchFilter:hover {
+  border: 1px solid #ddd;
 }
 
 .searchfranchise-card {
@@ -116,7 +120,7 @@
 }
 
 .image-container {
-  height: 185px;
+  height: 158px;
     object-fit: cover;
     overflow: hidden;
     justify-content: center;
@@ -402,5 +406,42 @@
   font-size: 16px;
   color: #fff;
   font-weight: 500;
+}
+
+.sponsor-subtext {
+  font-size: 10px;
+  font-family: "inter";
+  color: #535364;
+}
+
+.sponsor-subtext span {
+  color: #0DA2FF;
+}
+
+.ads-description {
+  font-size: 12px;
+  font-family: "Inter";
+  color: #535364;
+}
+
+.learn-more {
+  background: linear-gradient(to right, #00DB62, #00b4db);
+  padding: 8px 20px;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 30px;
+}
+
+.create-account-card, .create-account-card h5 {
+  background-color: #000B82;
+  color: #fff;
+}
+
+.account-learn {
+  padding: 8px 20px;
+  font-family: "Inter";
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 30px;
 }
 

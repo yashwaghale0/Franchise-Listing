@@ -20,7 +20,7 @@ const PropertyCard = ({ data }) => {
 
   return (
     <div className="property-card">
-      <div className="searchfranchise-card">
+      <div className="franchiseDetails-card">
         <Link
           to={`/franchise/${data.id}`}
           className="text-decoration-none text-dark"
