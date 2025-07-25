@@ -96,7 +96,7 @@ const UpcomingEvents = () => {
                   <img
                     src={event.image}
                     alt={event.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 upcoming-image"
                   />
                   {/* Dark overlay that fades on hover */}
                   <div className="absolute inset-0 bg-black/50 transition-opacity duration-300 group-hover:opacity-0"></div>

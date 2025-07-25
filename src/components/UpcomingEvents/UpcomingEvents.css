@@ -20,8 +20,11 @@
 }
 
 .upcoming-cards:hover .upcomingcard-text, .upcoming-cards:hover .upcoming-event-title {
-    color: #000 !important;
-    
+    /* color: #000 !important; */
+}
+
+.upcoming-cards:hover .upcoming-image {
+    opacity: 0.6;
 }
  
 @media(max-width: 567px) {

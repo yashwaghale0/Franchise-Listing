@@ -445,3 +445,9 @@
   border-radius: 30px;
 }
 
+.like-btn {
+  width: 100px;
+  padding: 8px !important;
+  justify-content: center;
+}
+

@@ -15,6 +15,7 @@ import t2 from "../../assets/images/review2.png";
 import t3 from "../../assets/images/review3.png";
 import "./SearchResults.css";
 import { BACKEND_URL } from "../../../env.js";
+import Chat from "../../assets/images/chat.svg";
 
 const testimonials = [
   { name: "Michael Robert", img: t1 },
@@ -110,21 +111,22 @@ const FranchiseDetail = () => {
                 </span>
               </div>
               <div className="d-flex gap-2 mt-3 franchise-socials-buttons">
-                <button className="btn btn-success btn-sm bg-gradients">
+                <button className="btn btn-success btn-sm bg-gradients like-btn">
                   {" "}
                   <span>
                     <FaPlusCircle />
                   </span>{" "}
                   Like
                 </button>
-                <button className=" btn-primary btn-sm message-gradients">
+                <button className=" btn-primary btn-sm message-gradients like-btn">
                   {" "}
                   <span>
-                    <PiChatsCircle />
+                    {/* <PiChatsCircle /> */}
+                    <img src={Chat} alt="chat Message" />
                   </span>{" "}
                   Message
                 </button>
-                <button className=" btn-secondary btn-sm links-gradients">
+                <button className=" btn-secondary btn-sm links-gradients like-btn">
                   Links
                 </button>
                 <button className="btn btn-outline-secondary btn-sm links-gradients">

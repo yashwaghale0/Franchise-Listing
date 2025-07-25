@@ -15,16 +15,8 @@ export default function StickyScrollHeader() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      // Show sticky header when scrolling down past 100px
-      if (currentScrollY > 100) {
-        setShowSticky(true);
-      } else {
-        setShowSticky(false);
-      }
-
-      setLastScrollY(currentScrollY);
+      setShowSticky(window.scrollY > 500); // header appears after 800px scroll
+      setLastScrollY(window.scrollY);
     };
 
     window.addEventListener("scroll", handleScroll);

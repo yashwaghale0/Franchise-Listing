@@ -10,6 +10,7 @@ import { useState } from "react";
 import { IoChevronForwardOutline } from "react-icons/io5";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { RxTextAlignJustify } from "react-icons/rx";
+import { Link } from "lucide-react";
 
 export default function TempHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -74,8 +75,8 @@ export default function TempHeader() {
             <div className="row px-5 py-5">
               <div className="col">
                 <h6>Buy a Franchise</h6>
-                <a href="#">Franchise Opportunities</a>
-                <a href="#">Franchise Resales</a>
+                <Link to="./">Franchise Opportunities</Link>
+                {/* <a href="#">Franchise Resales</a> */}
 
                 {/* <h6 className="mt-5">Sell a Franchise</h6>
                 <a href="#">List my Franchise</a>

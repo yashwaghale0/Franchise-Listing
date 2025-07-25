@@ -17,10 +17,12 @@ export default function FreeAccount() {
             globe.{" "}
           </p>
           <div className="freeaccount-section">
-            <button className="bg-gradient-to-r from-[#00DB62] to-[#0DA2FF] text-white px-3 py-2 rounded free-accountbtn">
-              Create My Free Account
-              <FaArrowRight />
-            </button>
+            <a href="https://dev.franchiselistings.com/admin/login?tab=signup">
+              <button className="bg-gradient-to-r from-[#00DB62] to-[#0DA2FF] text-white px-3 py-2 rounded free-accountbtn">
+                Create My Free Account
+                <FaArrowRight />
+              </button>
+            </a>
           </div>
         </div>
       </div>
