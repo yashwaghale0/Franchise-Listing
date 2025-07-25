@@ -47,7 +47,7 @@ export default function TempHeader() {
 
           <div className="d-flex signin-btns">
             <a
-              href="https://dev.franchiselistings.com/franchise_admin/login?tab=signin"
+              href="https://dev.franchiselistings.com/admin/login?tab=signin"
               style={{ textDecoration: "none" }}
             >
               <button className="btn d-flex align-items-center gap-2 sign_in">
@@ -57,7 +57,7 @@ export default function TempHeader() {
             </a>
 
             <a
-              href="https://dev.franchiselistings.com/franchise_admin/login?tab=signup"
+              href="https://dev.franchiselistings.com/admin/login?tab=signup"
               style={{ textDecoration: "none" }}
             >
               <button className="btn d-flex align-items-center gap-2 create_account">
@@ -241,7 +241,7 @@ export default function TempHeader() {
                 )}
               </div>
               <div className="text-center mt-4 sidebar-signin">
-                <a href="https://dev.franchiselistings.com/franchise_admin/login">
+                <a href="https://dev.franchiselistings.com/admin/login">
                   <button className="sign_in mobile-signin">Sign in</button>
                 </a>
               </div>
