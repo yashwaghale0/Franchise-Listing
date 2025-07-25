@@ -33,7 +33,7 @@ function HomePage() {
       <CommercialSites />
       {/* <Funding /> */}
       <UpcomingEvents />
-      {/* <FreeAccount /> */}
+      <FreeAccount />
       {/* <Footer /> */}
       <TempFooter />
     </>

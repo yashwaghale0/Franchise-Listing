@@ -10,6 +10,17 @@ export default function FilterPopup({ onClose, onApplyFilters }) {
     "Retail",
     "Service Based",
     "Health & Fitness",
+    "Automotive",
+    "Beauty & Spas",
+    "Children's Businesses",
+    "Education",
+    "Entertainment",
+    "Fitness",
+    "Home Services",
+    "Lodging",
+    "Medical",
+    "Pets",
+    "Professional Services",
   ];
   const subcategories = {
     "Food & Beverage": ["Mexican", "Japanese", "Brazilian", "Vegan"],

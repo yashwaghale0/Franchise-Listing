@@ -140,11 +140,19 @@ const FranchiseDetail = () => {
           <div className="col-lg-8 left-sidebar-content">
             {/* Tabs */}
             <div className="d-flex gap-3 mb-4 button-tabs">
-              <button className="btn franchise-details-tabs active">
-                About
-              </button>
-              <button className="btn franchise-details-tabs">Investment</button>
-              <button className="btn franchise-details-tabs">Training</button>
+              <a href="#about">
+                <button className="btn franchise-details-tabs active">
+                  About
+                </button>
+              </a>
+              <a href="#overview">
+                <button className="btn franchise-details-tabs">
+                  Investment
+                </button>
+              </a>
+              <a href="#Training">
+                <button className="btn franchise-details-tabs">Training</button>
+              </a>
               <button className="btn franchise-details-tabs">Gallery</button>
             </div>
 
@@ -152,13 +160,15 @@ const FranchiseDetail = () => {
             <h4 className="franchise-about-head">
               About {franchise.brandName} Franchise
             </h4>
-            <p className="franchise-deatils-description w-75">
+            <p className="franchise-deatils-description w-75" id="about">
               {franchise.aboutUs}
             </p>
 
             {/* Company Overview */}
             <div className="w-75">
-              <h5 className="mt-4 franchise-about-head">Company Overview</h5>
+              <h5 className="mt-4 franchise-about-head" id="overview">
+                Company Overview
+              </h5>
               <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
                 <span className="d-flex gap-10 align-items-center ">
                   <AiOutlineFlag size={20} />
