@@ -8,13 +8,11 @@ export default function FreeAccount() {
         <div className="Inner-section">
           <h1>Create a Free Account</h1>
           <p>
-            Whether you're exploring franchise opportunities, searching for a
-            resale or commercial real estate location, or seeking trusted
-            service professionals to support your journey - it all starts here.
-            Franchise, brokers, attorneys, real estate agents, and service
-            providerscan also create an account to get listed, connect, and
-            network with franchise buyers and industry professionals across the
-            globe.{" "}
+            Whether you're exploring franchise opportunities on your own or
+            seeking a trusted franchise broker to guide your discovery process
+            and help you make the right decision, it all begins here. Create an
+            account to get connected and take your first step toward franchise
+            ownership.{" "}
           </p>
           <div className="freeaccount-section">
             <a href="https://dev.franchiselistings.com/admin/login?tab=signup">

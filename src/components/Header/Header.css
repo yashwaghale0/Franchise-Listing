@@ -112,7 +112,7 @@ span.Mobile-icon {
     z-index: 9999;
     overflow-y: auto;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-    padding: 20px;
+    /* padding: 20px; */
     transition: transform 0.3s ease-in-out;
   }
 
@@ -121,6 +121,8 @@ span.Mobile-icon {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 40px;
+    padding:20px;
+    border-bottom: 1px solid #E1E4ED;
   }
   
   .sidebar-signin {
@@ -129,7 +131,13 @@ span.Mobile-icon {
     bottom: 72px;
     text-align: center;
     margin: auto;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .sidebar-signin a {
     width: 90%;
+    margin: auto;
   }
 
   .back-button {
@@ -146,12 +154,13 @@ span.Mobile-icon {
   }
 
   .dropdown-section {
-    margin-bottom: 20px;
+    padding: 14px 20px;
+    border-bottom: 1px solid #E1E4ED;
   }
 
   .dropdown-section h6 {
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 400;
     margin-bottom: 8px;
     cursor: pointer;
     display: flex;
@@ -168,11 +177,12 @@ span.Mobile-icon {
   }
 
   .submenu a {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     padding: 4px 0;
-    color: #008FE9;
+    color: #0DA2FF;
     text-decoration: none;
+    font-family: 'Inter';
   }
 
   .submenu a:hover {

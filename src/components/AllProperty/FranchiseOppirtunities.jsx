@@ -39,7 +39,12 @@ const FranchiseOpportunities = () => {
 
           {/* Popup */}
         </div>
-
+        <div className="searching-section">
+          <h2 className="searching-heading">Results for Franchises for Sale</h2>
+          <p className="Result-des">
+            <span>3500</span>Results
+          </p>
+        </div>
         <PropertyListing query={query} />
       </div>
       <TempFooter />

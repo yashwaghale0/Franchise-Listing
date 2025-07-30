@@ -1,7 +1,7 @@
 .property-listing-wrapper .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* Fixed 4 columns */
-  gap: 10px;
+  gap: 15px;
   
 }
 
@@ -13,9 +13,11 @@
 }
 
 .property-card img {
-  width: 100%;
+  width: 60%;
   border-radius: 6px;
   margin-bottom: 1rem;
+  height: auto;
+  object-fit: contain;
 }
 
 .property-card h5 {
@@ -70,16 +72,25 @@
   border-radius: 10px;
   cursor: pointer;
   font-size: 16px;
-  color: #535364;
+  color: #ADADB6;
   font-family: 'Inter';
+  gap: 20px;
 }
 
 .pagination .active {
   background-color: #2A2A33;
   color: white;
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   padding: 0px !important;
+}
+
+.inactive-btn {
+  color: #535364 !important;
+  width: 48px;
+  height: 48px;
+  padding: 0px !important;
+  border: 1px solid #535364;
 }
 
 .franchise-opportunities {
@@ -121,10 +132,11 @@
 
 .image-container {
   height: 158px;
-    object-fit: cover;
-    overflow: hidden;
-    justify-content: center;
-    display: flex;
+  object-fit: cover;
+  overflow: hidden;
+  justify-content: center;
+  display: flex;
+  width: auto;
 }
 
 .franchise-socials-buttons {
@@ -295,6 +307,23 @@
   font-size: 14px !important;
 }
 
+.franchiseDetails-card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12) !important;
+  border-radius: 10px;
+}
+
+@media (max-width: 1000px) {
+  .mainlogo-wrapper {
+    display: block !important;
+    padding: 0px 35px !important;
+  }
+  
+  .Listing-main-logo {
+    width: 180px !important;
+    height: 180px !important;
+  }
+}
+
 @media (max-width: 567px) {
   .grid {
   display: grid;
@@ -361,6 +390,9 @@
   display: flex !important;
 }
 
+.searching-section {
+  display: block !important;
+}
 
 
 
@@ -426,10 +458,11 @@
 
 .learn-more {
   background: linear-gradient(to right, #00DB62, #00b4db);
-  padding: 8px 20px;
+  padding: 8px 12px;
   color: #fff;
   font-size: 14px;
   border-radius: 30px;
+  width: 102px;
 }
 
 .create-account-card, .create-account-card h5 {
@@ -439,10 +472,13 @@
 
 .account-learn {
   padding: 8px 20px;
-  font-family: "Inter";
+  font-family: "Poppins";
   color: #fff;
   border: 1px solid #fff;
   border-radius: 30px;
+  width: 131px;
+  font-size: 14px;
+  margin-top: 15px;
 }
 
 .like-btn {
@@ -450,4 +486,57 @@
   padding: 8px !important;
   justify-content: center;
 }
+
+.banner-top-icons {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+.icon-btn {
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.create-account-card h5 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.create-account-card p {
+  font-size: 12px;
+  font-family: 'Inter';
+}
+
+.searching-heading {
+  font-size: 18px;
+  font-family: 'Inter';
+  color: #535364;
+  font-weight: 600;
+}
+
+.Result-des span {
+  color: #0DA2FF;
+  margin-right: 6px;
+  font-weight: 700;
+}
+
+.Result-des {
+  font-size: 16px;
+  font-family: 'Inter';
+  color: #535364;
+  font-weight: 600;
+}
+
+.searching-section {
+  display: none;
+}
+
 

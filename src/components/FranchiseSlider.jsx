@@ -79,82 +79,6 @@ const FranchiseSlider = () => {
     fetchData();
   }, []);
 
-  // const franchiseData = [
-  //   {
-  //     id: 1,
-  //     logo: pickUp,
-  //     name: "PickUp USA Basketball",
-  //     description: "PickUp USA is known for our world-class facilities",
-  //     price: "$500,000",
-  //     year: "2023",
-  //     roi: "6%",
-  //     units: "50 units",
-  //     code: "0000002023",
-  //   },
-  //   {
-  //     id: 2,
-  //     logo: snapology,
-  //     name: "Snapology",
-  //     description: "At Snapology, we believe learning should be fun.",
-  //     price: "$200,000",
-  //     year: "2023",
-  //     roi: "6%",
-  //     units: "20 units",
-  //     code: "00002565",
-  //   },
-  //   {
-  //     id: 3,
-  //     logo: anchord,
-  //     name: "Anchored Tiny Homes",
-  //     description: "Anchored Tiny Homes was a Sacramento-area...",
-  //     price: "$700,000",
-  //     year: "2023",
-  //     roi: "6%",
-  //     units: "30 units",
-  //     code: "00002565",
-  //   },
-  //   {
-  //     id: 4,
-  //     logo: jam,
-  //     name: "Jamba",
-  //     description: "Founded in the seaside town",
-  //     price: "$600,000",
-  //     year: "2023",
-  //     roi: "6%",
-  //     units: "40 units",
-  //     code: "000002568",
-  //   },
-  //   {
-  //     id: 5,
-  //     logo: anchord,
-  //     name: "Subway",
-  //     description: "World famous sandwich franchise",
-  //     price: "$300,000",
-  //     year: "2023",
-  //     roi: "8%",
-  //     units: "100 units",
-  //     code: "00002565",
-  //   },
-  //   {
-  //     id: 6,
-  //     logo: snapology,
-  //     name: "McDonald's",
-  //     description: "Leading fast food franchise globally",
-  //     price: "$1,500,000",
-  //     year: "2023",
-  //     roi: "10%",
-  //     units: "200 units",
-  //     code: "000002568",
-  //   },
-  //   {
-  //     id: "explore",
-  //     logo: Discover,
-  //     name: "Discover Other Franchises",
-  //     link: "/franchise_list/franchise-Opportunities",
-  //     isExploreCard: true,
-  //   },
-  // ];
-
   const rightScrollByAmount = () => {
     if (!sliderRef.current) return;
     const card = sliderRef.current.querySelector(".franchise-card");
@@ -191,10 +115,10 @@ const FranchiseSlider = () => {
             Explore top franchise brands and discover new franchise
             opportunities in every industry.
           </p>
-          <p className="location_enabled">
+          {/* <p className="location_enabled">
             <CiLocationOn size={18} />
             Populated Result Based on Location Enabled
-          </p>
+          </p> */}
         </div>
 
         {/* Arrows */}

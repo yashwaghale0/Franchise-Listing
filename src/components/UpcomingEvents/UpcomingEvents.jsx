@@ -92,14 +92,14 @@ const UpcomingEvents = () => {
                 }`}
               >
                 {/* Image with overlay */}
-                <div className="relative h-full w-full">
+                <div className="relative h-full w-full event-image-container">
                   <img
                     src={event.image}
                     alt={event.title}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 upcoming-image"
                   />
-                  {/* Dark overlay that fades on hover */}
-                  <div className="absolute inset-0 bg-black/50 transition-opacity duration-300 group-hover:opacity-0"></div>
+                  {/* Purple gradient overlay */}
+                  <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#2D0F7B]/90 via-[#2D0F7B]/60 to-transparent transition-opacity duration-300 group-hover:opacity-0"></div>
                 </div>
 
                 {/* Text content */}

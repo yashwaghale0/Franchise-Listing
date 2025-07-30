@@ -1,11 +1,8 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Header from "../Header/Header";
-import TempFooter from "../Footer/TempFooter";
 import { BsThreeDots } from "react-icons/bs";
 import { FaPlusCircle } from "react-icons/fa";
-import { PiChatsCircle } from "react-icons/pi";
 import { AiOutlineFlag } from "react-icons/ai";
 import { CiShop } from "react-icons/ci";
 import { GrLocationPin } from "react-icons/gr";
@@ -16,6 +13,7 @@ import t3 from "../../assets/images/review3.png";
 import "./SearchResults.css";
 import { BACKEND_URL } from "../../../env.js";
 import Chat from "../../assets/images/chat.svg";
+import { IoArrowBack, IoSearch } from "react-icons/io5";
 
 const testimonials = [
   { name: "Michael Robert", img: t1 },
@@ -27,15 +25,23 @@ const FranchiseDetail = () => {
   const { id } = useParams();
   const [franchise, setFranchise] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
+  // Location selector states
+  const [countries, setCountries] = useState([]);
+  const [states, setStates] = useState([]);
+  const [cities, setCities] = useState([]);
+  const [selectedCountry, setSelectedCountry] = useState("");
+  const [selectedState, setSelectedState] = useState("");
+  const [searchCountry, setSearchCountry] = useState("");
+  const [searchState, setSearchState] = useState("");
+  const [searchCity, setSearchCity] = useState("");
+
+  // Fetch franchise details
   useEffect(() => {
     const fetchFranchise = async () => {
       try {
-        // const res = await axios.get(
-        //   `https://dev.franchiselistings.com/franchise_backend/api/opportunities/${id}`
-        // );
         const res = await axios.get(`${BACKEND_URL}/api/opportunities/${id}`);
-        console.log(res.data);
         setFranchise(res.data);
       } catch (error) {
         console.error("Failed to fetch franchise:", error);
@@ -43,16 +49,50 @@ const FranchiseDetail = () => {
         setLoading(false);
       }
     };
-
     fetchFranchise();
   }, [id]);
+
+  // Fetch countries
+  useEffect(() => {
+    axios
+      .get("https://countriesnow.space/api/v0.1/countries/positions")
+      .then((res) => setCountries(res.data.data))
+      .catch((err) => console.error(err));
+  }, []);
+
+  // Fetch states for selected country
+  const fetchStates = async (country) => {
+    try {
+      const res = await axios.post(
+        "https://countriesnow.space/api/v0.1/countries/states",
+        { country }
+      );
+      setStates(res.data.data.states);
+      setCities([]);
+      setSelectedState("");
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  // Fetch cities for selected state
+  const fetchCities = async (country, state) => {
+    try {
+      const res = await axios.post(
+        "https://countriesnow.space/api/v0.1/countries/state/cities",
+        { country, state }
+      );
+      setCities(res.data.data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   if (loading) return <p className="text-center">Loading...</p>;
   if (!franchise) return <p className="text-center">Franchise not found.</p>;
 
   return (
     <>
-      {/* <Header /> */}
       <div className="container py-4">
         {/* Banner Section */}
         <div className="position-relative mb-4 mt-3">
@@ -74,6 +114,17 @@ const FranchiseDetail = () => {
                   alt="Logo"
                   className=" Listing-main-logo"
                 />
+                <div className="banner-top-icons d-flex justify-content-between px-3 py-2">
+                  <button className="icon-btn" onClick={() => navigate(-1)}>
+                    <IoArrowBack size={28} color="#fff" />
+                  </button>
+                  <button
+                    className="icon-btn"
+                    onClick={() => navigate("/franchise-opportunities")}
+                  >
+                    <IoSearch size={28} color="#fff" />
+                  </button>
+                </div>
               </div>
               <div>
                 <h2 className="brandname">{franchise.brandName}</h2>
@@ -81,7 +132,6 @@ const FranchiseDetail = () => {
                   <button className="franchise-category">
                     {franchise.category}
                   </button>
-                  {/* <button>test 2</button> */}
                 </div>
               </div>
               <div>
@@ -100,8 +150,7 @@ const FranchiseDetail = () => {
                 </div>
               </div>
             </div>
-
-            <div className="">
+            <div>
               <div className="d-flex gap-3 mt-3 franchise-folloers">
                 <span>
                   <strong>1.5M</strong> Franchisees
@@ -112,16 +161,13 @@ const FranchiseDetail = () => {
               </div>
               <div className="d-flex gap-2 mt-3 franchise-socials-buttons">
                 <button className="btn btn-success btn-sm bg-gradients like-btn">
-                  {" "}
                   <span>
                     <FaPlusCircle />
                   </span>{" "}
                   Like
                 </button>
                 <button className=" btn-primary btn-sm message-gradients like-btn">
-                  {" "}
                   <span>
-                    {/* <PiChatsCircle /> */}
                     <img src={Chat} alt="chat Message" />
                   </span>{" "}
                   Message
@@ -136,7 +182,9 @@ const FranchiseDetail = () => {
             </div>
           </div>
         </div>
-        <hr className="" />
+
+        <hr />
+
         <div className="row mt-4">
           {/* Left Content */}
           <div className="col-lg-8 left-sidebar-content">
@@ -252,7 +300,7 @@ const FranchiseDetail = () => {
           {/* Right Sidebar */}
           <div className="col-lg-4 ">
             <div
-              className="bg-white  pt-0 rounded shadow-sm border franchise-details-sidebar sticky-sidebar"
+              className="bg-white pt-0 rounded shadow-sm border franchise-details-sidebar sticky-sidebar"
               id="request-info"
             >
               <h5 className="text-white details-form-heading p-4 rounded">
@@ -260,9 +308,7 @@ const FranchiseDetail = () => {
               </h5>
               <form className="p-4 franchise-details-form">
                 <div className="mb-3">
-                  <label htmlFor="First Name" className="label-heading">
-                    First Name
-                  </label>
+                  <label className="label-heading">First Name</label>
                   <input
                     type="text"
                     className="form-control"
@@ -271,9 +317,7 @@ const FranchiseDetail = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="Last Name" className="label-heading">
-                    Last Name
-                  </label>
+                  <label className="label-heading">Last Name</label>
                   <input
                     type="text"
                     className="form-control"
@@ -282,9 +326,7 @@ const FranchiseDetail = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <label className="label-heading" htmlFor=" phone number">
-                    Phone Number
-                  </label>
+                  <label className="label-heading">Phone Number</label>
                   <input
                     type="tel"
                     className="form-control"
@@ -293,9 +335,7 @@ const FranchiseDetail = () => {
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="email" className="label-heading">
-                    Email
-                  </label>
+                  <label className="label-heading">Email</label>
                   <input
                     type="email"
                     className="form-control"
@@ -303,24 +343,101 @@ const FranchiseDetail = () => {
                     required
                   />
                 </div>
-                <label htmlFor="Desired Territory" className="label-heading">
-                  Desired Territory
-                </label>
+                <label className="label-heading">Desired Territory</label>
+
+                {/* Country */}
                 <div className="mb-3 request-form-select">
-                  <select className="form-select" required>
-                    <option>United States</option>
+                  {/* <input
+                    type="text"
+                    placeholder="Search Country"
+                    value={searchCountry}
+                    onChange={(e) => setSearchCountry(e.target.value)}
+                    className="form-control mb-2"
+                  /> */}
+                  <select
+                    className="form-select"
+                    value={selectedCountry}
+                    onChange={(e) => {
+                      setSelectedCountry(e.target.value);
+                      fetchStates(e.target.value);
+                    }}
+                    required
+                  >
+                    <option value="">Select Country</option>
+                    {countries
+                      .filter((c) =>
+                        c.name
+                          .toLowerCase()
+                          .includes(searchCountry.toLowerCase())
+                      )
+                      .map((c) => (
+                        <option key={c.iso2} value={c.name}>
+                          {c.name}
+                        </option>
+                      ))}
                   </select>
                 </div>
-                <div className="mb-3 request-form-select">
-                  <select className="form-select" required>
-                    <option>Select State</option>
-                  </select>
-                </div>
-                <div className="mb-3 request-form-select">
-                  <select className="form-select" required>
-                    <option>Select City</option>
-                  </select>
-                </div>
+
+                {/* State */}
+                {selectedCountry && (
+                  <div className="mb-3 request-form-select">
+                    {/* <input
+                      type="text"
+                      placeholder="Search State"
+                      value={searchState}
+                      onChange={(e) => setSearchState(e.target.value)}
+                      className="form-control mb-2"
+                    /> */}
+                    <select
+                      className="form-select"
+                      value={selectedState}
+                      onChange={(e) => {
+                        setSelectedState(e.target.value);
+                        fetchCities(selectedCountry, e.target.value);
+                      }}
+                      required
+                    >
+                      <option value="">Select State</option>
+                      {states
+                        .filter((s) =>
+                          s.name
+                            .toLowerCase()
+                            .includes(searchState.toLowerCase())
+                        )
+                        .map((s) => (
+                          <option key={s.name} value={s.name}>
+                            {s.name}
+                          </option>
+                        ))}
+                    </select>
+                  </div>
+                )}
+
+                {/* City */}
+                {selectedState && (
+                  <div className="mb-3 request-form-select">
+                    {/* <input
+                      type="text"
+                      placeholder="Search City"
+                      value={searchCity}
+                      onChange={(e) => setSearchCity(e.target.value)}
+                      className="form-control mb-2"
+                    /> */}
+                    <select className="form-select" required>
+                      <option value="">Select City</option>
+                      {cities
+                        .filter((city) =>
+                          city.toLowerCase().includes(searchCity.toLowerCase())
+                        )
+                        .map((city, i) => (
+                          <option key={i} value={city}>
+                            {city}
+                          </option>
+                        ))}
+                    </select>
+                  </div>
+                )}
+
                 <div className="form-check mb-3 d-flex align-items-center gap-10">
                   <input
                     type="checkbox"
@@ -339,19 +456,19 @@ const FranchiseDetail = () => {
             </div>
           </div>
         </div>
-        <div class="sticky-bottom-bar">
+
+        <div className="sticky-bottom-bar">
           <a
             href="https://dev.franchiselistings.com/franchise_admin/login?tab=signup"
-            class="btn contact-btn"
+            className="btn contact-btn"
           >
             Contact
           </a>
-          <a href="#request-info" class="btn request-btn">
+          <a href="#request-info" className="btn request-btn">
             Request Info
           </a>
         </div>
       </div>
-      {/* <TempFooter /> */}
     </>
   );
 };

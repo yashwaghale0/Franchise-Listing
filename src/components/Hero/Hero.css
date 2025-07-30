@@ -7,7 +7,7 @@
     justify-content: center;
     display: flex;
     flex-direction: column;
-    padding: 1rem 1rem 4rem;
+    /* padding: 1rem 1rem 4rem; */
     text-align: center;
     position: relative;
 }
@@ -17,12 +17,14 @@
     font-family: 'poppins';
     font-weight: 800;
     color: #fff;
+    margin-bottom: 0px;
 }
 .hero_section p {
     font-size: 16px;
     font-family: 'poppins';
     font-weight: 600;
     color: #fff;
+    margin: 20px 30px 30px;
 }
 
 .gap-10 {
@@ -157,18 +159,21 @@ cursor: pointer;
     border: 1px solid #6D758F;
     color: #6D758F;
     font-size: 14px;
-    padding: 6px 20px;
-    border-radius: 8px;
+    padding: 14px 11px;
+    border-radius: 6px;
     font-family: 'Inter';
+    width: 91px;
 }
 
 .apply-filter-btn {
     font-size: 14px;
-    padding: 6px 15px;
-    border-radius: 8px;
+    padding: 14px 10px;
+    border-radius: 6px;
     background-color: #0DA2FF;
     color: #fff;
     font-family: 'Inter';
+    width: 91px;
+    
 }
 
 .price-range {

@@ -31,28 +31,30 @@ export default function StickyScrollHeader() {
 
   return (
     <div className={`sticky-scroll-header ${showSticky ? "visible" : ""}`}>
-      <div className="sticky-header-content">
-        <img src={logo} alt="Logo" className="sticky-logo" />
+      <div className="sticky-header-section">
+        <div className="sticky-header-content">
+          <img src={logo} alt="Logo" className="sticky-logo" />
 
-        <div className="sticky-header-actions">
-          <button
-            className="stickyfilter-btn"
-            onClick={() => setShowFilter(!showFilter)}
-          >
-            <FaSlidersH />
-          </button>
-          <div className="search-container">
-            <input
-              type="text"
-              placeholder="Search for Franchise Opportunities, Locations, Etc..."
-            />
-            <button className="search-btn">
-              <FaSearch />
+          <div className="sticky-header-actions">
+            <button
+              className="stickyfilter-btn"
+              onClick={() => setShowFilter(!showFilter)}
+            >
+              <FaSlidersH />
             </button>
+            <div className="search-container">
+              <input
+                type="text"
+                placeholder="Search for Franchise Opportunities, Locations, Etc..."
+              />
+              <button className="search-btn">
+                <FaSearch />
+              </button>
+            </div>
           </div>
         </div>
+        {/* Filter popup (optional if implemented) */}
       </div>
-      {/* Filter popup (optional if implemented) */}
       <div className="relative top-[5px] left-1/2 transform -translate-x-1/2 z-50 w-full max-w-4xl px-4 stickyFilterPopup ml-2">
         {showFilter && (
           <FilterPopup

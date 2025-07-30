@@ -19,7 +19,7 @@ const PropertyListing = ({ query }) => {
         const res = await axios.get(`${BACKEND_URL}/api/opportunities`);
         const formatted = res.data.map((item, index) => ({
           id: item._id || index,
-          logo: item.brandBanner || "/placeholder.jpg",
+          logo: item.brandLogo || "/placeholder.jpg",
           name: item.brandName || "No Title",
           category: item.category || "No category",
           subcategory: item.subcategory || "No subcategory",

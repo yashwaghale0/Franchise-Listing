@@ -1,4 +1,6 @@
 import { SlArrowRightCircle, SlArrowLeftCircle } from "react-icons/sl";
+import Left from "../../assets/images/left.svg";
+import Right from "../../assets/images/right.svg";
 
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
@@ -10,14 +12,15 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         onClick={() => onPageChange(currentPage - 1)}
         className="d-flex gap-10"
       >
-        <SlArrowLeftCircle size={30} />
+        {/* <SlArrowLeftCircle size={30} /> */}
+        <img src={Left} alt="Left arrow" />
         Previous
       </button>
 
       {pages.map((num) => (
         <button
           key={num}
-          className={num === currentPage ? "active" : ""}
+          className={num === currentPage ? "active" : "inactive-btn"}
           onClick={() => onPageChange(num)}
         >
           {num}
@@ -30,7 +33,8 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         className="d-flex gap-10"
       >
         Next
-        <SlArrowRightCircle size={30} />
+        {/* <SlArrowRightCircle size={30} /> */}
+        <img src={Right} alt="Left arrow" />
       </button>
     </div>
   );

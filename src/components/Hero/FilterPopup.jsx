@@ -80,7 +80,7 @@ export default function FilterPopup({ onClose, onApplyFilters }) {
             }}
           >
             <option value="" disabled>
-              Select Category
+              Select Industry
             </option>
             {categories.map((cat, index) => (
               <option key={index} value={cat}>
@@ -96,7 +96,7 @@ export default function FilterPopup({ onClose, onApplyFilters }) {
             disabled={!category}
           >
             <option value="" disabled>
-              Select Subcategory
+              Select Category
             </option>
             {(subcategories[category] || []).map((subcat, index) => (
               <option key={index} value={subcat}>

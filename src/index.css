@@ -42,7 +42,7 @@ p {
 }
 
 .prev_button {
-    top: -40px;
+    top: -70px;
     z-index: 10; 
     border: 1px solid rgb(138, 138, 138);
     padding: 8px;
@@ -54,7 +54,7 @@ p {
 }
 
 .next-button {
-    top: -40px;
+    top: -70px;
     z-index: 10; 
     border: 1px solid rgb(132, 132, 132);
     padding: 9px;

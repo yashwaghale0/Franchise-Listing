@@ -241,6 +241,8 @@ const Footer = () => {
               Franchise Listings, LLC 2025 © All Rights Reserved
             </p>
           </div>
+
+          <hr className="footer-line" />
           <p className="desktop-copyright mb-0">
             Franchise Listings, LLC 2025 © All Rights Reserved
           </p>

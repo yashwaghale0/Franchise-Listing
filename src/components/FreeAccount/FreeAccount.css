@@ -40,3 +40,9 @@
 .freeaccount-section a {
     text-decoration: none;
 }
+
+.Inner-section {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}

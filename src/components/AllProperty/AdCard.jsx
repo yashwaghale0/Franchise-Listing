@@ -19,7 +19,7 @@ const AdCard = ({ type = "white" }) => {
     <div className="card h-100 border-0 shadow-sm ">
       <img src={adsimage} alt="create your Account" />
       <div className="p-3">
-        <span className=" fw-bold mb-1 sponsor-subtext my-2">
+        <span className=" mb-1 sponsor-subtext my-2">
           Sponsored By <span className="">State Farm - OMD 2</span>
         </span>
         <h6 className="mb-2 franchise-name">Small Business Insurance</h6>
