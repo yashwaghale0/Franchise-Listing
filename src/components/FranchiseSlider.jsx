@@ -15,6 +15,7 @@ import { IoChevronBackOutline } from "react-icons/io5";
 import { IoChevronForwardOutline } from "react-icons/io5";
 import { BACKEND_URL } from "../../env";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { FaArrowRight } from "react-icons/fa6";
 
 const FranchiseSlider = () => {
   const sliderRef = useRef(null);
@@ -272,7 +273,7 @@ const FranchiseSlider = () => {
           >
             <button className="browse-button d-flex align-items-center gap-10">
               Browse Franchise Opportunities
-              <FaArrowRightLong size={20} />
+              <FaArrowRight size={20} />
             </button>
           </Link>
         </div>

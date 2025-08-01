@@ -82,7 +82,9 @@
   font-family: 'poppins';
 }
 
-
+.pagination-text {
+  text-decoration: underline;
+}
 
 .pagination button {
   margin: 0 5px;
@@ -94,7 +96,7 @@
   color: #ADADB6;
   font-family: 'Inter';
   gap: 20px;
-  text-decoration: underline;
+  
 }
 
 .pagination .active {
@@ -372,7 +374,7 @@
 .gradient-wrapper {
   width: 140px !important;
   height: 140px !important;
-  position: relative;
+  
   margin-top: -100px;
 }
 
