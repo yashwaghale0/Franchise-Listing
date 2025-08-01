@@ -4,6 +4,8 @@
   border-top: 1px solid #eee;
   font-family: sans-serif;
 }
+ 
+
 
 .footer-gradient-bar {
   height: 4px;
@@ -181,6 +183,14 @@
   
   .desktop-copyright {
     display: none;
+  }
+  
+  .social-icons a {
+    font-size: 36px !important; 
+  }
+  
+  .footer-logo-center .social-icons {
+    gap: 30px !important;
   }
   
 }

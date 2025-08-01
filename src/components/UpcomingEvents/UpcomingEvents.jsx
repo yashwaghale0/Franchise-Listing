@@ -87,34 +87,33 @@ const UpcomingEvents = () => {
             {events.map((event, index) => (
               <div
                 key={event.id}
-                className={`relative overflow-hidden rounded-2xl shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group upcoming-cards ${
+                className={`relative overflow-hidden rounded-2xl shadow-2xl group transition-all duration-300 transform hover:-translate-y-2 ${
                   index === 0 ? "md:col-span-1 lg:col-span-1" : ""
                 }`}
               >
-                {/* Image with overlay */}
-                <div className="relative h-full w-full event-image-container">
-                  <img
-                    src={event.image}
-                    alt={event.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 upcoming-image"
-                  />
-                  {/* Purple gradient overlay */}
-                  <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#2D0F7B]/90 via-[#2D0F7B]/60 to-transparent transition-opacity duration-300 group-hover:opacity-0"></div>
-                </div>
+                {/* Background Image (Always Clear) */}
+                <img
+                  src={event.image}
+                  alt={event.title}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
 
-                {/* Text content */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10 upcomingcard-text">
+                {/* Purple Overlay (fades out on hover) */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#000B82]/90 via-[#000B82]/50 to-transparent transition-opacity duration-500 group-hover:opacity-0"></div>
+
+                {/* Text Content */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
                   <div className="flex items-center gap-2 mb-2">
                     <Calendar className="w-4 h-4" />
                     <span className="text-sm opacity-90">{event.date}</span>
                   </div>
-                  <h3 className="text-xl font-bold mb-3 leading-tight upcoming-event-title">
+                  <h3 className="text-xl font-bold mb-3 leading-tight">
                     {event.title}
                   </h3>
                   <p className="text-sm opacity-90 mb-4 line-clamp-2">
                     {event.description}
                   </p>
-                  <button className="events-buttons font-semibold text-sm hover:text-[#00C456] transition-colors duration-200">
+                  <button className="font-semibold text-sm hover:text-[#00C456] transition-colors duration-200">
                     {event.buttonText} →
                   </button>
                 </div>

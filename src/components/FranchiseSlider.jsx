@@ -30,6 +30,18 @@ const FranchiseSlider = () => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  const formatUSD = (value) => {
+    const number = parseFloat(value);
+    return isNaN(number)
+      ? "$0"
+      : new Intl.NumberFormat("en-US", {
+          style: "currency",
+          currency: "USD",
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0,
+        }).format(number);
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -47,9 +59,9 @@ const FranchiseSlider = () => {
           category: item.category || "No category",
           subcategory: item.subcategory || "No subcategory",
           description: item.aboutUs || "No Description",
-          priceLow: `$${item.investmentLow || 0}`,
-          priceHigh: `$${item.investmentHigh || 0}`,
-          franchisefee: `$${item.franchiseFee || 0}`,
+          priceLow: formatUSD(item.investmentLow || 0),
+          priceHigh: formatUSD(item.investmentHigh || 0),
+          franchisefee: formatUSD(item.franchiseFee || 0),
           royalty: `${item.royaltyFee || 0}%`,
           year: item.foundedDate
             ? new Date(item.foundedDate).getFullYear()
@@ -110,7 +122,12 @@ const FranchiseSlider = () => {
       <div className="container">
         {/* Header Section */}
         <div className="mb-4">
-          <h2 className="buy-heading">Looking to Buy a Franchise</h2>
+          <h2 className="buy-heading d-flex align-items-center gap-10">
+            Looking to Buy a Franchise{" "}
+            <span>
+              <CiLocationOn size={18} />
+            </span>
+          </h2>
           <p className="subtext">
             Explore top franchise brands and discover new franchise
             opportunities in every industry.
@@ -151,7 +168,7 @@ const FranchiseSlider = () => {
                       />
                     </div>
                     <h3 className="franchisecard-name">{franchise.name}</h3>
-                    <Link href={franchise.link} className="See-more-btn">
+                    <Link to={franchise.link} className="See-more-btn">
                       See more <span className="text-success fs-20">→</span>
                     </Link>
                   </div>

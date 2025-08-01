@@ -13,6 +13,18 @@ const PropertyListing = ({ query }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
 
+  const formatUSD = (value) => {
+    const number = parseFloat(value);
+    return isNaN(number)
+      ? "$0"
+      : new Intl.NumberFormat("en-US", {
+          style: "currency",
+          currency: "USD",
+          minimumFractionDigits: 0,
+          maximumFractionDigits: 0,
+        }).format(number);
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -24,9 +36,9 @@ const PropertyListing = ({ query }) => {
           category: item.category || "No category",
           subcategory: item.subcategory || "No subcategory",
           description: item.aboutUs || "No Description",
-          priceLow: `$${item.investmentLow || 0}`,
-          priceHigh: `$${item.investmentHigh || 0}`,
-          franchisefee: `$${item.franchiseFee || 0}`,
+          priceLow: formatUSD(item.investmentLow || 0),
+          priceHigh: formatUSD(item.investmentHigh || 0),
+          franchisefee: formatUSD(item.franchiseFee || 0),
           royalty: `${item.royaltyFee || 0}%`,
           date: item.foundedDate
             ? new Date(item.foundedDate).getFullYear()

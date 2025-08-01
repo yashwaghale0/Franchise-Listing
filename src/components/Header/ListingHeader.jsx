@@ -5,6 +5,7 @@ import { PiSignInLight } from "react-icons/pi";
 import { CiUser } from "react-icons/ci";
 import logo from "../../assets/images/fl-logo.svg";
 import mobileLogo from "../../assets/images/mobile-logo.svg";
+import { IoSearch } from "react-icons/io5";
 import sidebarLogo from "../../assets/images/sidebar-logo.svg";
 import { useState } from "react";
 import { IoChevronForwardOutline } from "react-icons/io5";
@@ -14,7 +15,7 @@ import { Link } from "react-router-dom";
 import mobileClose from "../../assets/images/mobile-close.png";
 import { FaAngleDown } from "react-icons/fa6";
 
-export default function TempHeader() {
+export default function ListHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [submenuOpen, setSubmenuOpen] = useState(null);
   const navigate = useNavigate();
@@ -30,8 +31,11 @@ export default function TempHeader() {
   return (
     <>
       <div className="header-container d-flex justify-content-between align-items-center  position-relative">
-        <div className="d-flex justify-content-between align-items-center header_section">
-          <span className="Mobile-icon" onClick={() => setMenuOpen(!menuOpen)}>
+        <div className="d-flex justify-content-between align-items-center header_section listing-header">
+          <span
+            className="Mobile-icon list-icon"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
             <BsList />
           </span>
           {/* <span className="Mobile-icon">
@@ -42,18 +46,27 @@ export default function TempHeader() {
             <img src={logo} alt="Main Header Logo" className="main-Logo" />
           </a>
 
-          <img
+          {/* <img
             src={mobileLogo}
             alt="Main Header Logo"
             className="mobile-logo"
-          />
+          /> */}
+
+          <span className="searchhero-searchbar listinghero-search  d-flex align-items-center justify-content-between">
+            <input
+              type="text"
+              placeholder="Search for Franchise Opportunities, Locations, Etc..."
+              className="w-100 outline-0"
+            />
+            <IoSearch size={20} />
+          </span>
 
           <div className="d-flex signin-btns">
             <a
               href="https://dev.franchiselistings.com/admin/login?tab=signin"
               style={{ textDecoration: "none" }}
             >
-              <button className="btn d-flex align-items-center gap-2 sign_in">
+              <button className="btn d-flex align-items-center gap-2 sign_in listing-sign">
                 <PiSignInLight />
                 Sign In
               </button>

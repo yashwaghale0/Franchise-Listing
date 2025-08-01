@@ -1,0 +1,49 @@
+.policy-section h1 {
+    font-family: "Poppins";
+    color: #2A2A33;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.policy-section h3 {
+    font-family: "Poppins";
+    color: #2A2A33;
+    font-size: 20px;
+    font-weight: 500;
+}
+.policy-section a {
+    font-family: "Poppins";
+    color: #2A2A33;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.policy-section p {
+    display: block;
+    font-size: 14px;
+    color: #4B4B4B;
+    margin-bottom: 10px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-family: 'Inter';
+}
+
+/* .policy-section ul li {
+    display: block;
+    font-size: 14px;
+    color: #4B4B4B;
+    margin-bottom: 10px;
+    transition: 0.3s;
+    font-family: 'Inter';
+} */
+
+.policy-section ul {
+    list-style-type: disc;
+    font-size: 14px;
+    color: #4B4B4B;
+}
+
+.sitemap-section {
+    height: 60vh;
+}

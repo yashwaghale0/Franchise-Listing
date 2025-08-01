@@ -43,6 +43,7 @@ const FranchiseDetail = () => {
       try {
         const res = await axios.get(`${BACKEND_URL}/api/opportunities/${id}`);
         setFranchise(res.data);
+        console.log(res.data);
       } catch (error) {
         console.error("Failed to fetch franchise:", error);
       } finally {
@@ -56,7 +57,10 @@ const FranchiseDetail = () => {
   useEffect(() => {
     axios
       .get("https://countriesnow.space/api/v0.1/countries/positions")
-      .then((res) => setCountries(res.data.data))
+      .then((res) => {
+        setCountries(res.data.data);
+        console.log(res.data); // <-- Moved inside where `res` exists
+      })
       .catch((err) => console.error(err));
   }, []);
 
@@ -93,9 +97,9 @@ const FranchiseDetail = () => {
 
   return (
     <>
-      <div className="container py-4">
+      <div className="container py-4 listingdetail-container">
         {/* Banner Section */}
-        <div className="position-relative mb-4 mt-3">
+        <div className="position-relative mb-4 mt-3 listing-image-section">
           <img
             src={franchise.brandBanner}
             alt={franchise.brandName}
@@ -108,7 +112,7 @@ const FranchiseDetail = () => {
           />
           <div className="d-flex align-items-center justify-content-between mainlogo-wrapper">
             <div className="d-flex align-items-center gap-3 mt-3 franchise-details-image">
-              <div className=".gradient-wrapper">
+              <div className="gradient-wrapper">
                 <img
                   src={franchise.brandLogo || "/placeholder.jpg"}
                   alt="Logo"
@@ -185,7 +189,7 @@ const FranchiseDetail = () => {
 
         <hr />
 
-        <div className="row mt-4">
+        <div className="row mt-4 p-3 ">
           {/* Left Content */}
           <div className="col-lg-8 left-sidebar-content">
             {/* Tabs */}

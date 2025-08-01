@@ -60,7 +60,7 @@ span.Mobile-icon {
 
 @media  (max-width:567px) {
     .header_section{
-        width: 90%;
+        width: 95%;
         background: transparent;
         margin-bottom: -70px;
         z-index: 9;
@@ -73,9 +73,13 @@ span.Mobile-icon {
     .sign_in {
         color: #fff !important;
         border: 1px solid #fff !important;
-        border-radius: 4px;
-        padding: 4px;
-        font-size: 12px !important;
+        border-radius: 10px;
+        padding: 7px 14px;
+        font-size: 14px !important;
+    }
+    
+    span.Mobile-icon {
+      border: none !important;
     }
     
     .main-Logo {
@@ -154,8 +158,12 @@ span.Mobile-icon {
   }
 
   .dropdown-section {
-    padding: 14px 20px;
+    padding: 26px 20px;
     border-bottom: 1px solid #E1E4ED;
+  }
+  
+  .dropdown-section svg {
+    color: #0DA2FF;
   }
 
   .dropdown-section h6 {
@@ -192,7 +200,7 @@ span.Mobile-icon {
   .mobile-signin {
   padding: 10px 24px;
   font-size: 16px !important;
-  color: black !important;
+  color: #535364 !important;
   background-color: white;
   border: 2px solid transparent !important;
   border-radius: 8px;

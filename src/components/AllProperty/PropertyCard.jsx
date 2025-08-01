@@ -31,12 +31,12 @@ const PropertyCard = ({ data }) => {
                 <img src={logo} alt={name} className="img-fluid image-card" />
               </div>
               <hr />
-              <h5 className="franchise-name px-2">{name}</h5>
-              <div className="d-flex gap-10 my-1 px-2">
+              <h5 className="franchise-name px-2 py-0">{name}</h5>
+              <div className="d-flex gap-10 my-1 px-2 py-1">
                 <button className="category-btn">{category}</button>
                 <button className="category-btn">{subcategory}</button>
               </div>
-
+              <hr />
               <div className="px-2">
                 <table className="table franchise-meta table-borderless mb-0 p-2">
                   <tbody>
@@ -77,6 +77,9 @@ const PropertyCard = ({ data }) => {
                         <span className="unique_code">FLS ID #OPPO{code}</span>
                       </td>
                     </tr>
+                    <td className=" py-2">
+                      <span className="learn-more">Learn More</span>
+                    </td>
                   </tbody>
                 </table>
               </div>

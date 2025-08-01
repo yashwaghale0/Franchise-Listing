@@ -48,7 +48,7 @@ export default function Hero() {
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Search for Franchise Opportunities, Locations, Etc..."
+            placeholder="Search for Franchise Opportunities.."
             className="w-100 outline-0"
           />
           <IoSearch

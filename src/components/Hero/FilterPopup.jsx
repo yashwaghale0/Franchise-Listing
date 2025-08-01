@@ -107,20 +107,23 @@ export default function FilterPopup({ onClose, onApplyFilters }) {
         </div>
 
         <div className="mb-6 text-start">
-          <label className="block text-sm  mb-2 price-range-label">
+          <label className="block text-sm mb-2 price-range-label">
             Investment Range (Up to ${" "}
-            <span className="price-range-amt font-bold">{range}</span>)
+            <span className="price-range-amt font-bold">
+              {Number(range).toLocaleString()}
+            </span>
+            )
           </label>
           <input
             type="range"
-            min={0}
-            max={999}
-            step={100}
+            min={5000}
+            max={1000000}
+            step={5000}
             value={range}
             onChange={(e) => {
               setRange(e.target.value);
               updateSliderBackground(e.target);
-            }} // Add this line}
+            }}
             className="w-full price-range"
           />
         </div>

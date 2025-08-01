@@ -65,6 +65,8 @@ p {
     right: 0px;
 }
 
+
+
 @media (max-width: 567px) {
    .slider-container {
     margin-top: 0px !important;

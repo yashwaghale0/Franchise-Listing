@@ -18,6 +18,9 @@ import FranchiseOpportunities from "./components/AllProperty/FranchiseOppirtunit
 import FranchiseDetail from "./components/AllProperty/FranchiseDetail";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import TempHeader from "./components/Header/TempHeader";
+import PrivacyPolicy from "./components/PolicyPages/PrivacyPolicy";
+import TermsOfUse from "./components/PolicyPages/TermsOfUse";
+import SiteMap from "./components/PolicyPages/SiteMap";
 
 function HomePage() {
   return (
@@ -52,6 +55,9 @@ function App() {
           element={<FranchiseOpportunities />}
         />
         <Route path="/franchise/:id" element={<FranchiseDetail />} />
+        <Route path="privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="terms-of-use" element={<TermsOfUse />} />
+        <Route path="site-map" element={<SiteMap />} />
       </Routes>
     </BrowserRouter>
   );
