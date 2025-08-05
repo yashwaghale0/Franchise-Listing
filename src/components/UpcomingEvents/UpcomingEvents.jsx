@@ -83,25 +83,32 @@ const UpcomingEvents = () => {
             </button> */}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {events.map((event, index) => (
+          <div
+            className="
+              flex md:grid 
+              md:grid-cols-2 lg:grid-cols-3 
+              gap-4 md:gap-8 
+              overflow-x-auto md:overflow-visible 
+              no-scrollbar
+            "
+          >
+            {events.map((event) => (
               <div
                 key={event.id}
-                className={`relative overflow-hidden rounded-2xl shadow-2xl group transition-all duration-300 transform hover:-translate-y-2 ${
-                  index === 0 ? "md:col-span-1 lg:col-span-1" : ""
-                }`}
+                className="
+                  flex-shrink-0 w-[90%] sm:w-[80%] md:w-auto
+                  relative overflow-hidden rounded-2xl shadow-2xl group
+                  transition-all duration-300 transform hover:-translate-y-2 events-cards
+                "
               >
-                {/* Background Image (Always Clear) */}
                 <img
                   src={event.image}
                   alt={event.title}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
                 />
 
-                {/* Purple Overlay (fades out on hover) */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#000B82]/90 via-[#000B82]/50 to-transparent transition-opacity duration-500 group-hover:opacity-0"></div>
 
-                {/* Text Content */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
                   <div className="flex items-center gap-2 mb-2">
                     <Calendar className="w-4 h-4" />

@@ -16,7 +16,8 @@ const AdCard = ({ type = "white" }) => {
   }
 
   return (
-    <div className="card h-100 border-0 shadow-sm ">
+    <div className="card h-100 border-0 shadow-sm">
+      <span className="advertisement">ADVERTISEMENT</span>
       <img src={adsimage} alt="create your Account" />
       <div className="p-3">
         <span className=" mb-1 sponsor-subtext my-2">

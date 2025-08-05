@@ -76,10 +76,10 @@ const PropertyCard = ({ data }) => {
                       <td>
                         <span className="unique_code">FLS ID #OPPO{code}</span>
                       </td>
+                      <td>
+                        <span className="learn-more-btn">Learn More</span>
+                      </td>
                     </tr>
-                    <td className=" py-2">
-                      <span className="learn-more">Learn More</span>
-                    </td>
                   </tbody>
                 </table>
               </div>

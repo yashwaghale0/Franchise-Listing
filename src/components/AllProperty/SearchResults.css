@@ -2,7 +2,10 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* Fixed 4 columns */
   gap: 15px;
-  
+}
+
+.property-listing-wrapper {
+  margin-top: 20px;
 }
 
 .property-card {
@@ -54,10 +57,10 @@
 } */
  
 .gradient-wrapper {
-  width: 220px;
-  height: 220px;
+  width: 190px;
+  height: 190px;
   padding: 6px;
-  background: linear-gradient(to right, #00db75, #00b4db);
+  background: linear-gradient(to top, #00DB62, #0DA2FF);
   border-radius: 50%;
   display: inline-block;
   margin-top: -120px;
@@ -555,10 +558,30 @@
   margin: 0px !important;
 }
 
+.right-sidebar-form {
+  margin-bottom: 80px !important;
+}
 
+.create-account-card {
+  height: 370px !important;
+  gap: 20px;
+}
+
+.pagination button span {
+  display: none;
+}
 
 
 }
+
+.listingdetail-container {
+  padding-top: 0px !important;
+}
+
+.listing-image-section {
+  margin-top: 0px !important;
+}
+
 
 
 .search-select-container {
@@ -625,12 +648,28 @@
 
 .learn-more {
   background: linear-gradient(to right, #00DB62, #00b4db);
-  padding: 8px 12px;
+  /* padding: 8px 12px; */
   color: #fff !important;
   font-size: 14px;
   border-radius: 30px;
   width: 102px;
   text-align: center;
+  height: 31px;
+}
+
+.advertisement {
+  font-size: 10px;
+  color: #535364;
+  margin-top: -24px;
+  font-family: "Inter";
+  margin-bottom: 6px;
+}
+
+.learn-more-btn {
+  font-family: 'Inter';
+  font-size: 12px;
+  color: #6d758f;
+  text-decoration: underline;
 }
 
 .create-account-card, .create-account-card h5 {
@@ -666,11 +705,19 @@
 }
 
 .icon-btn {
-  
+  font-size: 12px;
   border: none;
   padding: 8px;
   border-radius: 50%;
   cursor: pointer;
+}
+
+.icon-btn svg {
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  border-radius: 30px;
+  background-color: #898989;
 }
 
 .create-account-card h5 {

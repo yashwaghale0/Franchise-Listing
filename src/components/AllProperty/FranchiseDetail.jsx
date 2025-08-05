@@ -302,7 +302,7 @@ const FranchiseDetail = () => {
           </div>
 
           {/* Right Sidebar */}
-          <div className="col-lg-4 ">
+          <div className="col-lg-4 right-sidebar-form">
             <div
               className="bg-white pt-0 rounded shadow-sm border franchise-details-sidebar sticky-sidebar"
               id="request-info"

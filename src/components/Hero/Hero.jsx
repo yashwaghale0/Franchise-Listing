@@ -16,15 +16,12 @@ export default function Hero() {
   const handleApplyFilters = (appliedFilters) => {
     setFilters(appliedFilters);
     setShowFilter(false);
-
-    // 👉 You can log or send the filter values to a parent or backend
     console.log("Applied Filters:", appliedFilters);
   };
 
   const handleSearch = () => {
     console.log("Search Term:", searchTerm);
     console.log("With Filters:", filters);
-    // You can trigger your search/filtering logic here
   };
 
   return (
@@ -40,7 +37,12 @@ export default function Hero() {
           onClick={() => setShowFilter(!showFilter)}
           className="btn select-button d-flex gap-10 align-items-center bg-white"
         >
-          <BsSliders />
+          <BsSliders
+            style={{
+              transform: showFilter ? "rotate(90deg)" : "rotate(0deg)",
+              transition: "transform 0.3s ease",
+            }}
+          />
         </button>
 
         <span className="hero-searchbar d-flex align-items-center justify-content-between">

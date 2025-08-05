@@ -37,7 +37,23 @@
         font-size: 28px;
         margin-bottom: 20px;
     }
+    
+    .events-cards {
+        height: 450px !important;
+    }
+    
+    .events-cards img {
+        height: 100%;
+    }
 }
+
+.events-cards {
+        height: 450px !important;
+    }
+    
+    .events-cards img {
+        height: 100%;
+    }
 
 .leading-tight {
     font-size: 20px !important;

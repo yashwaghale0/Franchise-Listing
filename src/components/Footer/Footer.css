@@ -103,6 +103,7 @@
   font-weight: bold;
   padding: 1rem;
   cursor: pointer;
+  color: #2A2A33;
 }
 
 .footer-mobile-links {
@@ -118,7 +119,7 @@
 
 .footer-mobile-links a {
   padding: 6px 0px;
-  color: #000;
+  color: #4B4B4B;
   text-decoration: none;
 }
 
@@ -194,6 +195,22 @@
     gap: 30px !important;
   }
   
+  .footer-line {
+    display: none !important;
+  }
+  
+  .footer-mobile-header {
+    border-bottom: 1px solid #E4E7F2;
+    
+  }
+  
+  .footer-container {
+    padding: 0px !important;
+  }
+  
+  .mobile-footer-line {
+    border-bottom: 1px solid #E4E7F2;
+  }
 }
 
 .TempFooter-section {

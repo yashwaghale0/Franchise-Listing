@@ -16,6 +16,7 @@ import { IoChevronForwardOutline } from "react-icons/io5";
 import { BACKEND_URL } from "../../env";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa6";
+import Tooltip from "@mui/material/Tooltip";
 
 const FranchiseSlider = () => {
   const sliderRef = useRef(null);
@@ -125,9 +126,11 @@ const FranchiseSlider = () => {
         <div className="mb-4">
           <h2 className="buy-heading d-flex align-items-center gap-10">
             Looking to Buy a Franchise{" "}
-            <span>
-              <CiLocationOn size={18} />
-            </span>
+            <Tooltip title="Populated Result Based on Location Enabled" arrow>
+              <span>
+                <CiLocationOn size={18} />
+              </span>
+            </Tooltip>
           </h2>
           <p className="subtext">
             Explore top franchise brands and discover new franchise

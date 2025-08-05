@@ -32,7 +32,8 @@
 }
 
 .FilterPopup {
-    width: 750px !important
+    width: 750px !important;
+    margin-top: 30px;
 }
 
 .select-button {
@@ -116,7 +117,7 @@
     
     .FilterPopup {
         width: 100% !important;
-        margin: auto !important;
+        margin: 50px auto !important;
     }
     
     .hero_section {

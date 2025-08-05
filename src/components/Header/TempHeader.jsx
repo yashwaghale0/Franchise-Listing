@@ -13,6 +13,7 @@ import { RxTextAlignJustify } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import mobileClose from "../../assets/images/mobile-close.png";
 import { FaAngleDown } from "react-icons/fa6";
+import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 
 export default function TempHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -138,7 +139,8 @@ export default function TempHeader() {
                 onClick={() => setMenuOpen(false)}
               >
                 {/* <RxTextAlignJustify /> */}
-                <img src={mobileClose} alt="Mobile close icon" />
+                {/* <img src={mobileClose} alt="Mobile close icon" /> */}
+                <BsArrowLeft size={20} />
               </button>
 
               <img src={logo} alt="Main Header Logo" className="mobile-logo" />

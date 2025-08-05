@@ -195,7 +195,7 @@ const Footer = () => {
                 </div>
               </div>
 
-              <hr className="footer-line" />
+              <hr className="mobile-footer-line" />
               <p className="copyright py-4">
                 Franchise Listings, LLC 2025 © All Rights Reserved
               </p>

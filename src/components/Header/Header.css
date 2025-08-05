@@ -78,6 +78,10 @@ span.Mobile-icon {
         font-size: 14px !important;
     }
     
+    .sign_in:hover {
+      background-image: none !important;
+    }
+    
     span.Mobile-icon {
       border: none !important;
     }
@@ -132,11 +136,15 @@ span.Mobile-icon {
   .sidebar-signin {
     display: flex;
     position: absolute;
-    bottom: 72px;
+    bottom: 100px;
     text-align: center;
     margin: auto;
     width: 100%;
     padding: 20px;
+  }
+  
+  .signin-btns {
+    gap: 0px !important;
   }
   
   .sidebar-signin a {
@@ -158,7 +166,7 @@ span.Mobile-icon {
   }
 
   .dropdown-section {
-    padding: 26px 20px;
+    padding: 21px 20px;
     border-bottom: 1px solid #E1E4ED;
   }
   

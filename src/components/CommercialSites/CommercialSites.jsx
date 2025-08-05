@@ -126,7 +126,7 @@ const Testing = () => {
         <div className="mb-0">
           <h2 className="buy-heading">
             {" "}
-            Find Franchise you can afford with FranAbility℠
+            Find A Franchise you can afford with FranAbility℠
           </h2>
           <p className="subtext">
             Answer a few questions. We'll highlight franchises you're likely to

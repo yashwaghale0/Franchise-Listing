@@ -14,6 +14,8 @@ import { RxTextAlignJustify } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import mobileClose from "../../assets/images/mobile-close.png";
 import { FaAngleDown } from "react-icons/fa6";
+import listingIcon from "../../assets/images/listing-icon.svg";
+import icSearch from "../../assets/images/ic-search.svg";
 
 export default function ListHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -36,7 +38,7 @@ export default function ListHeader() {
             className="Mobile-icon list-icon"
             onClick={() => setMenuOpen(!menuOpen)}
           >
-            <BsList />
+            <img src={listingIcon} alt="listingIcon" />
           </span>
           {/* <span className="Mobile-icon">
             <BsList />
@@ -55,10 +57,11 @@ export default function ListHeader() {
           <span className="searchhero-searchbar listinghero-search  d-flex align-items-center justify-content-between">
             <input
               type="text"
-              placeholder="Search for Franchise Opportunities, Locations, Etc..."
+              placeholder="Search Buy, Sell, Brokers..."
               className="w-100 outline-0"
             />
-            <IoSearch size={20} />
+            {/* <IoSearch size={20} /> */}
+            <img src={icSearch} alt="icSearch" />
           </span>
 
           <div className="d-flex signin-btns">
@@ -143,6 +146,7 @@ export default function ListHeader() {
         )}
 
         {/* Mobile Sidebar */}
+        {/* <img src={listingIcon} alt="listingIcon" /> */}
         {menuOpen && (
           <div className="mobile-sidebar mobile-only">
             <div className="sidebar-header">
