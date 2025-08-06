@@ -10,7 +10,9 @@ const AdCard = ({ type = "white" }) => {
           Lorem ipsum dolor sit amet. Sed autem dolor et voluptatum vitae aut
           modi vel.
         </p>
-        <button className="account-learn">Learn More</button>
+        <button className="account-learn">
+          <span>Learn More</span>
+        </button>
       </div>
     );
   }

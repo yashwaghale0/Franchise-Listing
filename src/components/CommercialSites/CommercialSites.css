@@ -1,14 +1,20 @@
 .franchisecomm-slider {
   padding: 60px 40px;
-  background: linear-gradient(to right,
-    #FFFFFF 0%,
-    #FFFFFF 40%,
-    rgba(227, 247, 255, 0) 50%,
-    rgba(255, 255, 255, 0) 50%,
-    #EEFFF6 60%,
-    #EEFFF6 100%);
-    
+  background: linear-gradient(
+    to left,
+    #eefff6 2%,
+    #eefff6 16%,
+    #f3fff9 29%,
+    #f3fff974 41%,
+    #f7fffb8a 59%,
+    #fcfffe 71%,
+    #ffffff 81%,
+    #ffffff 91%,
+    #ffffff 100%
+  );
 }
+
+
 
 .buy-heading {
     font-size: 20px;

@@ -276,7 +276,7 @@ const FranchiseSlider = () => {
           >
             <button className="browse-button d-flex align-items-center gap-10">
               Browse Franchise Opportunities
-              <FaArrowRight size={20} />
+              <FaArrowRight size={16} />
             </button>
           </Link>
         </div>

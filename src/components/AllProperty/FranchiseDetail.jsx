@@ -204,10 +204,12 @@ const FranchiseDetail = () => {
                   Investment
                 </button>
               </a>
-              <a href="#Training">
+              <a href="#training">
                 <button className="btn franchise-details-tabs">Training</button>
               </a>
-              <button className="btn franchise-details-tabs">Gallery</button>
+              <a href="#gallery">
+                <button className="btn franchise-details-tabs">Gallery</button>
+              </a>
             </div>
 
             {/* About Section */}
@@ -272,6 +274,54 @@ const FranchiseDetail = () => {
                 <span className="franchise-about-stats">
                   {franchise.franchiseLocations || "N/A"}
                 </span>
+              </div>
+            </div>
+
+            {/* Training Section */}
+            <div className="w-75" id="training">
+              <h5 className="mt-4 franchise-about-head">Training & Support</h5>
+              <p>Our franchisees receive comprehensive training, including:</p>
+              <ul>
+                <li>Initial classroom and on-site training</li>
+                <li>Ongoing support and operational guidance</li>
+                <li>Marketing and promotional resources</li>
+              </ul>
+            </div>
+
+            {/* Gallery Section */}
+            <div className="w-75" id="gallery">
+              <h5 className="mt-4 franchise-about-head">Gallery</h5>
+              <div className="d-flex gap-3 flex-wrap">
+                <img
+                  src={franchise.brandBanner}
+                  alt="Gallery 1"
+                  className="rounded"
+                  style={{
+                    width: "150px",
+                    height: "150px",
+                    objectFit: "cover",
+                  }}
+                />
+                <img
+                  src={franchise.brandBanner}
+                  alt="Gallery 2"
+                  className="rounded"
+                  style={{
+                    width: "150px",
+                    height: "150px",
+                    objectFit: "cover",
+                  }}
+                />
+                <img
+                  src={franchise.brandBanner}
+                  alt="Gallery 3"
+                  className="rounded"
+                  style={{
+                    width: "150px",
+                    height: "150px",
+                    objectFit: "cover",
+                  }}
+                />
               </div>
             </div>
 
@@ -463,7 +513,7 @@ const FranchiseDetail = () => {
 
         <div className="sticky-bottom-bar">
           <a
-            href="https://dev.franchiselistings.com/franchise_admin/login?tab=signup"
+            href="https://dev.franchiselistings.com/admin/login?tab=signup"
             className="btn contact-btn"
           >
             Contact
