@@ -14,6 +14,7 @@ import "./SearchResults.css";
 import { BACKEND_URL } from "../../../env.js";
 import Chat from "../../assets/images/chat.svg";
 import { IoArrowBack, IoSearch } from "react-icons/io5";
+import { IoCloseOutline } from "react-icons/io5";
 
 const testimonials = [
   { name: "Michael Robert", img: t1 },
@@ -36,6 +37,7 @@ const FranchiseDetail = () => {
   const [searchCountry, setSearchCountry] = useState("");
   const [searchState, setSearchState] = useState("");
   const [searchCity, setSearchCity] = useState("");
+  const [showMobileForm, setShowMobileForm] = useState(false);
 
   // Fetch franchise details
   useEffect(() => {
@@ -352,7 +354,7 @@ const FranchiseDetail = () => {
           </div>
 
           {/* Right Sidebar */}
-          <div className="col-lg-4 right-sidebar-form">
+          <div className="col-lg-4 right-sidebar-form mobile-right-sidebar">
             <div
               className="bg-white pt-0 rounded shadow-sm border franchise-details-sidebar sticky-sidebar"
               id="request-info"
@@ -509,6 +511,175 @@ const FranchiseDetail = () => {
               </form>
             </div>
           </div>
+
+          {showMobileForm && (
+            <div className="mobile-form-modal">
+              <div
+                className="mobile-form-backdrop"
+                onClick={() => setShowMobileForm(false)}
+              ></div>
+              <div className="mobile-form-container">
+                <button
+                  className="btn btn-sm btn-danger close-btn"
+                  onClick={() => setShowMobileForm(false)}
+                >
+                  <IoCloseOutline />
+                </button>
+                <h5 className="text-white details-form-heading p-3 rounded">
+                  Request Franchise Information
+                </h5>
+                <form className="p-4 franchise-details-form">
+                  <div className="mb-3">
+                    <label className="label-heading">First Name</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Enter First Name"
+                      required
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label className="label-heading">Last Name</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Enter Last Name"
+                      required
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label className="label-heading">Phone Number</label>
+                    <input
+                      type="tel"
+                      className="form-control"
+                      placeholder="Your Phone Number"
+                      required
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label className="label-heading">Email</label>
+                    <input
+                      type="email"
+                      className="form-control"
+                      placeholder="Your Email Address"
+                      required
+                    />
+                  </div>
+                  <label className="label-heading">Desired Territory</label>
+
+                  {/* Country */}
+                  <div className="mb-3 request-form-select">
+                    {/* <input
+                    type="text"
+                    placeholder="Search Country"
+                    value={searchCountry}
+                    onChange={(e) => setSearchCountry(e.target.value)}
+                    className="form-control mb-2"
+                  /> */}
+                    <select
+                      className="form-select"
+                      value={selectedCountry}
+                      onChange={(e) => {
+                        setSelectedCountry(e.target.value);
+                        fetchStates(e.target.value);
+                      }}
+                      required
+                    >
+                      <option value="">Select Country</option>
+                      {countries
+                        .filter((c) =>
+                          c.name
+                            .toLowerCase()
+                            .includes(searchCountry.toLowerCase())
+                        )
+                        .map((c) => (
+                          <option key={c.iso2} value={c.name}>
+                            {c.name}
+                          </option>
+                        ))}
+                    </select>
+                  </div>
+
+                  {/* State */}
+                  {selectedCountry && (
+                    <div className="mb-3 request-form-select">
+                      {/* <input
+                      type="text"
+                      placeholder="Search State"
+                      value={searchState}
+                      onChange={(e) => setSearchState(e.target.value)}
+                      className="form-control mb-2"
+                    /> */}
+                      <select
+                        className="form-select"
+                        value={selectedState}
+                        onChange={(e) => {
+                          setSelectedState(e.target.value);
+                          fetchCities(selectedCountry, e.target.value);
+                        }}
+                        required
+                      >
+                        <option value="">Select State</option>
+                        {states
+                          .filter((s) =>
+                            s.name
+                              .toLowerCase()
+                              .includes(searchState.toLowerCase())
+                          )
+                          .map((s) => (
+                            <option key={s.name} value={s.name}>
+                              {s.name}
+                            </option>
+                          ))}
+                      </select>
+                    </div>
+                  )}
+
+                  {/* City */}
+                  {selectedState && (
+                    <div className="mb-3 request-form-select">
+                      {/* <input
+                      type="text"
+                      placeholder="Search City"
+                      value={searchCity}
+                      onChange={(e) => setSearchCity(e.target.value)}
+                      className="form-control mb-2"
+                    /> */}
+                      <select className="form-select" required>
+                        <option value="">Select City</option>
+                        {cities
+                          .filter((city) =>
+                            city
+                              .toLowerCase()
+                              .includes(searchCity.toLowerCase())
+                          )
+                          .map((city, i) => (
+                            <option key={i} value={city}>
+                              {city}
+                            </option>
+                          ))}
+                      </select>
+                    </div>
+                  )}
+
+                  <div className="form-check mb-3 d-flex align-items-center gap-10">
+                    <input
+                      type="checkbox"
+                      className="form-check-input"
+                      id="consent"
+                    />
+                    <label className="form-check-label fs-14" htmlFor="consent">
+                      I consent to receive information about franchise
+                      opportunities via email and SMS.
+                    </label>
+                  </div>
+                  <button className="btn send-request-btn w-100" type="submit">
+                    Send Request
+                  </button>
+                </form>
+              </div>
+            </div>
+          )}
         </div>
 
         <div className="sticky-bottom-bar">
@@ -518,9 +689,12 @@ const FranchiseDetail = () => {
           >
             Contact
           </a>
-          <a href="#request-info" className="btn request-btn">
+          <button
+            className="btn request-btn d-block d-lg-none"
+            onClick={() => setShowMobileForm(true)}
+          >
             Request Info
-          </a>
+          </button>
         </div>
       </div>
     </>
