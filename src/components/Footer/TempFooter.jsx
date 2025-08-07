@@ -27,8 +27,8 @@ const Footer = () => {
       "Terms of Use": "/terms-of-use",
       "Privacy Policy": "/privacy-policy",
       "Site Map": "/site-map",
-      Franchisors: "https://dev.franchiselistings.com/admin/login?tab=signup",
-      "Get Listed": "https://dev.franchiselistings.com/admin/login?tab=signup",
+      Franchisors: "https://dev.franchiselistings.com/user/login?tab=signup",
+      "Get Listed": "https://dev.franchiselistings.com/user/login?tab=signup",
     };
     return routes[text] || "#";
   };

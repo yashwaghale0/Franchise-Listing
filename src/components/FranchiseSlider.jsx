@@ -187,7 +187,7 @@ const FranchiseSlider = () => {
                   to={`/franchise/${franchise.id}`}
                   className="text-decoration-none text-dark"
                 >
-                  <div className="card h-100 border-0 shadow-sm">
+                  <div className="card h-100 border-0 shadow-sm card-decoration">
                     <div className="card-body p-0">
                       <div className="text-center mb-3 card-image">
                         <img

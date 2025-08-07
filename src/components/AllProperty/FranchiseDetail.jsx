@@ -15,6 +15,7 @@ import { BACKEND_URL } from "../../../env.js";
 import Chat from "../../assets/images/chat.svg";
 import { IoArrowBack, IoSearch } from "react-icons/io5";
 import { IoCloseOutline } from "react-icons/io5";
+import Breadcrumbs from "./Breadcrumbs.jsx";
 
 const testimonials = [
   { name: "Michael Robert", img: t1 },
@@ -190,6 +191,7 @@ const FranchiseDetail = () => {
         </div>
 
         <hr />
+        <Breadcrumbs />
 
         <div className="row mt-4 p-3 ">
           {/* Left Content */}

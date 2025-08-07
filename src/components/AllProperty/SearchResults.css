@@ -333,8 +333,8 @@
 }
 
 .franchiseDetails-card {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12) !important;
-  border-radius: 10px;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.12) !important;
+  border-radius: 15px;
 }
 
 .listinghero-search {
@@ -613,6 +613,13 @@
   right: 10px;
 }
 
+.advertisement {
+  margin-top: 0px !important;
+}
+
+.breadcrumb-section {
+  padding: 0px 10px;
+}
 
 
 }
@@ -625,7 +632,10 @@
   margin-top: 0px !important;
 }
 
-
+.breadcrumb-section a {
+  color: #000;
+  text-decoration: none;
+}
 
 .search-select-container {
   display: none ;
