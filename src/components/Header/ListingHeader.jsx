@@ -38,7 +38,7 @@ export default function ListHeader() {
             className="Mobile-icon list-icon"
             onClick={() => setMenuOpen(!menuOpen)}
           >
-            <img src={listingIcon} alt="listingIcon" />
+            <BsList />
           </span>
           {/* <span className="Mobile-icon">
             <BsList />
