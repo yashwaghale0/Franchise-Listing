@@ -76,8 +76,8 @@ const PropertyCard = ({ data }) => {
                       <td>
                         <span className="unique_code">FLS ID #OPPO{code}</span>
                       </td>
-                      <td>
-                        <span className="learn-more-btn">Learn More</span>
+                      <td className="text-end">
+                        <span className="learn-more-btn ">Learn More</span>
                       </td>
                     </tr>
                   </tbody>
