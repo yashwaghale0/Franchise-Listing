@@ -16,6 +16,7 @@ import Chat from "../../assets/images/chat.svg";
 import { IoArrowBack, IoSearch } from "react-icons/io5";
 import { IoCloseOutline } from "react-icons/io5";
 import Breadcrumbs from "./Breadcrumbs.jsx";
+import { InputMask } from "@react-input/mask";
 
 const testimonials = [
   { name: "Michael Robert", img: t1 },
@@ -385,10 +386,11 @@ const FranchiseDetail = () => {
                 </div>
                 <div className="mb-3">
                   <label className="label-heading">Phone Number</label>
-                  <input
-                    type="tel"
+                  <InputMask
+                    mask="(999) 999-9999"
+                    replacement={{ 9: /\d/ }}
                     className="form-control"
-                    placeholder="Your Phone Number"
+                    placeholder="(123) 456-7890"
                     required
                   />
                 </div>
@@ -551,10 +553,11 @@ const FranchiseDetail = () => {
                   </div>
                   <div className="mb-3">
                     <label className="label-heading">Phone Number</label>
-                    <input
-                      type="tel"
+                    <InputMask
+                      mask="(999) 999-9999"
+                      replacement={{ 9: /\d/ }}
                       className="form-control"
-                      placeholder="Your Phone Number"
+                      placeholder="(123) 456-7890"
                       required
                     />
                   </div>

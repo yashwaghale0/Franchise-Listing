@@ -193,7 +193,7 @@ const Testing = () => {
           <div className="fixed-card">
             {/* Mimic Zillow BuyAbility card here */}
             <div className="card border shadow-sm p-3 text-center h-max-content homeloan-card">
-              <h5 className="fixedcard-heading m-0">FranAbility™</h5>
+              <h5 className="fixedcard-heading m-0">FranAbility℠</h5>
               <p className="fixedcard-subhead">
                 Find a franchise you can afford.
               </p>
@@ -204,7 +204,7 @@ const Testing = () => {
                 </div>
                 <div className="my-2 d-flex flex-column align-items-start">
                   <span>$--</span>
-                  <small>FranAbility™</small>
+                  <small>FranAbility℠</small>
                 </div>
               </div>
               <div className=" d-flex justify-content-between align-items-center">
