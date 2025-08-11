@@ -16,6 +16,7 @@ import mobileClose from "../../assets/images/mobile-close.png";
 import { FaAngleDown } from "react-icons/fa6";
 import listingIcon from "../../assets/images/listing-icon.svg";
 import icSearch from "../../assets/images/ic-search.svg";
+import MobileSign from "../../assets/images/mobile-sign.svg";
 
 export default function ListHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -70,7 +71,8 @@ export default function ListHeader() {
               style={{ textDecoration: "none" }}
             >
               <button className="btn d-flex align-items-center gap-2 sign_in listing-sign">
-                <PiSignInLight />
+                {/* <PiSignInLight /> */}
+                <img src={MobileSign} alt="MobileSign icon" />
                 Sign In
               </button>
             </a>

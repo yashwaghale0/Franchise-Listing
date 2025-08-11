@@ -233,7 +233,7 @@ const Testing = () => {
           {isOpen && (
             <div className="modal-overlay">
               <div className="modal-container">
-                <div className="modal-header">
+                <div className="modal-header justify-content-start">
                   <span></span>
                   <h2>
                     FranAbility<sup>SM</sup>
@@ -392,7 +392,7 @@ const Testing = () => {
 
           {/* Scrollable Cards */}
           <div
-            className="slider-container commercialSlider-container"
+            className="slider-container commercialSlider-container commercial-slider-section"
             ref={sliderRef}
           >
             {franchiseData.map((franchise) => (

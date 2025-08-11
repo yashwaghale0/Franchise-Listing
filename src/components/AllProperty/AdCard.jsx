@@ -7,8 +7,8 @@ const AdCard = ({ type = "white" }) => {
       <div className="card h-100 border-0 create-account-card text-white d-flex flex-column justify-content-center align-items-center p-3">
         <h5 className="mb-2">Create your Account!</h5>
         <p className="text-center mb-3">
-          Lorem ipsum dolor sit amet. Sed autem dolor et voluptatum vitae aut
-          modi vel.
+          Access franchise disclosure documents (FDD) and financial reporting
+          including revenue, earnings, growth rates, and more.
         </p>
         <button className="account-learn">
           <span>Learn More</span>

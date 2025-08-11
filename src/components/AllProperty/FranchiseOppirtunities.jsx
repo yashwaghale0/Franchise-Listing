@@ -107,12 +107,7 @@ const FranchiseOpportunities = () => {
 
                 {/* Options List */}
                 <div className="space-y-4">
-                  {[
-                    "Franchise Opportunities",
-                    "Franchise Resales",
-                    "Commercial Real Estate",
-                    "Franchise Pros",
-                  ].map((option) => (
+                  {["Franchise Opportunities"].map((option) => (
                     <label
                       key={option}
                       htmlFor={option}
