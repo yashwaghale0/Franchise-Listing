@@ -51,3 +51,11 @@
 .policy-section {
     height: 70vh;
 }
+
+@media (max-width: 567px) {
+    .policy-section {
+    height: 90vh;
+    margin-top: 70px;
+}
+}
+

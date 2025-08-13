@@ -248,6 +248,21 @@
   font-size: 14px;
   color: #6D758F;
   font-weight: 500;
+  width: max-content;
+}
+
+.franchise-details-tabs:hover {
+  color: #6D758F;
+  border: 1px solid #CFEDFF;
+  border-radius: 30px;
+}
+
+.request-investment {
+  padding: 8px 15px;
+    background: linear-gradient(90deg, #00DB62, #0DA2FF);
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
 }
 
 .button-tabs .active {
@@ -314,6 +329,17 @@
   text-align: center;
   border-radius: 20px 20px 0px 0px !important;
   font-family: 'Inter';
+}
+
+.button-tabs {
+  width: 600px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  scrollbar-width: none;
+}
+
+.button-tabs a {
+  width: max-content;
 }
 
 .franchise-details-sidebar {
@@ -406,6 +432,7 @@
   overflow: scroll;
   scroll-behavior: smooth;
   scrollbar-width: none;
+  
 }
 
 .left-sidebar-content div {

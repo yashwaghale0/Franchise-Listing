@@ -210,106 +210,318 @@ const FranchiseDetail = () => {
                   About
                 </button>
               </a>
-              <a href="#overview">
+              <a href="#investment">
                 <button className="btn franchise-details-tabs">
                   Investment
                 </button>
               </a>
-              <a href="#training">
-                <button className="btn franchise-details-tabs">Training</button>
+              <a href="#operations">
+                <button className="btn franchise-details-tabs">
+                  Operations
+                </button>
               </a>
-              <a href="#gallery">
-                <button className="btn franchise-details-tabs">Gallery</button>
+              <a href="#training">
+                <button className="btn franchise-details-tabs">
+                  Training & Support
+                </button>
+              </a>
+              <a href="#territory">
+                <button className="btn franchise-details-tabs">
+                  Territory & Growth
+                </button>
+              </a>
+              <a href="#media">
+                <button className="btn franchise-details-tabs">
+                  Media & Press
+                </button>
               </a>
             </div>
 
-            {/* About Section */}
-            <h4 className="franchise-about-head">
-              About {franchise.brandName} Franchise
-            </h4>
-            <p className="franchise-deatils-description w-75" id="about">
-              {franchise.aboutUs}
-            </p>
+            {/* Tab 1: About */}
+            <div id="about">
+              <h4 className="franchise-about-head">
+                About {franchise.brandName} Franchise
+              </h4>
+              <p className="franchise-deatils-description w-75">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit
+                amet felis non nisl sodales cursus...
+              </p>
 
-            {/* Company Overview */}
-            <div className="w-75">
-              <h5 className="mt-4 franchise-about-head" id="overview">
-                Company Overview
+              {/* Company Overview */}
+              <div className="w-75 mt-4">
+                <h5 className="franchise-about-head">Company Overview</h5>
+                <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
+                  <span className="d-flex gap-10 align-items-center">
+                    <AiOutlineFlag size={20} />
+                    <p className="franchise-about-label">Founded</p>
+                  </span>
+                  <span className="franchise-about-stats">2005</span>
+                </div>
+                <div className="d-flex justify-content-between mb-4 py-3 border-bottom">
+                  <span className="d-flex gap-10 align-items-center">
+                    <CiShop size={20} />
+                    <p className="franchise-about-label">Franchising Since</p>
+                  </span>
+                  <span className="franchise-about-stats">2010</span>
+                </div>
+              </div>
+
+              {/* Location Overview */}
+              <div className="w-75">
+                <h5 className="franchise-about-head">Location & Scale</h5>
+                <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
+                  <span className="d-flex gap-10 align-items-center">
+                    <GrLocationPin size={20} />
+                    <p className="franchise-about-label">Headquarters</p>
+                  </span>
+                  <span className="franchise-about-stats">New York, USA</span>
+                </div>
+                <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
+                  <span className="d-flex gap-10 align-items-center">
+                    <MdOutlineLocationCity size={20} />
+                    <p className="franchise-about-label">Corporate Locations</p>
+                  </span>
+                  <span className="franchise-about-stats">15</span>
+                </div>
+                <div className="d-flex justify-content-between mb-4 py-3 border-bottom">
+                  <span className="d-flex gap-10 align-items-center">
+                    <CiShop size={20} />
+                    <strong>Franchise Locations</strong>
+                  </span>
+                  <span className="franchise-about-stats">120</span>
+                </div>
+              </div>
+
+              {/* Franchise Video */}
+              <div className="mt-4">
+                <h5 className="franchise-about-head">
+                  Franchise Marketing Video
+                </h5>
+                <div
+                  className="video-placeholder"
+                  style={{ height: "200px", background: "#ddd" }}
+                ></div>
+              </div>
+
+              {/* Testimonial Videos */}
+              <div className="mt-4">
+                <h5 className="franchise-about-head">
+                  Franchisee Testimonial Videos
+                </h5>
+                <div
+                  className="video-placeholder"
+                  style={{ height: "200px", background: "#ddd" }}
+                ></div>
+              </div>
+            </div>
+
+            {/* Tab 2: Investment */}
+            <div id="investment" className="mt-5 w-75">
+              <h4 className="franchise-about-head">Investment Overview</h4>
+              <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
+                <span className="franchise-about-label">
+                  Total Investment Range
+                </span>
+                <span className="franchise-about-stats">
+                  $100,000 - $200,000
+                </span>
+              </div>
+              <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
+                <span className="franchise-about-label">
+                  Initial Franchise Fee
+                </span>
+                <span className="franchise-about-stats">$35,000</span>
+              </div>
+              <div className="d-flex justify-content-between mb-4 py-3 border-bottom">
+                <span className="franchise-about-label">
+                  Financing Available
+                </span>
+                <span className="franchise-about-stats">Yes, Third Party</span>
+              </div>
+
+              <h5 className="mt-4 franchise-about-head">Ongoing Fees</h5>
+              <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
+                <span className="franchise-about-label">Royalty Fee</span>
+                <span className="franchise-about-stats">
+                  6% of Gross Revenue
+                </span>
+              </div>
+              <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
+                <span className="franchise-about-label">Local Advertising</span>
+                <span className="franchise-about-stats">
+                  1% of Gross Revenue
+                </span>
+              </div>
+              <div className="d-flex justify-content-between mb-4 py-3 border-bottom">
+                <span className="franchise-about-label">
+                  National Advertising
+                </span>
+                <span className="franchise-about-stats">
+                  1% of Gross Revenue
+                </span>
+              </div>
+
+              <h5 className="mt-4 franchise-about-head">
+                Financial Performance
+              </h5>
+              <div className="d-flex justify-content-between mb-4 py-3 border-bottom">
+                <span className="franchise-about-label">
+                  Item 19 Disclosure
+                </span>
+                <span className="franchise-about-stats">
+                  Yes (Available upon request)
+                </span>
+              </div>
+              <button className="btn request-investment">
+                Request Investment Summary
+              </button>
+            </div>
+
+            {/* Tab 3: Operations */}
+            <div id="operations" className="mt-5 w-75">
+              <h4 className="franchise-about-head">Operations</h4>
+              <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
+                <span className="franchise-about-label">
+                  Preferred Locations
+                </span>
+                <span className="franchise-about-stats">
+                  Commercial centers, strip centers, malls
+                </span>
+              </div>
+              <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
+                <span className="franchise-about-label">
+                  Space Requirements
+                </span>
+                <span className="franchise-about-stats">700 - 1,500 sq ft</span>
+              </div>
+              <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
+                <span className="franchise-about-label"># of Employees</span>
+                <span className="franchise-about-stats">5-10</span>
+              </div>
+              <div className="d-flex justify-content-between mb-4 py-3 border-bottom">
+                <span className="franchise-about-label">Business Hours</span>
+                <span className="franchise-about-stats">
+                  Mon-Sat 11am-8pm, Closed Sun
+                </span>
+              </div>
+            </div>
+
+            {/* Tab 4: Training & Support */}
+            <div id="training" className="mt-5 w-75">
+              <h4 className="franchise-about-head">Initial Training Program</h4>
+              <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
+                <span className="franchise-about-label">
+                  Classroom Training
+                </span>
+                <span className="franchise-about-stats">44 hours</span>
+              </div>
+              <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
+                <span className="franchise-about-label">
+                  On-the-Job Training
+                </span>
+                <span className="franchise-about-stats">6 hours</span>
+              </div>
+              <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
+                <span className="franchise-about-label">Training Location</span>
+                <span className="franchise-about-stats">
+                  HQ & Your Location
+                </span>
+              </div>
+              <div className="d-flex justify-content-between mb-4 py-3 border-bottom">
+                <span className="franchise-about-label">
+                  Grand Opening Support
+                </span>
+                <span className="franchise-about-stats">Yes</span>
+              </div>
+
+              <h5 className="mt-4 franchise-about-head">Ongoing Support</h5>
+              <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
+                <span className="franchise-about-label">
+                  Operations Support
+                </span>
+                <span className="franchise-about-stats">Yes</span>
+              </div>
+              <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
+                <span className="franchise-about-label">Marketing Support</span>
+                <span className="franchise-about-stats">Yes</span>
+              </div>
+              <div className="d-flex justify-content-between mb-4 py-3 border-bottom">
+                <span className="franchise-about-label">
+                  Technology Support
+                </span>
+                <span className="franchise-about-stats">Yes</span>
+              </div>
+
+              <h5 className="mt-4 franchise-about-head">
+                Marketing & Advertising
               </h5>
               <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
-                <span className="d-flex gap-10 align-items-center ">
-                  <AiOutlineFlag size={20} />
-                  <p className="franchise-about-label">Founded</p>
+                <span className="franchise-about-label">
+                  Marketing Materials
                 </span>
-                <span className="franchise-about-stats">
-                  {new Date(franchise.foundedDate).getFullYear()}
-                </span>
+                <span className="franchise-about-stats">Yes</span>
               </div>
               <div className="d-flex justify-content-between mb-4 py-3 border-bottom">
-                <span className="d-flex gap-10 align-items-center ">
-                  <CiShop size={20} />
-                  <p className="franchise-about-label">Franchising</p>
+                <span className="franchise-about-label">
+                  Digital Marketing Support
                 </span>
-                <span className="franchise-about-stats">
-                  {new Date(franchise.franchisingSince).getFullYear()}
-                </span>
+                <span className="franchise-about-stats">Yes</span>
               </div>
             </div>
 
-            {/* Location & Scale */}
-            <div className="w-75">
-              <h5 className="franchise-about-head">Location & Scale</h5>
+            {/* Tab 5: Territory & Growth */}
+            <div id="territory" className="mt-5 w-75">
+              <h4 className="franchise-about-head">Territory & Growth</h4>
               <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
-                <span className="d-flex gap-10 align-items-center ">
-                  <GrLocationPin size={20} />
-                  <p className="franchise-about-label">Headquarters</p>
+                <span className="franchise-about-label">
+                  Territory Description
                 </span>
                 <span className="franchise-about-stats">
-                  {franchise.headquarter || "N/A"}
+                  Protected territory (1-mile radius)
                 </span>
               </div>
               <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
-                <span className="d-flex gap-10 align-items-center ">
-                  <MdOutlineLocationCity size={20} />
-                  <p className="franchise-about-label">Corporate Locations</p>
+                <span className="franchise-about-label">
+                  Single Unit Franchises
                 </span>
+                <span className="franchise-about-stats">Available</span>
+              </div>
+              <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
+                <span className="franchise-about-label">
+                  Multi-Unit Development
+                </span>
+                <span className="franchise-about-stats">Available</span>
+              </div>
+              <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
+                <span className="franchise-about-label">Master Franchise</span>
                 <span className="franchise-about-stats">
-                  {franchise.corporateLocations || "N/A"}
+                  Contact for availability
                 </span>
               </div>
               <div className="d-flex justify-content-between mb-4 py-3 border-bottom">
-                <span className="d-flex gap-10 align-items-center ">
-                  <CiShop size={20} />
-                  <strong>Franchise Units</strong>
+                <span className="franchise-about-label">
+                  International Expansion
                 </span>
                 <span className="franchise-about-stats">
-                  {franchise.franchiseLocations || "N/A"}
+                  Contact for availability
                 </span>
               </div>
             </div>
 
-            {/* Training Section */}
-            <div className="w-75" id="training">
-              <h5 className="mt-4 franchise-about-head">Training & Support</h5>
-              <p>Our franchisees receive comprehensive training, including:</p>
-              <ul>
-                <li>Initial classroom and on-site training</li>
-                <li>Ongoing support and operational guidance</li>
-                <li>Marketing and promotional resources</li>
-              </ul>
-            </div>
+            {/* Tab 6: Media & Press */}
+            <div id="media" className="mt-5 w-75">
+              <h4 className="franchise-about-head">Press Coverage</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
 
-            {/* Gallery Section */}
-            <div className="w-75" id="gallery">
               <h5 className="mt-4 franchise-about-head">Gallery</h5>
               <Slider
-                dots={true}
-                infinite={true}
+                dots
+                infinite
                 speed={500}
                 slidesToShow={1}
                 slidesToScroll={1}
                 arrows={false}
-                autoplay={true}
+                autoplay
                 autoplaySpeed={3000}
                 className="Image-Slider"
               >
