@@ -142,7 +142,7 @@ const FranchiseOpportunities = () => {
                     <img src={mobileClose} alt="Close" className="h-5 w-5" />
                   </button>
                   <h2 className="text-base font-semibold text-black flex-1 text-center">
-                    35000 Results
+                    35,000 Results
                   </h2>
                   <span className="w-5" />{" "}
                   {/* Spacer to balance the layout visually */}

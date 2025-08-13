@@ -17,6 +17,7 @@ import { BACKEND_URL } from "../../env";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa6";
 import Tooltip from "@mui/material/Tooltip";
+import { CiStar } from "react-icons/ci";
 
 const FranchiseSlider = () => {
   const sliderRef = useRef(null);
@@ -195,6 +196,9 @@ const FranchiseSlider = () => {
                           alt={franchise.name}
                           className="img-fluid image-card"
                         />
+                        <p className="card-label-badge">
+                          <CiStar size={24} />
+                        </p>
                       </div>
                       <hr />
                       <h5 className="franchise-name px-2">{franchise.name}</h5>
@@ -254,6 +258,11 @@ const FranchiseSlider = () => {
                               <td>
                                 <span className="unique_code">
                                   FLS ID #OPPO{franchise.code}
+                                </span>
+                              </td>
+                              <td className="text-end">
+                                <span className="learn-more-btn ">
+                                  Learn More
                                 </span>
                               </td>
                             </tr>

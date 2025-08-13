@@ -233,13 +233,13 @@ const Testing = () => {
           {isOpen && (
             <div className="modal-overlay">
               <div className="modal-container">
-                <div className="modal-header justify-content-start">
+                <div className="modal-header justify-content-between">
                   <span></span>
                   <h2>
                     FranAbility<sup>SM</sup>
                   </h2>
                   <button
-                    className="close-btn"
+                    className="close-btn-popup"
                     onClick={() => setIsOpen(false)}
                   >
                     ×

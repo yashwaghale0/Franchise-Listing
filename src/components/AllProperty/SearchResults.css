@@ -333,7 +333,7 @@
 }
 
 .franchiseDetails-card {
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.12) !important;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 4px 15px !important;
   border-radius: 15px;
 }
 
@@ -444,7 +444,9 @@
   color: #4B5563 !important;
   border-radius: 8px;
   background: white; /* Inner background */
-  padding: 8px 16px;
+  padding: 8px 0px;
+  width: 100px;
+  justify-content: center;
 }
 
 .listing-sign::before {
@@ -465,7 +467,7 @@
 
 
 .listinghero-search {
-  width: 60% !important;
+  width: 56% !important;
   display: flex !important;
 }
 
@@ -816,6 +818,7 @@
 .create-account-card h5 {
   font-size: 20px;
   font-weight: 600;
+  margin-bottom: 20px !important;
 }
 
 .create-account-card p {
@@ -849,6 +852,30 @@
 
 .Image-Slider .slick-track {
   height: 140px;
+}
+
+.slick-dots li button:before {
+  font-size: 40px !important;
+}
+
+/* Default dot style */
+.slick-dots li button:before {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  background-color: #c4c4c4; /* Inactive dot color */
+  border-radius: 50%;
+  opacity: 1; /* Remove Slick's default opacity */
+  transition: all 0.3s ease;
+}
+
+/* Active dot style */
+.slick-dots li.slick-active button:before {
+  width: 24px; /* Wider pill shape */
+  height: 8px;
+  background-color: #7c5cff; /* Active color */
+  border-radius: 20px;
 }
 
 

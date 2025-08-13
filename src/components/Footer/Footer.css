@@ -8,7 +8,7 @@
 
 
 .footer-gradient-bar {
-  height: 4px;
+  height: 10px;
   background: linear-gradient(to right, #000B82, #0DA2FF, #00DB62);
   width: 100%;
 }

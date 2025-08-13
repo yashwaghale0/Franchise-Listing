@@ -2,6 +2,7 @@ import { FaMoneyBillWave, FaCalendarAlt } from "react-icons/fa";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { TbCirclePercentage } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import { CiStar } from "react-icons/ci";
 
 const PropertyCard = ({ data }) => {
   const {
@@ -29,6 +30,9 @@ const PropertyCard = ({ data }) => {
             <div className="card-body p-2">
               <div className="text-center mb-0 image-container">
                 <img src={logo} alt={name} className="img-fluid image-card" />
+                <p className="card-label-badge">
+                  <CiStar size={24} />
+                </p>
               </div>
               <hr />
               <h5 className="franchise-name px-2 py-0">{name}</h5>

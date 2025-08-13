@@ -5,7 +5,7 @@ const AdCard = ({ type = "white" }) => {
   if (type === "purple") {
     return (
       <div className="card h-100 border-0 create-account-card text-white d-flex flex-column justify-content-center align-items-center p-3">
-        <h5 className="mb-2">Create your Account!</h5>
+        <h5 className="">Create your Account!</h5>
         <p className="text-center mb-3">
           Access franchise disclosure documents (FDD) and financial reporting
           including revenue, earnings, growth rates, and more.
