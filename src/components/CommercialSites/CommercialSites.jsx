@@ -5,6 +5,8 @@ import snapology from "../../assets/images/snapolofy.png";
 import "./CommercialSites.css";
 import { CiLocationOn } from "react-icons/ci";
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
+import axios from "axios";
+import { BACKEND_URL } from "../../../env.js";
 
 const Testing = () => {
   const sliderRef = useRef(null);
@@ -14,6 +16,33 @@ const Testing = () => {
   const [downPayment, setDownPayment] = useState("");
   const [monthlyBudget, setMonthlyBudget] = useState("");
 
+  // From Submission
+  const [formData, setFormData] = useState({
+    state: "",
+    investmentCapital: "",
+    monthlyIncome: "",
+    annualIncome: "",
+    monthlyDebt: "",
+    creditScore: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await axios.post(`${BACKEND_URL}/franability-send`, formData);
+      alert("Enquiry sent successfully!");
+      setIsOpen(false);
+    } catch (err) {
+      console.error(err);
+      alert("Error sending enquiry.");
+    }
+  };
+
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
@@ -22,6 +51,59 @@ const Testing = () => {
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
+
+  const usStates = [
+    "Alabama",
+    "Alaska",
+    "Arizona",
+    "Arkansas",
+    "California",
+    "Colorado",
+    "Connecticut",
+    "Delaware",
+    "Florida",
+    "Georgia",
+    "Hawaii",
+    "Idaho",
+    "Illinois",
+    "Indiana",
+    "Iowa",
+    "Kansas",
+    "Kentucky",
+    "Louisiana",
+    "Maine",
+    "Maryland",
+    "Massachusetts",
+    "Michigan",
+    "Minnesota",
+    "Mississippi",
+    "Missouri",
+    "Montana",
+    "Nebraska",
+    "Nevada",
+    "New Hampshire",
+    "New Jersey",
+    "New Mexico",
+    "New York",
+    "North Carolina",
+    "North Dakota",
+    "Ohio",
+    "Oklahoma",
+    "Oregon",
+    "Pennsylvania",
+    "Rhode Island",
+    "South Carolina",
+    "South Dakota",
+    "Tennessee",
+    "Texas",
+    "Utah",
+    "Vermont",
+    "Virginia",
+    "Washington",
+    "West Virginia",
+    "Wisconsin",
+    "Wyoming",
+  ];
 
   const franchiseData = [
     {
@@ -233,159 +315,181 @@ const Testing = () => {
           {isOpen && (
             <div className="modal-overlay">
               <div className="modal-container">
-                <div className="modal-header justify-content-between">
-                  <span></span>
-                  <h2>
-                    FranAbility<sup>SM</sup>
-                  </h2>
-                  <button
-                    className="close-btn-popup"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    ×
-                  </button>
-                </div>
-                <div className="modal-body">
-                  <p className="modal-subheading">
-                    <strong>
-                      Buying a franchise is a big step. This tool will help you
-                      assess what you may afford and qualify for. Answer as best
-                      as you can, even if you're unsure of some details.
-                    </strong>
-                  </p>
-                  <div>
-                    <p className="modal-text">Tell us about your plans</p>
+                <form onSubmit={handleSubmit}>
+                  <div className="modal-header justify-content-between">
+                    <span></span>
+                    <h2>
+                      FranAbility<sup>SM</sup>
+                    </h2>
+                    <button
+                      className="close-btn-popup"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      ×
+                    </button>
+                  </div>
+                  <div className="modal-body">
+                    <p className="modal-subheading">
+                      <strong>
+                        Buying a franchise is a big step. This tool will help
+                        you assess what you may afford and qualify for. Answer
+                        as best as you can, even if you're unsure of some
+                        details.
+                      </strong>
+                    </p>
+                    <div>
+                      <p className="modal-text">Tell us about your plans</p>
 
-                    <div className="form-group">
-                      <label>
-                        Where do you plan to own or operate your franchise?{" "}
-                        <span className="required">*</span>
-                      </label>
-                      <select
-                        value={state}
-                        onChange={(e) => setState(e.target.value)}
-                      >
-                        <option value="">Select a state</option>
-                        <option value="FL">Florida</option>
-                        <option value="CA">California</option>
-                        <option value="NY">New York</option>
-                      </select>
-                      <small>
-                        Enter the state or region you're targeting for your
-                        franchise business.
-                      </small>
-                    </div>
-
-                    <div className="input-wrapper">
-                      <label>
-                        How much do you currently have set aside to invest?{" "}
-                        <span className="required">*</span>
-                      </label>
-                      <div className="position-relative">
-                        <span className="prefix">$</span>
-                        <input
-                          type="number"
-                          className="centered-input"
-                          placeholder="Enter your available investment capital"
-                        />
+                      <div className="form-group">
+                        <label>
+                          Where do you plan to own or operate your franchise?{" "}
+                          <span className="required">*</span>
+                        </label>
+                        <select
+                          name="state"
+                          required
+                          value={formData.state}
+                          onChange={handleChange}
+                        >
+                          <option value="">Select State</option>
+                          {usStates.map((state) => (
+                            <option key={state} value={state}>
+                              {state}
+                            </option>
+                          ))}
+                        </select>
+                        <small>
+                          Enter the state or region you're targeting for your
+                          franchise business.
+                        </small>
                       </div>
-                      <small>
-                        This includes cash, savings, or liquid assets you’re
-                        ready to use.
-                      </small>
-                    </div>
 
-                    <div className="input-wrapper">
-                      <label>
-                        What monthly income or cash flow are you hoping to
-                        achieve? <span className="required">*</span>
-                      </label>
-                      <div className="position-relative">
-                        <span className="prefix">$</span>
-                        <input
-                          type="number"
-                          className="centered-input"
-                          placeholder="Enter your target monthly income"
-                        />
+                      <div className="input-wrapper">
+                        <label>
+                          How much do you currently have set aside to invest?{" "}
+                          <span className="required">*</span>
+                        </label>
+                        <div className="position-relative">
+                          <span className="prefix">$</span>
+                          <input
+                            type="number"
+                            name="investmentCapital"
+                            value={formData.investmentCapital}
+                            onChange={handleChange}
+                            className="centered-input"
+                            placeholder="Enter your available investment capital"
+                          />
+                        </div>
+                        <small>
+                          This includes cash, savings, or liquid assets you’re
+                          ready to use.
+                        </small>
                       </div>
-                      <small>
-                        We'll match you with franchises whose financial profiles
-                        align with your goals.
-                      </small>
+
+                      <div className="input-wrapper">
+                        <label>
+                          What monthly income or cash flow are you hoping to
+                          achieve? <span className="required">*</span>
+                        </label>
+                        <div className="position-relative">
+                          <span className="prefix">$</span>
+                          <input
+                            type="number"
+                            name="monthlyIncome"
+                            value={formData.monthlyIncome}
+                            onChange={handleChange}
+                            className="centered-input"
+                            placeholder="Enter your target monthly income"
+                          />
+                        </div>
+                        <small>
+                          We'll match you with franchises whose financial
+                          profiles align with your goals.
+                        </small>
+                      </div>
+                    </div>
+                    <div>
+                      <p className="modal-text">Tell us about your finances</p>
+
+                      <div className="input-wrapper">
+                        <label>
+                          What is your annual household income (before taxes)?{" "}
+                          <span className="required">*</span>
+                        </label>
+                        <div className="position-relative">
+                          <span className="prefix">$</span>
+                          <input
+                            type="number"
+                            name="annualIncome"
+                            value={formData.annualIncome}
+                            onChange={handleChange}
+                            className="centered-input"
+                            placeholder="Enter annual income"
+                          />
+                          <span className="suffix">/year</span>
+                        </div>
+                        <small>
+                          We'll match you with franchises whose financial
+                          profiles align with your goals.
+                        </small>
+                      </div>
+
+                      <div className="input-wrapper">
+                        <label>
+                          What are your current monthly debt obligations?{" "}
+                          <span className="required">*</span>
+                        </label>
+                        <div className="position-relative">
+                          <span className="prefix">$</span>
+                          <input
+                            type="number"
+                            name="monthlyDebt"
+                            value={formData.monthlyDebt}
+                            onChange={handleChange}
+                            className="centered-input"
+                            placeholder="Enter minimum monthly debt payments"
+                          />
+                          <span className="suffix">/year</span>
+                        </div>
+                        <small>
+                          This includes minimum payments for credit cards,
+                          student loans, car loans, alimony, or child support.
+                        </small>
+                      </div>
+
+                      <div className="form-group">
+                        <label>
+                          What is your credit score?{" "}
+                          <span className="required">*</span>
+                        </label>
+                        <select
+                          name="creditScore"
+                          value={formData.creditScore}
+                          onChange={handleChange}
+                        >
+                          <option value="">Select a range:</option>
+                          <option value="FL">740+ Excellent</option>
+                          <option value="CA">700–739 Good</option>
+                          <option value="NY">640–699 Fair</option>
+                          <option value="NY">
+                            Below 640 Needs Improvement
+                          </option>
+                          <option value="NY">Not Sure</option>
+                        </select>
+                      </div>
                     </div>
                   </div>
-                  <div>
-                    <p className="modal-text">Tell us about your finances</p>
 
-                    <div className="input-wrapper">
-                      <label>
-                        What is your annual household income (before taxes)?{" "}
-                        <span className="required">*</span>
-                      </label>
-                      <div className="position-relative">
-                        <span className="prefix">$</span>
-                        <input
-                          type="number"
-                          className="centered-input"
-                          placeholder="Enter annual income"
-                        />
-                        <span className="suffix">/year</span>
-                      </div>
-                      <small>
-                        We'll match you with franchises whose financial profiles
-                        align with your goals.
-                      </small>
-                    </div>
-
-                    <div className="input-wrapper">
-                      <label>
-                        What are your current monthly debt obligations?{" "}
-                        <span className="required">*</span>
-                      </label>
-                      <div className="position-relative">
-                        <span className="prefix">$</span>
-                        <input
-                          type="number"
-                          className="centered-input"
-                          placeholder="Enter minimum monthly debt payments"
-                        />
-                        <span className="suffix">/year</span>
-                      </div>
-                      <small>
-                        This includes minimum payments for credit cards, student
-                        loans, car loans, alimony, or child support.
-                      </small>
-                    </div>
-
-                    <div className="form-group">
-                      <label>
-                        What is your credit score?{" "}
-                        <span className="required">*</span>
-                      </label>
-                      <select
-                        value={state}
-                        onChange={(e) => setState(e.target.value)}
-                      >
-                        <option value="">Select a range:</option>
-                        <option value="FL">740+ Excellent</option>
-                        <option value="CA">700–739 Good</option>
-                        <option value="NY">640–699 Fair</option>
-                        <option value="NY">Below 640 Needs Improvement</option>
-                        <option value="NY">Not Sure</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="modal-footer">
-                  {/* <p className="privacy-text">
+                  <div className="modal-footer">
+                    {/* <p className="privacy-text">
                     We’ll store your data according to the{" "}
                     <a href="#">Zillow Home Loans Privacy Policy</a>
                   </p> */}
-                  <button className="submit-btn">
-                    See what you can afford
-                  </button>
-                </div>
+                    <button className="submit-btn">
+                      See what you can afford
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
           )}

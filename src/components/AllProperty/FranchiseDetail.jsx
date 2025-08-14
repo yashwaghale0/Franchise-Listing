@@ -20,6 +20,13 @@ import { InputMask } from "@react-input/mask";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { HiOutlineCurrencyDollar } from "react-icons/hi2";
+import Advertising from "../../assets/images/Advertising.svg";
+import { PiUsersThree } from "react-icons/pi";
+import { Ri24HoursLine } from "react-icons/ri";
+import { TbClockHour4 } from "react-icons/tb";
+import { FcSupport } from "react-icons/fc";
+import { MdOutlineDescription } from "react-icons/md";
 
 const testimonials = [
   { name: "Michael Robert", img: t1 },
@@ -43,6 +50,13 @@ const FranchiseDetail = () => {
   const [searchState, setSearchState] = useState("");
   const [searchCity, setSearchCity] = useState("");
   const [showMobileForm, setShowMobileForm] = useState(false);
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [selectedCity, setSelectedCity] = useState("");
+  const [consent, setConsent] = useState(false);
 
   // Fetch franchise details
   useEffect(() => {
@@ -96,6 +110,49 @@ const FranchiseDetail = () => {
       setCities(res.data.data);
     } catch (err) {
       console.error(err);
+    }
+  };
+
+  // From Submit
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = {
+      firstName,
+      lastName,
+      phone,
+      email,
+      Country: selectedCountry,
+      state: selectedState,
+      city: selectedCity,
+      consent: consent,
+    };
+
+    try {
+      const res = await axios.post(`${BACKEND_URL}/send-email`, formData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      alert("Enquiry send successfully!");
+
+      // const res = await fetch("http://localhost:5000/send-email", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "Application/json",
+      //   },
+      //   body: JSON.stringify(formData),
+      // });
+
+      // if (res.ok) {
+      //   alert("Enquiry send successfully!");
+      // } else {
+      //   alert("Failed to send enquiry");
+      // }
+    } catch (error) {
+      console.error("Error sending enquiry", error);
     }
   };
 
@@ -198,7 +255,7 @@ const FranchiseDetail = () => {
         </div>
 
         <hr />
-        <Breadcrumbs />
+        {/* <Breadcrumbs /> */}
 
         <div className="row mt-4 p-3 ">
           {/* Left Content */}
@@ -319,43 +376,61 @@ const FranchiseDetail = () => {
             <div id="investment" className="mt-5 w-75">
               <h4 className="franchise-about-head">Investment Overview</h4>
               <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
-                <span className="franchise-about-label">
-                  Total Investment Range
+                <span className="d-flex gap-10 align-items-center">
+                  <HiOutlineCurrencyDollar size={20} />
+                  <p className="franchise-about-label">
+                    Total Investment Range
+                  </p>
                 </span>
+
                 <span className="franchise-about-stats">
                   $100,000 - $200,000
                 </span>
               </div>
               <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
-                <span className="franchise-about-label">
-                  Initial Franchise Fee
+                <span className="d-flex gap-10 align-items-center">
+                  <HiOutlineCurrencyDollar size={20} />
+                  <p className="franchise-about-label">Initial Franchise Fee</p>
                 </span>
+
                 <span className="franchise-about-stats">$35,000</span>
               </div>
               <div className="d-flex justify-content-between mb-4 py-3 border-bottom">
-                <span className="franchise-about-label">
-                  Financing Available
+                <span className="d-flex gap-10 align-items-center">
+                  <HiOutlineCurrencyDollar size={20} />
+                  <p className="franchise-about-label">Financing Available</p>
                 </span>
+
                 <span className="franchise-about-stats">Yes, Third Party</span>
               </div>
 
               <h5 className="mt-4 franchise-about-head">Ongoing Fees</h5>
               <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
-                <span className="franchise-about-label">Royalty Fee</span>
+                <span className="d-flex gap-10 align-items-center">
+                  <HiOutlineCurrencyDollar size={20} />
+                  <p className="franchise-about-label">Royalty Fee</p>
+                </span>
+
                 <span className="franchise-about-stats">
                   6% of Gross Revenue
                 </span>
               </div>
               <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
-                <span className="franchise-about-label">Local Advertising</span>
+                <span className="d-flex gap-10 align-items-center">
+                  <img src={Advertising} alt="Advertising" />
+                  <p className="franchise-about-label">Local Advertising</p>
+                </span>
+
                 <span className="franchise-about-stats">
                   1% of Gross Revenue
                 </span>
               </div>
               <div className="d-flex justify-content-between mb-4 py-3 border-bottom">
-                <span className="franchise-about-label">
-                  National Advertising
+                <span className="d-flex gap-10 align-items-center">
+                  <img src={Advertising} alt="Advertising" />
+                  <p className="franchise-about-label">National Advertising</p>
                 </span>
+
                 <span className="franchise-about-stats">
                   1% of Gross Revenue
                 </span>
@@ -365,8 +440,9 @@ const FranchiseDetail = () => {
                 Financial Performance
               </h5>
               <div className="d-flex justify-content-between mb-4 py-3 border-bottom">
-                <span className="franchise-about-label">
-                  Item 19 Disclosure
+                <span className="d-flex gap-10 align-items-center">
+                  <img src={Advertising} alt="Advertising" />
+                  <p className="franchise-about-label">Item 19 Disclosure</p>
                 </span>
                 <span className="franchise-about-stats">
                   Yes (Available upon request)
@@ -381,25 +457,33 @@ const FranchiseDetail = () => {
             <div id="operations" className="mt-5 w-75">
               <h4 className="franchise-about-head">Operations</h4>
               <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
-                <span className="franchise-about-label">
-                  Preferred Locations
+                <span className="d-flex gap-10 align-items-center">
+                  <GrLocationPin size={20} />
+                  <p className="franchise-about-label">Preferred Locations</p>
                 </span>
                 <span className="franchise-about-stats">
                   Commercial centers, strip centers, malls
                 </span>
               </div>
               <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
-                <span className="franchise-about-label">
-                  Space Requirements
+                <span className="d-flex gap-10 align-items-center">
+                  <CiShop size={20} />
+                  <p className="franchise-about-label">Space Requirements</p>
                 </span>
                 <span className="franchise-about-stats">700 - 1,500 sq ft</span>
               </div>
               <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
-                <span className="franchise-about-label"># of Employees</span>
+                <span className="d-flex gap-10 align-items-center">
+                  <PiUsersThree size={20} />
+                  <p className="franchise-about-label"># of Employees</p>
+                </span>
                 <span className="franchise-about-stats">5-10</span>
               </div>
               <div className="d-flex justify-content-between mb-4 py-3 border-bottom">
-                <span className="franchise-about-label">Business Hours</span>
+                <span className="d-flex gap-10 align-items-center">
+                  <Ri24HoursLine size={20} />
+                  <p className="franchise-about-label">Business Hours</p>
+                </span>
                 <span className="franchise-about-stats">
                   Mon-Sat 11am-8pm, Closed Sun
                 </span>
@@ -410,44 +494,55 @@ const FranchiseDetail = () => {
             <div id="training" className="mt-5 w-75">
               <h4 className="franchise-about-head">Initial Training Program</h4>
               <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
-                <span className="franchise-about-label">
-                  Classroom Training
+                <span className="d-flex gap-10 align-items-center">
+                  <Ri24HoursLine size={20} />
+                  <p className="franchise-about-label">Classroom Training</p>
                 </span>
                 <span className="franchise-about-stats">44 hours</span>
               </div>
               <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
-                <span className="franchise-about-label">
-                  On-the-Job Training
+                <span className="d-flex gap-10 align-items-center">
+                  <TbClockHour4 size={20} />
+                  <p className="franchise-about-label">On-the-Job Training</p>
                 </span>
                 <span className="franchise-about-stats">6 hours</span>
               </div>
               <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
-                <span className="franchise-about-label">Training Location</span>
+                <span className="d-flex gap-10 align-items-center">
+                  <GrLocationPin size={20} />
+                  <p className="franchise-about-label">Training Location</p>
+                </span>
                 <span className="franchise-about-stats">
                   HQ & Your Location
                 </span>
               </div>
               <div className="d-flex justify-content-between mb-4 py-3 border-bottom">
-                <span className="franchise-about-label">
-                  Grand Opening Support
+                <span className="d-flex gap-10 align-items-center">
+                  <img src={Advertising} alt="Advertising" />
+                  <p className="franchise-about-label">Grand Opening Support</p>
                 </span>
                 <span className="franchise-about-stats">Yes</span>
               </div>
 
               <h5 className="mt-4 franchise-about-head">Ongoing Support</h5>
               <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
-                <span className="franchise-about-label">
-                  Operations Support
+                <span className="d-flex gap-10 align-items-center">
+                  <FcSupport size={20} />
+                  <p className="franchise-about-label">Operations Support</p>
                 </span>
                 <span className="franchise-about-stats">Yes</span>
               </div>
               <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
-                <span className="franchise-about-label">Marketing Support</span>
+                <span className="d-flex gap-10 align-items-center">
+                  <FcSupport size={20} />
+                  <p className="franchise-about-label">Marketing Support</p>
+                </span>
                 <span className="franchise-about-stats">Yes</span>
               </div>
               <div className="d-flex justify-content-between mb-4 py-3 border-bottom">
-                <span className="franchise-about-label">
-                  Technology Support
+                <span className="d-flex gap-10 align-items-center">
+                  <FcSupport size={20} />
+                  <p className="franchise-about-label">Technology Support</p>
                 </span>
                 <span className="franchise-about-stats">Yes</span>
               </div>
@@ -456,14 +551,18 @@ const FranchiseDetail = () => {
                 Marketing & Advertising
               </h5>
               <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
-                <span className="franchise-about-label">
-                  Marketing Materials
+                <span className="d-flex gap-10 align-items-center">
+                  <img src={Advertising} alt="Advertising" />
+                  <p className="franchise-about-label">Marketing Materials</p>
                 </span>
                 <span className="franchise-about-stats">Yes</span>
               </div>
               <div className="d-flex justify-content-between mb-4 py-3 border-bottom">
-                <span className="franchise-about-label">
-                  Digital Marketing Support
+                <span className="d-flex gap-10 align-items-center">
+                  <img src={Advertising} alt="Advertising" />
+                  <p className="franchise-about-label">
+                    Digital Marketing Support
+                  </p>
                 </span>
                 <span className="franchise-about-stats">Yes</span>
               </div>
@@ -473,34 +572,47 @@ const FranchiseDetail = () => {
             <div id="territory" className="mt-5 w-75">
               <h4 className="franchise-about-head">Territory & Growth</h4>
               <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
-                <span className="franchise-about-label">
-                  Territory Description
+                <span className="d-flex gap-10 align-items-center">
+                  <MdOutlineDescription size={20} />
+                  <p className="franchise-about-label">Territory Description</p>
                 </span>
                 <span className="franchise-about-stats">
                   Protected territory (1-mile radius)
                 </span>
               </div>
               <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
-                <span className="franchise-about-label">
-                  Single Unit Franchises
+                <span className="d-flex gap-10 align-items-center">
+                  <CiShop size={20} />
+                  <p className="franchise-about-label">
+                    Single Unit Franchises
+                  </p>
                 </span>
                 <span className="franchise-about-stats">Available</span>
               </div>
               <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
-                <span className="franchise-about-label">
-                  Multi-Unit Development
+                <span className="d-flex gap-10 align-items-center">
+                  <CiShop size={20} />
+                  <p className="franchise-about-label">
+                    Multi-Unit Development
+                  </p>
                 </span>
                 <span className="franchise-about-stats">Available</span>
               </div>
               <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
-                <span className="franchise-about-label">Master Franchise</span>
+                <span className="d-flex gap-10 align-items-center">
+                  <CiShop size={20} />
+                  <p className="franchise-about-label">Master Franchise</p>
+                </span>
                 <span className="franchise-about-stats">
                   Contact for availability
                 </span>
               </div>
               <div className="d-flex justify-content-between mb-4 py-3 border-bottom">
-                <span className="franchise-about-label">
-                  International Expansion
+                <span className="d-flex gap-10 align-items-center">
+                  <CiShop size={20} />
+                  <p className="franchise-about-label">
+                    International Expansion
+                  </p>
                 </span>
                 <span className="franchise-about-stats">
                   Contact for availability
@@ -581,13 +693,18 @@ const FranchiseDetail = () => {
               <h5 className="text-white details-form-heading p-4 rounded">
                 Request Franchise Information
               </h5>
-              <form className="p-4 franchise-details-form">
+              <form
+                className="p-4 franchise-details-form"
+                onSubmit={handleSubmit}
+              >
                 <div className="mb-3">
                   <label className="label-heading">First Name</label>
                   <input
                     type="text"
                     className="form-control"
                     placeholder="Enter First Name"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
                     required
                   />
                 </div>
@@ -597,6 +714,8 @@ const FranchiseDetail = () => {
                     type="text"
                     className="form-control"
                     placeholder="Enter Last Name"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
                     required
                   />
                 </div>
@@ -607,6 +726,8 @@ const FranchiseDetail = () => {
                     replacement={{ 9: /\d/ }}
                     className="form-control"
                     placeholder="(123) 456-7890"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
                     required
                   />
                 </div>
@@ -616,6 +737,8 @@ const FranchiseDetail = () => {
                     type="email"
                     className="form-control"
                     placeholder="Your Email Address"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     required
                   />
                 </div>
@@ -699,7 +822,12 @@ const FranchiseDetail = () => {
                       onChange={(e) => setSearchCity(e.target.value)}
                       className="form-control mb-2"
                     /> */}
-                    <select className="form-select" required>
+                    <select
+                      className="form-select"
+                      required
+                      value={selectedCity}
+                      onChange={(e) => setSelectedCity(e.target.value)}
+                    >
                       <option value="">Select City</option>
                       {cities
                         .filter((city) =>
@@ -719,6 +847,8 @@ const FranchiseDetail = () => {
                     type="checkbox"
                     className="form-check-input"
                     id="consent"
+                    checked={consent}
+                    onChange={(e) => setConsent(e.target.checked)}
                   />
                   <label className="form-check-label fs-14" htmlFor="consent">
                     I consent to receive information about franchise
@@ -748,13 +878,18 @@ const FranchiseDetail = () => {
                 <h5 className="text-white details-form-heading p-3 rounded">
                   Request Franchise Information
                 </h5>
-                <form className="p-4 franchise-details-form">
+                <form
+                  className="p-4 franchise-details-form"
+                  onSubmit={handleSubmit}
+                >
                   <div className="mb-3">
                     <label className="label-heading">First Name</label>
                     <input
                       type="text"
                       className="form-control"
                       placeholder="Enter First Name"
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
                       required
                     />
                   </div>
@@ -764,6 +899,8 @@ const FranchiseDetail = () => {
                       type="text"
                       className="form-control"
                       placeholder="Enter Last Name"
+                      value={lastName}
+                      onChange={(e) => setLastName(e.target.value)}
                       required
                     />
                   </div>
@@ -774,6 +911,8 @@ const FranchiseDetail = () => {
                       replacement={{ 9: /\d/ }}
                       className="form-control"
                       placeholder="(123) 456-7890"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
                       required
                     />
                   </div>
@@ -783,6 +922,8 @@ const FranchiseDetail = () => {
                       type="email"
                       className="form-control"
                       placeholder="Your Email Address"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       required
                     />
                   </div>
@@ -866,7 +1007,12 @@ const FranchiseDetail = () => {
                       onChange={(e) => setSearchCity(e.target.value)}
                       className="form-control mb-2"
                     /> */}
-                      <select className="form-select" required>
+                      <select
+                        className="form-select"
+                        required
+                        value={selectedCity}
+                        onChange={(e) => setSelectedCity(e.target.value)}
+                      >
                         <option value="">Select City</option>
                         {cities
                           .filter((city) =>

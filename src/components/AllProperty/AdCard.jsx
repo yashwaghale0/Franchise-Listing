@@ -21,16 +21,16 @@ const AdCard = ({ type = "white" }) => {
 
   return (
     <div className="card h-100 border-0 shadow-sm">
-      <span className="advertisement">ADVERTISEMENT</span>
+      <span className="advertisement">Advertisement</span>
       <img src={adsimage} alt="create your Account" />
       <div className="p-3">
         <span className=" mb-1 sponsor-subtext my-2">
-          Sponsored By <span className="">State Farm - OMD 2</span>
+          Sponsored By <span className="">Franchise Academia</span>
         </span>
-        <h6 className="mb-2 franchise-name">Small Business Insurance</h6>
+        <h6 className="mb-2 franchise-name">Become a Franchise Broker</h6>
         <p className="text-muted mb-3 ads-description">
-          Lorem ipsum dolor sit amet. Sed autem dolor et voluptatum vitae aut
-          modi vel commodi.
+          Help entrepreneurs find the right franchise while building your own
+          rewarding career.
         </p>
         <button className="learn-more">Learn More</button>
       </div>

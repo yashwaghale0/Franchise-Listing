@@ -41,7 +41,10 @@ const FranchiseOpportunities = () => {
       <StickyScrollHeader />
       <div className="franchise-opportunities">
         <div className="filter-section listing-flter-section d-flex gap-10 justify-content-center py-4 relative z-40">
-          <button className="btn select-button d-flex gap-10 align-items-center bg-white searchFilter">
+          <button
+            onClick={() => setOpenFilters(true)}
+            className="btn select-button d-flex gap-10 align-items-center bg-white searchFilter"
+          >
             <BsSliders />
           </button>
           {showFilter && <FilterPopup onClose={() => setShowFilter(false)} />}
