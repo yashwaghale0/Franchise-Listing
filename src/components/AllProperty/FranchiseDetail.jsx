@@ -27,6 +27,7 @@ import { Ri24HoursLine } from "react-icons/ri";
 import { TbClockHour4 } from "react-icons/tb";
 import { FcSupport } from "react-icons/fc";
 import { MdOutlineDescription } from "react-icons/md";
+import "./SearchResults.css";
 
 const testimonials = [
   { name: "Michael Robert", img: t1 },
@@ -293,9 +294,13 @@ const FranchiseDetail = () => {
                 </button>
               </a>
             </div>
+            <span className="mb-4">
+              {" "}
+              <hr />
+            </span>
 
             {/* Tab 1: About */}
-            <div id="about">
+            <div id="about" className="about-details-section">
               <h4 className="franchise-about-head">
                 About {franchise.brandName} Franchise
               </h4>

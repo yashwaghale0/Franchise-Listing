@@ -175,12 +175,16 @@
 }
 
 .franchise-category {
-  padding: 4px 20px;
+  padding: 0px 20px;
   color: #6D758F;
   border: 1px solid #6D758F;
   font-size: 14px;
   border-radius: 20px;
   font-weight: 300;
+}
+
+.about-details-section {
+  margin-top: 20px;
 }
 
 .franchise-folloers span {
@@ -586,6 +590,8 @@
   display: flex;
   gap: 10px;
   align-items: center;
+  width: 50%;
+  justify-content: center;
 }
 
 .save-search-button {

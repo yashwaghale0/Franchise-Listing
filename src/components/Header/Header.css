@@ -78,9 +78,7 @@ span.Mobile-icon {
         font-size: 14px !important;
     }
     
-    .sign_in:hover {
-      background-image: none !important;
-    }
+    
     
     span.Mobile-icon {
       border: none !important;
@@ -208,6 +206,21 @@ span.Mobile-icon {
 
   .mobile-signin {
   padding: 10px 24px;
+  font-size: 16px !important;
+  color: #535364 !important;
+  background-color: white;
+  border: 2px solid transparent !important;
+  border-radius: 8px;
+  background-image: linear-gradient(white, white), 
+                    linear-gradient(to right, #00DB62, #0DA2FF);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  cursor: pointer;
+  width: 100%;
+  }
+  
+  .mobile-signin:hover {
+    padding: 10px 24px;
   font-size: 16px !important;
   color: #535364 !important;
   background-color: white;

@@ -210,7 +210,9 @@ export default function ListHeader() {
                 </h6>
                 {submenuOpen === "site" && (
                   <div className="submenu">
-                    <a href="#">Franchisors</a>
+                    <a href="https://dev.franchiselistings.com/user/login?tab=signup">
+                      Franchisors
+                    </a>
                   </div>
                 )}
               </div>
@@ -257,13 +259,16 @@ export default function ListHeader() {
               </div> */}
               <div className="dropdown-section">
                 <h6 onClick={() => toggleSubmenu("learn")}>
-                  Learn More <FaAngleDown />
+                  Resources <FaAngleDown />
                 </h6>
                 {submenuOpen === "learn" && (
                   <div className="submenu">
                     {/* <a href="#">Franchise Events</a>
                     <a href="#">Franchise News</a> */}
-                    <a href="#">Get Listed</a>
+                    <a href="https://dev.franchiselistings.com/user/login?tab=signup">
+                      Get Listed
+                    </a>
+                    <a href="#">Franchise Glossary</a>
                   </div>
                 )}
               </div>

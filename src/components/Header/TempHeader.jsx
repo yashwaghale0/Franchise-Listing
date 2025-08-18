@@ -191,9 +191,12 @@ export default function TempHeader() {
                 <h6 onClick={() => toggleSubmenu("site")}>
                   Join Our Network <FaAngleDown />
                 </h6>
+
                 {submenuOpen === "site" && (
                   <div className="submenu">
-                    <a href="#">Franchisors</a>
+                    <a href="https://dev.franchiselistings.com/user/login?tab=signup">
+                      Franchisors
+                    </a>
                   </div>
                 )}
               </div>
@@ -240,18 +243,21 @@ export default function TempHeader() {
               </div> */}
               <div className="dropdown-section">
                 <h6 onClick={() => toggleSubmenu("learn")}>
-                  Learn More <FaAngleDown />
+                  Resources <FaAngleDown />
                 </h6>
                 {submenuOpen === "learn" && (
                   <div className="submenu">
                     {/* <a href="#">Franchise Events</a>
                     <a href="#">Franchise News</a> */}
-                    <a href="#">Get Listed</a>
+                    <a href="https://dev.franchiselistings.com/user/login?tab=signup">
+                      Get Listed
+                    </a>
+                    <a href="#">Franchise Glossary</a>
                   </div>
                 )}
               </div>
               <div className="text-center mt-4 sidebar-signin">
-                <a href="https://dev.franchiselistings.com/admin/login">
+                <a href="https://dev.franchiselistings.com/user/login">
                   <button className="sign_in mobile-signin">Sign in</button>
                 </a>
               </div>

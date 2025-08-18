@@ -30,8 +30,8 @@ function HomePage() {
       <StickyScrollHeader />
       <Hero />
       <FranchiseSlider />
-      {/* <FranchiseBrokerSlider />
-      <FranchiseSale />
+      <FranchiseBrokerSlider />
+      {/*<FranchiseSale />
       <FranchiseLocation /> */}
       <CommercialSites />
       {/* <Funding /> */}

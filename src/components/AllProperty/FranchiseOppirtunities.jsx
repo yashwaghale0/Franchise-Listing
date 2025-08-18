@@ -66,12 +66,12 @@ const FranchiseOpportunities = () => {
         <div className="pb-4 search-select-container">
           {/* Buttons */}
           <div className="flex gap-2">
-            <button
+            {/* <button
               onClick={() => setOpenSelectSearch(true)}
               className="border border-gray-300 px-1 py-0 rounded-full text-gray-600 select-search-button"
             >
               Select Search <FaAngleDown />
-            </button>
+            </button> */}
             <button
               onClick={() => setOpenFilters(true)}
               className="border border-gray-300 px-4 py-2 rounded-full text-gray-600 select-search-button"
@@ -201,7 +201,7 @@ const FranchiseOpportunities = () => {
         <div className="searching-section">
           <h2 className="searching-heading">Results for Franchises for Sale</h2>
           <p className="Result-des">
-            <span>3500</span>Results
+            <span>3,500</span>Results
           </p>
         </div>
         <PropertyListing query={query} />
