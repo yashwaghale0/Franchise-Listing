@@ -2,13 +2,10 @@ import { useState, useEffect } from "react";
 
 export default function FilterPopup({ onClose, onApplyFilters }) {
   const [range, setRange] = useState(0);
-  const [selectedIndustry, setSelectedIndustry] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("");
-  // 👇 this defines index so it exists
-  const [index, setIndex] = useState(0);
+  //   const [industry, setIndustry] = useState("");
+  const [subcategory, setSubcategory] = useState("");
 
-  // Industry list
-  const industries = [
+  const industry = [
     "Food & Beverage",
     "Retail",
     "Service Based",
@@ -25,8 +22,6 @@ export default function FilterPopup({ onClose, onApplyFilters }) {
     "Pets",
     "Professional Services",
   ];
-
-  // Subcategories for each industry
   const subcategories = {
     "Food & Beverage": ["Mexican", "Japanese", "Brazilian", "Vegan"],
     Retail: ["Clothing", "Electronics", "Home Goods"],
@@ -36,36 +31,27 @@ export default function FilterPopup({ onClose, onApplyFilters }) {
 
   const handleApply = () => {
     const filters = {
-      industry: selectedIndustry,
-      category: selectedCategory,
+      Industry,
+      category,
+      range,
     };
-    onApplyFilters(filters);
-    onClose();
+    onApplyFilters(filters); // Send filters to parent
   };
 
   const handleClear = () => {
-    setSelectedIndustry("");
-    setSelectedCategory("");
-    setSelectedPriceRange("");
-    onApplyFilters({ industry: "", category: "", priceRange: "" });
+    setCategory("");
+    setSubcategory("");
+    setRange(0);
+    onApplyFilters({ category: "", subcategory: "", range: 0 });
     onClose();
   };
-
-  const ranges = [
-    "Under $50,000",
-    "$50,000 - $99,999",
-    "$100,000 - $249,999",
-    "$250,000 - $499,999",
-    "$500,000 - $999,999",
-    "$1 Million and up",
-  ];
 
   useEffect(() => {
     const input = document.getElementById("rangeSlider");
     if (input) {
       updateSliderBackground(input);
     }
-  }, [index]);
+  }, []);
 
   const updateSliderBackground = (input) => {
     const min = parseInt(input.min);
@@ -84,32 +70,35 @@ export default function FilterPopup({ onClose, onApplyFilters }) {
           Apply Filters
         </h4>
 
-        {/* Industry & Category */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
           <select
             className="w-full border border-gray-300 rounded-md filter-select-tab text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            value={selectedIndustry}
+            value={Industry}
             onChange={(e) => {
-              setSelectedIndustry(e.target.value);
-              setSelectedCategory(""); // reset category
+              setIndustry(e.target.value);
+              setCategory("");
             }}
           >
-            <option value="">Select Industry</option>
-            {industries.map((ind, index) => (
-              <option key={index} value={ind}>
-                {ind}
+            <option value="" disabled>
+              Select Industry
+            </option>
+            {industry.map((cat, index) => (
+              <option key={index} value={cat}>
+                {cat}
               </option>
             ))}
           </select>
 
           <select
             className="w-full border border-gray-300 rounded-md filter-select-tab text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
-            disabled={!selectedIndustry}
+            value={category}
+            onChange={(e) => setSubcategory(e.target.value)}
+            disabled={!category}
           >
-            <option value="">Select Category</option>
-            {(subcategories[selectedIndustry] || []).map((subcat, index) => (
+            <option value="" disabled>
+              Select Category
+            </option>
+            {(subcategories[category] || []).map((subcat, index) => (
               <option key={index} value={subcat}>
                 {subcat}
               </option>
@@ -118,31 +107,34 @@ export default function FilterPopup({ onClose, onApplyFilters }) {
         </div>
 
         <div className="mb-6 text-start">
-          <label className="block text-sm mb-2  price-range-label">
-            Investment Range:{" "}
-            <span className="font-bold price-range-amt">{ranges[index]}</span>
+          <label className="block text-sm mb-2 price-range-label">
+            Investment Range (Up to ${" "}
+            <span className="price-range-amt font-bold">
+              {Number(range).toLocaleString()}
+            </span>
+            )
           </label>
-
           <input
-            id="rangeSlider"
             type="range"
-            min={0}
-            max={ranges.length - 1}
-            step={1}
-            value={index}
-            onChange={(e) => setIndex(Number(e.target.value))}
+            min={5000}
+            max={1000000}
+            step={5000}
+            value={range}
+            onChange={(e) => {
+              setRange(e.target.value);
+              updateSliderBackground(e.target);
+            }}
             className="w-full price-range"
           />
         </div>
 
-        {/* Buttons */}
         <div className="flex justify-end gap-3">
           <button onClick={handleClear} className=" clear-all-btn">
             Clear All
           </button>
           <button
             onClick={handleApply}
-            className="Applyfilter-btn apply-filter-btn"
+            className="Applyfilter-btn  apply-filter-btn"
           >
             Apply
           </button>

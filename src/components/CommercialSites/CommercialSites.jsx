@@ -7,6 +7,8 @@ import { CiLocationOn } from "react-icons/ci";
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
 import axios from "axios";
 import { BACKEND_URL } from "../../../env.js";
+import { InputMask } from "@react-input/mask";
+import PopupImage from "../../assets/images/popup-image.svg";
 
 const Testing = () => {
   const sliderRef = useRef(null);
@@ -16,18 +18,80 @@ const Testing = () => {
   const [downPayment, setDownPayment] = useState("");
   const [monthlyBudget, setMonthlyBudget] = useState("");
 
+  const [countries, setCountries] = useState([]);
+  const [states, setStates] = useState([]);
+  const [cities, setCities] = useState([]);
+  const [selectedCountry, setSelectedCountry] = useState("");
+  const [selectedState, setSelectedState] = useState("");
+  const [searchCountry, setSearchCountry] = useState("");
+  const [searchState, setSearchState] = useState("");
+  const [searchCity, setSearchCity] = useState("");
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [franchiseType, setFranchiseType] = useState("");
+  const [cashOnHand, setCashOnHand] = useState("");
+  const [totalAssets, setTotalAssets] = useState("");
+  const [selectedCity, setSelectedCity] = useState("");
+  const [monthlyDebt, setMonthlyDebt] = useState("");
+
   // From Submission
   const [formData, setFormData] = useState({
-    state: "",
-    investmentCapital: "",
-    monthlyIncome: "",
-    annualIncome: "",
-    monthlyDebt: "",
-    creditScore: "",
+    firstName,
+    lastName,
+    phone,
+    email,
+    franchiseType,
+    cashOnHand,
+    totalAssets,
+    Country: selectedCountry,
+    state: selectedState,
+    city: selectedCity,
   });
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  // const handleChange = (e) => {
+  //   setFormData({ ...formData, [e.target.name]: e.target.value });
+  // };
+
+  // Fetch countries
+  useEffect(() => {
+    axios
+      .get("https://countriesnow.space/api/v0.1/countries/positions")
+      .then((res) => {
+        setCountries(res.data.data);
+        console.log(res.data); // <-- Moved inside where `res` exists
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
+  // Fetch states for selected country
+  const fetchStates = async (country) => {
+    try {
+      const res = await axios.post(
+        "https://countriesnow.space/api/v0.1/countries/states",
+        { country }
+      );
+      setStates(res.data.data.states);
+      setCities([]);
+      setSelectedState("");
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  // Fetch cities for selected state
+  const fetchCities = async (country, state) => {
+    try {
+      const res = await axios.post(
+        "https://countriesnow.space/api/v0.1/countries/state/cities",
+        { country, state }
+      );
+      setCities(res.data.data);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -313,9 +377,9 @@ const Testing = () => {
           </div>
 
           {isOpen && (
-            <div className="modal-overlay">
+            <div className="modal-overlay commercial-popup">
               <div className="modal-container">
-                <form onSubmit={handleSubmit}>
+                {/* <form onSubmit={handleSubmit}>
                   <div className="modal-header justify-content-between">
                     <span></span>
                     <h2>
@@ -330,15 +394,13 @@ const Testing = () => {
                   </div>
                   <div className="modal-body">
                     <p className="modal-subheading">
-                      <strong>
-                        Buying a franchise is a big step. This tool will help
-                        you assess what you may afford and qualify for. Answer
-                        as best as you can, even if you're unsure of some
-                        details.
-                      </strong>
+                      <strong>Find a franchise within your budget.</strong>
                     </p>
                     <div>
-                      <p className="modal-text">Tell us about your plans</p>
+                      <p className="modal-text">
+                        See a real-time view of what franchises you can afford
+                        in today’s market.
+                      </p>
 
                       <div className="form-group">
                         <label>
@@ -481,10 +543,248 @@ const Testing = () => {
                   </div>
 
                   <div className="modal-footer">
-                    {/* <p className="privacy-text">
-                    We’ll store your data according to the{" "}
-                    <a href="#">Zillow Home Loans Privacy Policy</a>
-                  </p> */}
+                    <button className="submit-btn">
+                      See what you can afford
+                    </button>
+                  </div>
+                </form> */}
+
+                <form
+                  className="p-4 commercial-popup-form row"
+                  onSubmit={handleSubmit}
+                >
+                  <div className="modal-header justify-content-between">
+                    <span></span>
+                    <h2>
+                      FranAbility<sup>SM</sup>
+                    </h2>
+                    <button
+                      className="close-btn-popup"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      ×
+                    </button>
+                  </div>
+                  <div className="my-4 d-flex justify-content-center">
+                    <img src={PopupImage} alt="PopupImage" />
+                  </div>
+                  <div className=" mb-3 col-md-6">
+                    <label className="label-heading">First Name:</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Enter First Name"
+                      value={formData.firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="mb-3 col-md-6">
+                    <label className="label-heading">Last Name:</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Enter Last Name"
+                      value={formData.lastName}
+                      onChange={(e) => setLastName(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label className="label-heading">Phone Number:</label>
+                    <InputMask
+                      mask="(999) 999-9999"
+                      replacement={{ 9: /\d/ }}
+                      className="form-control"
+                      placeholder="(123) 456-7890"
+                      value={formData.phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label className="label-heading">Email Address:</label>
+                    <input
+                      type="email"
+                      className="form-control"
+                      placeholder="Your Email Address"
+                      value={formData.email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label className="label-heading">
+                      What type of franchises are you interested in:
+                    </label>
+                    <select
+                      className="form-control"
+                      value={formData.franchiseType}
+                      onChange={(e) => setFranchiseType(e.target.value)}
+                      required
+                    >
+                      <option value="">Select a franchise type</option>
+                      <option value="food">Food & Beverage</option>
+                      <option value="retail">Retail</option>
+                      <option value="fitness">Fitness</option>
+                      <option value="education">Education</option>
+                      <option value="services">Services</option>
+                    </select>
+                  </div>
+
+                  <div className="mb-3">
+                    <label className="label-heading">Cash on Hand</label>
+                    <input
+                      type="number"
+                      className="form-control"
+                      placeholder="Enter Cash on Hand"
+                      value={formData.cashOnHand}
+                      onChange={(e) => setCashOnHand(e.target.value)}
+                      min="0"
+                      required
+                    />
+                  </div>
+
+                  <div className="mb-3">
+                    <label className="label-heading">Total Assets</label>
+                    <input
+                      type="number"
+                      className="form-control"
+                      placeholder="Enter Total Assets"
+                      value={formData.totalAssets}
+                      onChange={(e) => setTotalAssets(e.target.value)}
+                      min="0"
+                    />
+                  </div>
+
+                  <div className="mb-3">
+                    <label className="label-heading">Monthly Debt</label>
+                    <input
+                      type="number"
+                      className="form-control"
+                      placeholder="Enter Monthly Debt"
+                      value={formData.monthlyDebt}
+                      onChange={(e) => setMonthlyDebt(e.target.value)}
+                      min="0"
+                    />
+                  </div>
+
+                  <label className="label-heading">Desired Territory</label>
+
+                  {/* Country */}
+                  <div className="mb-3 request-form-select">
+                    {/* <input
+                    type="text"
+                    placeholder="Search Country"
+                    value={searchCountry}
+                    onChange={(e) => setSearchCountry(e.target.value)}
+                    className="form-control mb-2"
+                  /> */}
+                    <select
+                      className="form-select"
+                      value={formData.selectedCountry}
+                      onChange={(e) => {
+                        setSelectedCountry(e.target.value);
+                        fetchStates(e.target.value);
+                      }}
+                      required
+                    >
+                      <option value="">Select Country</option>
+                      {countries
+                        .filter((c) =>
+                          c.name
+                            .toLowerCase()
+                            .includes(searchCountry.toLowerCase())
+                        )
+                        .map((c) => (
+                          <option key={c.iso2} value={c.name}>
+                            {c.name}
+                          </option>
+                        ))}
+                    </select>
+                  </div>
+
+                  {/* State */}
+                  {selectedCountry && (
+                    <div className="mb-3 request-form-select">
+                      {/* <input
+                      type="text"
+                      placeholder="Search State"
+                      value={searchState}
+                      onChange={(e) => setSearchState(e.target.value)}
+                      className="form-control mb-2"
+                    /> */}
+                      <select
+                        className="form-select"
+                        value={formData.selectedState}
+                        onChange={(e) => {
+                          setSelectedState(e.target.value);
+                          fetchCities(selectedCountry, e.target.value);
+                        }}
+                        required
+                      >
+                        <option value="">Select State</option>
+                        {states
+                          .filter((s) =>
+                            s.name
+                              .toLowerCase()
+                              .includes(searchState.toLowerCase())
+                          )
+                          .map((s) => (
+                            <option key={s.name} value={s.name}>
+                              {s.name}
+                            </option>
+                          ))}
+                      </select>
+                    </div>
+                  )}
+
+                  {/* City */}
+                  {selectedState && (
+                    <div className="mb-3 request-form-select">
+                      {/* <input
+                      type="text"
+                      placeholder="Search City"
+                      value={searchCity}
+                      onChange={(e) => setSearchCity(e.target.value)}
+                      className="form-control mb-2"
+                    /> */}
+                      <select
+                        className="form-select"
+                        required
+                        value={formData.selectedCity}
+                        onChange={(e) => setSelectedCity(e.target.value)}
+                      >
+                        <option value="">Select City</option>
+                        {cities
+                          .filter((city) =>
+                            city
+                              .toLowerCase()
+                              .includes(searchCity.toLowerCase())
+                          )
+                          .map((city, i) => (
+                            <option key={i} value={city}>
+                              {city}
+                            </option>
+                          ))}
+                      </select>
+                    </div>
+                  )}
+
+                  {/* <div className="form-check mb-3 d-flex align-items-center gap-10">
+                    <input
+                      type="checkbox"
+                      className="form-check-input"
+                      id="consent"
+                      checked={consent}
+                      onChange={(e) => setConsent(e.target.checked)}
+                    />
+                    <label className="form-check-label fs-14" htmlFor="consent">
+                      I consent to receive information about franchise
+                      opportunities via email and SMS.
+                    </label>
+                  </div> */}
+                  <div className="modal-footer">
                     <button className="submit-btn">
                       See what you can afford
                     </button>

@@ -32,7 +32,11 @@ const AdCard = ({ type = "white" }) => {
           Help entrepreneurs find the right franchise while building your own
           rewarding career.
         </p>
-        <button className="learn-more">Learn More</button>
+
+        <a href="https://www.franchiseacademia.com">
+          {" "}
+          <button className="learn-more">Learn More</button>
+        </a>
       </div>
     </div>
   );

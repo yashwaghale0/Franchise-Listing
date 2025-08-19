@@ -255,7 +255,7 @@
   }
   
   .modal-container {
-    max-height: 100vh !important;
+    max-height: 80vh !important;
     margin: 10px !important;
   }
   
@@ -290,10 +290,11 @@
   border-radius: 12px;
   width: 100%;
   max-width: 540px;
-  max-height: 90vh;
+  max-height: 75vh;
   overflow-y: auto;
   box-shadow: 0 4px 20px rgba(0,0,0,0.15);
   position: relative;
+  scrollbar-width: none;
 }
 
 /* Header */
@@ -303,6 +304,9 @@
   align-items: center;
   padding: 12px 24px;
   border-bottom: 1px solid #cdcdd3;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
 }
 
 .modal-header::after {
@@ -318,6 +322,17 @@
   background: none;
   border: none;
   cursor: pointer;
+}
+
+
+
+.commercial-popup-form {
+    border: 1px solid #CDCDD3;
+    font-size: 14px;
+    color: #898989;
+    padding: 8px 12px;
+    width: 100%;
+    margin: 0px;
 }
 
 /* Body */
