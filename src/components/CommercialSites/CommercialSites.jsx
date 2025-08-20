@@ -9,6 +9,7 @@ import axios from "axios";
 import { BACKEND_URL } from "../../../env.js";
 import { InputMask } from "@react-input/mask";
 import PopupImage from "../../assets/images/popup-image.svg";
+import { formatUSNumber } from "../utils/formatNumber.js";
 
 const Testing = () => {
   const sliderRef = useRef(null);
@@ -46,6 +47,7 @@ const Testing = () => {
     franchiseType,
     cashOnHand,
     totalAssets,
+    monthlyDebt,
     Country: selectedCountry,
     state: selectedState,
     city: selectedCity,
@@ -54,6 +56,11 @@ const Testing = () => {
   // const handleChange = (e) => {
   //   setFormData({ ...formData, [e.target.name]: e.target.value });
   // };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   // Fetch countries
   useEffect(() => {
@@ -572,10 +579,11 @@ const Testing = () => {
                     <label className="label-heading">First Name:</label>
                     <input
                       type="text"
+                      name="firstName"
                       className="form-control"
                       placeholder="Enter First Name"
                       value={formData.firstName}
-                      onChange={(e) => setFirstName(e.target.value)}
+                      onChange={handleChange}
                       required
                     />
                   </div>
@@ -583,10 +591,11 @@ const Testing = () => {
                     <label className="label-heading">Last Name:</label>
                     <input
                       type="text"
+                      name="lastName"
                       className="form-control"
                       placeholder="Enter Last Name"
                       value={formData.lastName}
-                      onChange={(e) => setLastName(e.target.value)}
+                      onChange={handleChange}
                       required
                     />
                   </div>
@@ -594,11 +603,12 @@ const Testing = () => {
                     <label className="label-heading">Phone Number:</label>
                     <InputMask
                       mask="(999) 999-9999"
+                      name="phone"
                       replacement={{ 9: /\d/ }}
                       className="form-control"
                       placeholder="(123) 456-7890"
                       value={formData.phone}
-                      onChange={(e) => setPhone(e.target.value)}
+                      onChange={handleChange}
                       required
                     />
                   </div>
@@ -606,10 +616,11 @@ const Testing = () => {
                     <label className="label-heading">Email Address:</label>
                     <input
                       type="email"
+                      name="email"
                       className="form-control"
                       placeholder="Your Email Address"
                       value={formData.email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={handleChange}
                       required
                     />
                   </div>
@@ -619,8 +630,9 @@ const Testing = () => {
                     </label>
                     <select
                       className="form-control"
+                      name="franchiseType"
                       value={formData.franchiseType}
-                      onChange={(e) => setFranchiseType(e.target.value)}
+                      onChange={handleChange}
                       required
                     >
                       <option value="">Select a franchise type</option>
@@ -636,10 +648,11 @@ const Testing = () => {
                     <label className="label-heading">Cash on Hand</label>
                     <input
                       type="number"
+                      name="cashOnHand"
                       className="form-control"
                       placeholder="Enter Cash on Hand"
                       value={formData.cashOnHand}
-                      onChange={(e) => setCashOnHand(e.target.value)}
+                      onChange={handleChange}
                       min="0"
                       required
                     />
@@ -649,10 +662,11 @@ const Testing = () => {
                     <label className="label-heading">Total Assets</label>
                     <input
                       type="number"
+                      name="totalAssets"
                       className="form-control"
                       placeholder="Enter Total Assets"
                       value={formData.totalAssets}
-                      onChange={(e) => setTotalAssets(e.target.value)}
+                      onChange={handleChange}
                       min="0"
                     />
                   </div>
@@ -661,10 +675,11 @@ const Testing = () => {
                     <label className="label-heading">Monthly Debt</label>
                     <input
                       type="number"
+                      name="monthlyDebt"
                       className="form-control"
                       placeholder="Enter Monthly Debt"
                       value={formData.monthlyDebt}
-                      onChange={(e) => setMonthlyDebt(e.target.value)}
+                      onChange={handleChange}
                       min="0"
                     />
                   </div>
@@ -682,10 +697,12 @@ const Testing = () => {
                   /> */}
                     <select
                       className="form-select"
-                      value={formData.selectedCountry}
+                      name="Country"
+                      value={formData.Country}
                       onChange={(e) => {
                         setSelectedCountry(e.target.value);
                         fetchStates(e.target.value);
+                        handleChange(e);
                       }}
                       required
                     >
@@ -716,10 +733,13 @@ const Testing = () => {
                     /> */}
                       <select
                         className="form-select"
-                        value={formData.selectedState}
+                        name="state"
+                        value={formData.state}
                         onChange={(e) => {
-                          setSelectedState(e.target.value);
-                          fetchCities(selectedCountry, e.target.value);
+                          const value = e.target.value;
+                          setSelectedState(value);
+                          fetchCities(selectedCountry, value);
+                          handleChange(e); // update formData
                         }}
                         required
                       >
@@ -752,8 +772,13 @@ const Testing = () => {
                       <select
                         className="form-select"
                         required
-                        value={formData.selectedCity}
-                        onChange={(e) => setSelectedCity(e.target.value)}
+                        name="city"
+                        value={formData.city}
+                        onChange={(e) => {
+                          const value = e.target.value;
+                          setSelectedCity(value);
+                          handleChange(e); // update formData
+                        }}
                       >
                         <option value="">Select City</option>
                         {cities
