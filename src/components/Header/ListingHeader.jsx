@@ -67,7 +67,7 @@ export default function ListHeader() {
 
           <div className="d-flex signin-btns">
             <a
-              href="https://dev.franchiselistings.com/admin/login?tab=signin"
+              href="https://dev.franchiselistings.com/user/login?tab=signin"
               style={{ textDecoration: "none" }}
             >
               <button className="btn d-flex align-items-center gap-2 sign_in listing-sign">
@@ -78,7 +78,7 @@ export default function ListHeader() {
             </a>
 
             <a
-              href="https://dev.franchiselistings.com/admin/login?tab=signup"
+              href="https://dev.franchiselistings.com/user/login?tab=signup"
               style={{ textDecoration: "none" }}
             >
               <button className="btn d-flex align-items-center gap-2 create_account">
@@ -111,7 +111,7 @@ export default function ListHeader() {
 
               <div className="col">
                 <h6>Join Our Network</h6>
-                <a href="https://dev.franchiselistings.com/admin/login?tab=signup">
+                <a href="https://dev.franchiselistings.com/user/login?tab=signup">
                   Franchisors
                 </a>
 
@@ -139,7 +139,7 @@ export default function ListHeader() {
                 <h6>Learn More</h6>
                 {/* <a href="#">Franchise Events</a>
                 <a href="#">Franchise News</a> */}
-                <a href="https://dev.franchiselistings.com/admin/login?tab=signup">
+                <a href="https://dev.franchiselistings.com/user/login?tab=signup">
                   Get Listed
                 </a>
               </div>

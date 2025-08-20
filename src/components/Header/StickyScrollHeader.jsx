@@ -4,6 +4,7 @@ import { FaSearch, FaSlidersH } from "react-icons/fa";
 import "./StickyScrollHeader.css";
 import FilterPopup from "../Hero/FilterPopup";
 import Union from "../../assets/images/Union.svg";
+import { BsSliders } from "react-icons/bs";
 
 // Optional: Import your FilterPopup component if available
 // import FilterPopup from "./FilterPopup";
@@ -42,7 +43,13 @@ export default function StickyScrollHeader() {
               onClick={() => setShowFilter(!showFilter)}
             >
               {/* <FaSlidersH /> */}
-              <img src={Union} alt="Union" />
+              {/* <img src={Union} alt="Union" /> */}
+              <BsSliders
+                style={{
+                  transform: showFilter ? "rotate(90deg)" : "rotate(0deg)",
+                  transition: "transform 0.3s ease",
+                }}
+              />
             </button>
             <div className="search-container">
               <input

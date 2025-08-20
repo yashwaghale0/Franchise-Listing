@@ -9,7 +9,6 @@ import axios from "axios";
 import { BACKEND_URL } from "../../../env.js";
 import { InputMask } from "@react-input/mask";
 import PopupImage from "../../assets/images/popup-image.svg";
-import { formatUSNumber } from "../utils/formatNumber.js";
 
 const Testing = () => {
   const sliderRef = useRef(null);
@@ -62,6 +61,26 @@ const Testing = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const formatNumber = (value) => {
+    if (!value) return "";
+    const num = value.toString().replace(/,/g, "");
+    if (isNaN(num)) return value;
+    return Number(num).toLocaleString("en-US");
+  };
+
+  // handleChange for formatting
+  const handleFormattedChange = (e) => {
+    const { name, value } = e.target;
+    // remove commas so you store raw number
+    const rawValue = value.replace(/,/g, "");
+    if (!isNaN(rawValue)) {
+      setFormData({
+        ...formData,
+        [name]: rawValue, // store clean value in state
+      });
+    }
+  };
+
   // Fetch countries
   useEffect(() => {
     axios
@@ -112,6 +131,19 @@ const Testing = () => {
       console.error(err);
       alert("Error sending enquiry.");
     }
+    <div className="mb-3">
+      <label className="label-heading">Cash on Hand</label>
+      <input
+        type="number"
+        name="cashOnHand"
+        className="form-control"
+        placeholder="Enter Cash on Hand"
+        value={formData.cashOnHand}
+        onChange={handleChange}
+        min="0"
+        required
+      />
+    </div>;
   };
 
   useEffect(() => {
@@ -644,7 +676,7 @@ const Testing = () => {
                     </select>
                   </div>
 
-                  <div className="mb-3">
+                  {/* <div className="mb-3">
                     <label className="label-heading">Cash on Hand</label>
                     <input
                       type="number"
@@ -656,17 +688,48 @@ const Testing = () => {
                       min="0"
                       required
                     />
+                  </div> */}
+
+                  <div className="mb-3">
+                    <label className="label-heading">Cash on Hand</label>
+                    <input
+                      type="text"
+                      name="cashOnHand"
+                      className="form-control"
+                      placeholder="Enter Cash on Hand"
+                      value={
+                        formData.cashOnHand
+                          ? Number(formData.cashOnHand).toLocaleString("en-US")
+                          : ""
+                      }
+                      onChange={(e) => {
+                        // Remove commas before saving
+                        const rawValue = e.target.value.replace(/,/g, "");
+                        if (!isNaN(rawValue) && rawValue !== "") {
+                          setFormData({
+                            ...formData,
+                            cashOnHand: rawValue,
+                          });
+                        } else {
+                          setFormData({
+                            ...formData,
+                            cashOnHand: "",
+                          });
+                        }
+                      }}
+                      required
+                    />
                   </div>
 
                   <div className="mb-3">
                     <label className="label-heading">Total Assets</label>
                     <input
-                      type="number"
+                      type="text"
                       name="totalAssets"
                       className="form-control"
                       placeholder="Enter Total Assets"
-                      value={formData.totalAssets}
-                      onChange={handleChange}
+                      value={formatNumber(formData.totalAssets)}
+                      onChange={handleFormattedChange}
                       min="0"
                     />
                   </div>
@@ -674,12 +737,12 @@ const Testing = () => {
                   <div className="mb-3">
                     <label className="label-heading">Monthly Debt</label>
                     <input
-                      type="number"
+                      type="text"
                       name="monthlyDebt"
                       className="form-control"
                       placeholder="Enter Monthly Debt"
-                      value={formData.monthlyDebt}
-                      onChange={handleChange}
+                      value={formatNumber(formData.monthlyDebt)}
+                      onChange={handleFormattedChange}
                       min="0"
                     />
                   </div>
