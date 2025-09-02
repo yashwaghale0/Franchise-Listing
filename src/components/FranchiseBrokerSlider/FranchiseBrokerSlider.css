@@ -1,12 +1,10 @@
 .franchiseBroker-slider {
   padding: 30px 40px;
-  background: linear-gradient(to right,
-    #FFFFFF 0%,
-    #FFFFFF 40%,
-    rgba(255, 255, 255, 0) 50%,
-    rgba(238, 255, 246, 0) 50%,
-    #E3F7FF 60%,
-    #E3F7FF 100%);
+  background: linear-gradient(
+    to left,
+    #efffff 32%,
+    #ffffff 100%
+  );
   font-family: 'Inter', sans-serif;
 }
 
@@ -482,6 +480,36 @@
     flex: 0 0 90%;
   }
 }
+
+
+/* Add this new CSS block */
+.prev_button.disabled,
+.next-button.disabled {
+  color: #ADADB6;
+ 
+  opacity: 1;
+}
+
+/* Make sure your existing button styles are set up correctly */
+.prev_button,
+.next-button {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #535364;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  
+}
+
+
 
 
 

@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./FranchiseBrokerSlider.css";
 import { CiLocationOn } from "react-icons/ci";
 import { FaFacebookF, FaStar } from "react-icons/fa";
 import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
+import Tooltip from "@mui/material/Tooltip";
 
 const FranchiseBrokerSlider = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const scrollContainerRef = useRef(null);
+  const [isAtStart, setIsAtStart] = useState(true);
+  const [isAtEnd, setIsAtEnd] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -14,6 +18,30 @@ const FranchiseBrokerSlider = () => {
     checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const atStart = container.scrollLeft === 0;
+      const atEnd =
+        container.scrollLeft + container.clientWidth >=
+        container.scrollWidth - 1;
+
+      setIsAtStart(atStart);
+      setIsAtEnd(atEnd);
+    };
+
+    // Initial check on mount
+    handleScroll();
+
+    container.addEventListener("scroll", handleScroll);
+
+    return () => {
+      container.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const franchiseData = [
@@ -65,7 +93,7 @@ const FranchiseBrokerSlider = () => {
   ];
 
   const nextSlide = () => {
-    const container = document.querySelector(".scroll-container");
+    const container = scrollContainerRef.current;
     if (container) {
       const card = container.querySelector(".scroll-item");
       const cardWidth = card?.offsetWidth || 300;
@@ -74,7 +102,7 @@ const FranchiseBrokerSlider = () => {
   };
 
   const prevSlide = () => {
-    const container = document.querySelector(".scroll-container");
+    const container = scrollContainerRef.current;
     if (container) {
       const card = container.querySelector(".scroll-item");
       const cardWidth = card?.offsetWidth || 300;
@@ -87,32 +115,42 @@ const FranchiseBrokerSlider = () => {
       <div className="container">
         <div className="row mb-4">
           <div className="col-12">
-            <h2 className="buy-heading">
+            <h2 className="buy-heading d-flex align-items-center gap-10">
               Not Sure What Franchise is Best for You?
+              <Tooltip title="Populated Result Based on Location Enabled" arrow>
+                <span>
+                  <CiLocationOn size={18} />
+                </span>
+              </Tooltip>
             </h2>
             <p className="subtext">
               Connect with an expert franchise broker to help you navigate
               options, streamline the process, and find the right fit. It’s 100%
               free.
             </p>
-            <p className="location_enabled">
-              <CiLocationOn size={18} /> Populated Result Based on Location
-              Enabled
-            </p>
           </div>
         </div>
 
         <div className="position-relative">
-          <button className="prev_button" onClick={prevSlide}>
+          <button
+            className={`prev_button ${isAtStart ? "disabled" : ""}`}
+            onClick={prevSlide}
+            disabled={isAtStart}
+          >
             <IoChevronBackOutline />
           </button>
-          <button className="next-button" onClick={nextSlide}>
+          <button
+            className={`next-button ${isAtEnd ? "disabled" : ""}`}
+            onClick={nextSlide}
+            disabled={isAtEnd}
+          >
             <IoChevronForwardOutline />
           </button>
 
           <div
             className="scroll-container d-flex gap-3 overflow-auto franchisebroker-slider"
             style={{ scrollSnapType: "x mandatory" }}
+            ref={scrollContainerRef}
           >
             {franchiseData.map((franchise) => (
               <div

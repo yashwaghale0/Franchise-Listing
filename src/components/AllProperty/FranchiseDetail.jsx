@@ -305,8 +305,7 @@ const FranchiseDetail = () => {
                 About {franchise.brandName} Franchise
               </h4>
               <p className="franchise-deatils-description w-75">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit
-                amet felis non nisl sodales cursus...
+                {franchise.aboutUs}
               </p>
 
               {/* Company Overview */}
@@ -317,14 +316,32 @@ const FranchiseDetail = () => {
                     <AiOutlineFlag size={20} />
                     <p className="franchise-about-label">Founded</p>
                   </span>
-                  <span className="franchise-about-stats">2005</span>
+                  <span className="franchise-about-stats">
+                    {new Date(franchise.foundedDate).toLocaleDateString(
+                      "en-US",
+                      {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      }
+                    )}
+                  </span>
                 </div>
                 <div className="d-flex justify-content-between mb-4 py-3 border-bottom">
                   <span className="d-flex gap-10 align-items-center">
                     <CiShop size={20} />
                     <p className="franchise-about-label">Franchising Since</p>
                   </span>
-                  <span className="franchise-about-stats">2010</span>
+                  <span className="franchise-about-stats">
+                    {new Date(franchise.franchisingSince).toLocaleDateString(
+                      "en-US",
+                      {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      }
+                    )}
+                  </span>
                 </div>
               </div>
 
@@ -350,7 +367,10 @@ const FranchiseDetail = () => {
                     <CiShop size={20} />
                     <strong>Franchise Locations</strong>
                   </span>
-                  <span className="franchise-about-stats">120</span>
+                  <span className="franchise-about-stats">
+                    {" "}
+                    {franchise.franchiseLocations}
+                  </span>
                 </div>
               </div>
 
@@ -389,7 +409,7 @@ const FranchiseDetail = () => {
                 </span>
 
                 <span className="franchise-about-stats">
-                  $100,000 - $200,000
+                  {franchise.investmentLow} {" - "} {franchise.investmentHigh}
                 </span>
               </div>
               <div className="d-flex justify-content-between mb-2 py-3 border-bottom">
@@ -398,7 +418,9 @@ const FranchiseDetail = () => {
                   <p className="franchise-about-label">Initial Franchise Fee</p>
                 </span>
 
-                <span className="franchise-about-stats">$35,000</span>
+                <span className="franchise-about-stats">
+                  {franchise.liquidCapital}
+                </span>
               </div>
               <div className="d-flex justify-content-between mb-4 py-3 border-bottom">
                 <span className="d-flex gap-10 align-items-center">
@@ -406,7 +428,9 @@ const FranchiseDetail = () => {
                   <p className="franchise-about-label">Financing Available</p>
                 </span>
 
-                <span className="franchise-about-stats">Yes, Third Party</span>
+                <span className="franchise-about-stats">
+                  {franchise.thirdPartyFinancing} Third Party
+                </span>
               </div>
 
               <h5 className="mt-4 franchise-about-head">Ongoing Fees</h5>

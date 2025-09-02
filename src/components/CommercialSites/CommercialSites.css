@@ -1,6 +1,6 @@
 .franchisecomm-slider {
   padding: 60px 40px;
-  background: linear-gradient(
+  /* background: linear-gradient(
     to left,
     #eefff6 2%,
     #eefff6 16%,
@@ -11,6 +11,11 @@
     #ffffff 81%,
     #ffffff 91%,
     #ffffff 100%
+  ); */
+  background: linear-gradient(
+    180deg,
+    #FFFFF3 0%,
+    #FFFFFF 100%
   );
 }
 
@@ -270,6 +275,16 @@
 
 /* ===================== popup css ======================= */
 
+.cashon-Hand::before {
+  content: "$";
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #555;
+  font-weight: bold;
+}
+
 /* Overlay */
 .modal-overlay {
   position: fixed;
@@ -316,6 +331,7 @@
 .modal-header h2 {
   font-size: 20px;
   font-weight: bold;
+  color: #000;
 }
 .close-btn-popup{
   font-size: 24px;
@@ -324,7 +340,17 @@
   cursor: pointer;
 }
 
+.franability-budegt-head {
+  font-size: 20px;
+  color: #2A2A33;
+  font-family: 'poppins';
+}
 
+.franability-budegt-para {
+  font-size: 14px;
+  color: #212529;
+  font-family: 'Inter';
+}
 
 .commercial-popup-form {
     border: 1px solid #CDCDD3;

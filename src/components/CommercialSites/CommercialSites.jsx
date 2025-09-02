@@ -9,6 +9,7 @@ import axios from "axios";
 import { BACKEND_URL } from "../../../env.js";
 import { InputMask } from "@react-input/mask";
 import PopupImage from "../../assets/images/popup-image.svg";
+import Tooltip from "@mui/material/Tooltip";
 
 const Testing = () => {
   const sliderRef = useRef(null);
@@ -63,16 +64,16 @@ const Testing = () => {
 
   const formatNumber = (value) => {
     if (!value) return "";
-    const num = value.toString().replace(/,/g, "");
+    const num = value.toString().replace(/[$,]/g, "");
     if (isNaN(num)) return value;
-    return Number(num).toLocaleString("en-US");
+    return "$" + Number(num).toLocaleString("en-US");
   };
 
   // handleChange for formatting
   const handleFormattedChange = (e) => {
     const { name, value } = e.target;
     // remove commas so you store raw number
-    const rawValue = value.replace(/,/g, "");
+    const rawValue = value.replace(/[$,]/g, "");
     if (!isNaN(rawValue)) {
       setFormData({
         ...formData,
@@ -309,9 +310,14 @@ const Testing = () => {
       <div className="container">
         {/* Header Section */}
         <div className="mb-0">
-          <h2 className="buy-heading">
+          <h2 className="buy-heading d-flex align-items-center gap-10">
             {" "}
             Find a Franchise you can afford with FranAbility℠
+            <Tooltip title="Populated Result Based on Location Enabled" arrow>
+              <span>
+                <CiLocationOn size={18} />
+              </span>
+            </Tooltip>
           </h2>
           <p className="subtext">
             Answer a few questions. We'll highlight franchises you're likely to
@@ -594,9 +600,7 @@ const Testing = () => {
                 >
                   <div className="modal-header justify-content-between">
                     <span></span>
-                    <h2>
-                      FranAbility<sup>SM</sup>
-                    </h2>
+                    <h2>FranAbility℠</h2>
                     <button
                       className="close-btn-popup"
                       onClick={() => setIsOpen(false)}
@@ -604,8 +608,15 @@ const Testing = () => {
                       ×
                     </button>
                   </div>
-                  <div className="my-4 d-flex justify-content-center">
-                    <img src={PopupImage} alt="PopupImage" />
+                  <div className="my-4 ">
+                    {/* <img src={PopupImage} alt="PopupImage" /> */}
+                    <h2 className="franability-budegt-head">
+                      Find a franchise within your budget.{" "}
+                    </h2>
+                    <p className="franability-budegt-para">
+                      See a real-time view of what franchises you can afford in
+                      today’s market.
+                    </p>
                   </div>
                   <div className=" mb-3 col-md-6">
                     <label className="label-heading">First Name:</label>
@@ -695,16 +706,17 @@ const Testing = () => {
                     <input
                       type="text"
                       name="cashOnHand"
-                      className="form-control"
+                      className="form-control cashon-Hand"
                       placeholder="Enter Cash on Hand"
                       value={
                         formData.cashOnHand
-                          ? Number(formData.cashOnHand).toLocaleString("en-US")
+                          ? "$" +
+                            Number(formData.cashOnHand).toLocaleString("en-US")
                           : ""
                       }
                       onChange={(e) => {
                         // Remove commas before saving
-                        const rawValue = e.target.value.replace(/,/g, "");
+                        const rawValue = e.target.value.replace(/[$,]/g, "");
                         if (!isNaN(rawValue) && rawValue !== "") {
                           setFormData({
                             ...formData,
@@ -726,7 +738,7 @@ const Testing = () => {
                     <input
                       type="text"
                       name="totalAssets"
-                      className="form-control"
+                      className="form-control cashon-Hand"
                       placeholder="Enter Total Assets"
                       value={formatNumber(formData.totalAssets)}
                       onChange={handleFormattedChange}
@@ -739,7 +751,7 @@ const Testing = () => {
                     <input
                       type="text"
                       name="monthlyDebt"
-                      className="form-control"
+                      className="form-control cashon-Hand"
                       placeholder="Enter Monthly Debt"
                       value={formatNumber(formData.monthlyDebt)}
                       onChange={handleFormattedChange}

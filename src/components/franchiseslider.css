@@ -7,6 +7,11 @@
   rgba(255, 255, 255, 0) 50%,
   #FFFFFF 60%,
   #FFFFFF 100%); */
+  background: linear-gradient(
+    90deg,
+    rgba(239, 255, 255, 1) 0%, /* A light, greenish-blue color */
+    rgba(255, 255, 255, 1) 100% /* White */
+  );
   font-family: 'Inter', sans-serif;
 }
 
@@ -286,6 +291,27 @@ hr {
   font-size: 12px;
   font-weight: bold; 
 }
+
+/* Other existing styles for the slider */
+
+.arrow-buttons button {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #535364;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.arrow-buttons button.disabled {
+  color: #ADADB6;
  
-
-
+  opacity: 1;
+}

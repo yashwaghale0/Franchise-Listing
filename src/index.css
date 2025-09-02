@@ -44,25 +44,27 @@ p {
 .prev_button {
     top: -70px;
     z-index: 10; 
-    border: 1px solid rgb(138, 138, 138);
+    border: 1px solid #ADADB0;
     padding: 8px;
     border-radius: 50%;
     position: absolute;
     width: 36px;
     height: 36px;
     right: 50px;
+    color: #ADADB0;
 }
 
 .next-button {
     top: -70px;
     z-index: 10; 
-    border: 1px solid rgb(132, 132, 132);
+    border: 1px solid #535364;
     padding: 9px;
     border-radius: 50%;
     position: absolute;
     width: 36px;
     height: 36px;
     right: 0px;
+    color: #535364;
 }
 
 

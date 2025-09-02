@@ -17,12 +17,14 @@ import { BACKEND_URL } from "../../env";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa6";
 import Tooltip from "@mui/material/Tooltip";
-import { CiStar } from "react-icons/ci";
+import { CiHeart } from "react-icons/ci";
 
 const FranchiseSlider = () => {
   const sliderRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
   const [franchiseData, setFranchiseData] = useState([]);
+  const [isAtStart, setIsAtStart] = useState(true);
+  const [isAtEnd, setIsAtEnd] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -48,12 +50,7 @@ const FranchiseSlider = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // const res = await axios.get(
-        //   "https://dev.franchiselistings.com/franchise_backend/api/opportunities"
-        // );
-
         const res = await axios.get(`${BACKEND_URL}/api/opportunities`);
-        console.log(res.data);
 
         const formatted = res.data.slice(0, 7).map((item, index) => ({
           id: item._id || index,
@@ -76,7 +73,6 @@ const FranchiseSlider = () => {
           code: item._id?.slice(-6) || "000000",
         }));
 
-        // Append the static Explore card
         const exploreCard = {
           id: "explore",
           logo: Discover,
@@ -94,16 +90,42 @@ const FranchiseSlider = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    const handleScroll = () => {
+      // Check if at the beginning
+      const atStart = slider.scrollLeft === 0;
+      // Check if at the end (with a small tolerance)
+      const atEnd =
+        slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 1;
+
+      setIsAtStart(atStart);
+      setIsAtEnd(atEnd);
+    };
+
+    // Initial check when component mounts
+    handleScroll();
+
+    slider.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener
+    return () => {
+      slider.removeEventListener("scroll", handleScroll);
+    };
+  }, [franchiseData]); // Re-run effect if data changes
+
   const rightScrollByAmount = () => {
-    if (!sliderRef.current) return;
+    if (!sliderRef.current) return 0;
     const card = sliderRef.current.querySelector(".franchise-card");
-    return card.offsetWidth + 20; // +gap
+    return card ? card.offsetWidth + 20 : 0; // +gap
   };
 
   const leftScrollByAmount = () => {
-    if (!sliderRef.current) return;
+    if (!sliderRef.current) return 0;
     const card = sliderRef.current.querySelector(".franchise-card");
-    return card.offsetWidth + 100; // +gap
+    return card ? card.offsetWidth + 20 : 0; // +gap
   };
 
   const nextSlide = () => {
@@ -137,18 +159,22 @@ const FranchiseSlider = () => {
             Explore top franchise brands and discover new franchise
             opportunities in every industry.
           </p>
-          {/* <p className="location_enabled">
-            <CiLocationOn size={18} />
-            Populated Result Based on Location Enabled
-          </p> */}
         </div>
 
         {/* Arrows */}
         <div className="arrow-buttons">
-          <button className="prev_button" onClick={prevSlide}>
+          <button
+            className={`prev_button ${isAtStart ? "disabled" : ""}`}
+            onClick={prevSlide}
+            disabled={isAtStart}
+          >
             <IoChevronBackOutline />
           </button>
-          <button className="next-button" onClick={nextSlide}>
+          <button
+            className={`next-button ${isAtEnd ? "disabled" : ""}`}
+            onClick={nextSlide}
+            disabled={isAtEnd}
+          >
             <IoChevronForwardOutline />
           </button>
         </div>
@@ -181,7 +207,7 @@ const FranchiseSlider = () => {
               );
             }
 
-            // 👉 Regular franchise card
+            // Regular franchise card
             return (
               <div key={franchise.id} className="franchise-card">
                 <Link
@@ -197,7 +223,7 @@ const FranchiseSlider = () => {
                           className="img-fluid image-card"
                         />
                         <p className="card-label-badge">
-                          <CiStar size={24} />
+                          <CiHeart size={24} />
                         </p>
                       </div>
                       <hr />
@@ -217,7 +243,6 @@ const FranchiseSlider = () => {
                             <tr>
                               <td>
                                 <span className="stats-content gap-10">
-                                  {/* <FaMoneyBillWave className="me-2" /> */}
                                   <span className="card-icon-head">
                                     Inv Low
                                   </span>
@@ -226,7 +251,6 @@ const FranchiseSlider = () => {
                               </td>
                               <td>
                                 <span className="stats-content gap-10">
-                                  {/* <FaCalendarAlt className="me-2" /> */}
                                   <span className="card-icon-head">
                                     Inv High
                                   </span>{" "}
@@ -237,7 +261,6 @@ const FranchiseSlider = () => {
                             <tr>
                               <td>
                                 <span className="stats-content gap-10">
-                                  {/* <TbCirclePercentage className="me-2" /> */}
                                   <span className="card-icon-head">
                                     Franchise Fee
                                   </span>
@@ -246,7 +269,6 @@ const FranchiseSlider = () => {
                               </td>
                               <td>
                                 <span className="stats-content gap-10">
-                                  {/* <MdOutlineLocationOn className="me-2" /> */}
                                   <span className="card-icon-head">
                                     Royalty
                                   </span>

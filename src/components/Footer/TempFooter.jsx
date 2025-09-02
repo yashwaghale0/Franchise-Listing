@@ -50,7 +50,12 @@ const Footer = () => {
     },
     {
       title: "Resources",
-      links: ["Get Listed", "Franchise Buyers Guide"],
+      links: [
+        "Get Listed",
+        "Franchise Buyers Guide",
+        "Glossary",
+        "Franchise Visa  ",
+      ],
     },
   ];
 

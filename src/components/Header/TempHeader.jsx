@@ -125,6 +125,9 @@ export default function TempHeader() {
                 <a href="https://dev.franchiselistings.com/user/login?tab=signup">
                   Get Listed
                 </a>
+                <a href="#">Franchise Buyers Guide</a>
+                <a href="#">Glossary</a>
+                <a href="#">Franchise Visa</a>
               </div>
             </div>
           </div>
