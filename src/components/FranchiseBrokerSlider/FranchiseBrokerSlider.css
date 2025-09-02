@@ -203,7 +203,7 @@
   padding: 16px;
   margin: 0px; /* This creates space between cards */
   border-radius: 12px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 4px 15px;
   background: white;
   transition: transform 0.3s ease;
   height: 220px;
